@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { JarvisMark } from "@/components/brand/jarvis-mark";
 import { Container } from "@/components/ui/container";
 import { StatusDot } from "@/components/ui/status-dot";
 import { footerColumns, legalNav } from "@/content/nav";
@@ -11,8 +12,13 @@ export function Footer() {
       <Container width="wide" className="py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_repeat(4,minmax(0,1fr))]">
           <div className="flex flex-col gap-4">
-            <span className="font-display text-[17px] font-medium tracking-[-0.02em] text-paper">
-              Jarvis
+            {/* Same lockup as the header, at rest — the footer is not a place
+                for a breathing mark. */}
+            <span className="flex items-center gap-2.5">
+              <JarvisMark animated={false} className="size-5 shrink-0" />
+              <span className="font-display text-[17px] font-medium tracking-[-0.02em] text-paper">
+                Jarvis
+              </span>
             </span>
             <p className="max-w-[28ch] text-sm leading-relaxed text-muted">
               The {site.positioning} for owner-led sales businesses.

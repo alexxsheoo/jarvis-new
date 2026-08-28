@@ -1,12 +1,19 @@
 import Link from "next/link";
 
+import { JarvisMark } from "@/components/brand/jarvis-mark";
 import { cn } from "@/lib/cn";
 
+type LogoProps = {
+  className?: string;
+  /** Off inside dense chrome where a breathing mark would be noise. */
+  animated?: boolean;
+};
+
 /**
- * Wordmark with a cobalt system glyph. Four bars = the four pillars, the
- * rightmost lit — the product mark, not decoration.
+ * Lockup: neon mark + wordmark. The mark carries the only ambient motion in
+ * the header — everything else there stays still.
  */
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, animated = true }: LogoProps) {
   return (
     <Link
       href="/"
@@ -16,24 +23,8 @@ export function Logo({ className }: { className?: string }) {
         className,
       )}
     >
-      <svg
-        viewBox="0 0 20 20"
-        aria-hidden
-        className="size-5 shrink-0 overflow-visible"
-      >
-        <rect x="0" y="6" width="3" height="8" rx="1.5" fill="currentColor" opacity="0.35" />
-        <rect x="5" y="3" width="3" height="14" rx="1.5" fill="currentColor" opacity="0.55" />
-        <rect x="10" y="5" width="3" height="10" rx="1.5" fill="currentColor" opacity="0.75" />
-        <rect
-          x="15"
-          y="1"
-          width="3"
-          height="18"
-          rx="1.5"
-          className="fill-cobalt-500 transition-colors duration-200 ease-standard group-hover:fill-cobalt-400"
-        />
-      </svg>
-      <span className="font-display text-[17px] font-medium tracking-[-0.02em] text-paper">
+      <JarvisMark animated={animated} className="size-5 shrink-0" />
+      <span className="font-display text-[17px] font-medium tracking-[-0.02em] text-paper transition-[text-shadow] duration-300 ease-standard group-hover:[text-shadow:0_0_16px_rgba(70,217,245,0.45)]">
         Jarvis
       </span>
     </Link>

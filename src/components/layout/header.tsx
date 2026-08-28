@@ -27,10 +27,20 @@ export function Header() {
       className={cn(
         "sticky top-0 z-40 transition-[height,background-color,border-color] duration-200 ease-standard",
         condensed
-          ? "h-15 border-b border-line bg-ink-950/80 backdrop-blur-md"
+          ? "h-15 border-b border-line bg-ink-950/85 backdrop-blur-md"
           : "h-18 border-b border-transparent bg-transparent",
       )}
     >
+      {/* Once docked, the underline carries signal — the bar reads as part of
+          the running system rather than as a floating navigation strip. */}
+      <span
+        aria-hidden
+        className={cn(
+          "neon-hairline pointer-events-none absolute inset-x-0 -bottom-px h-px transition-opacity duration-300 ease-standard",
+          condensed ? "opacity-100" : "opacity-0",
+        )}
+      />
+
       <Container width="wide" className="flex h-full items-center gap-8">
         <Logo />
 

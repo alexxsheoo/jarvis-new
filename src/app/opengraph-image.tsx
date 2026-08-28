@@ -13,10 +13,10 @@ export const contentType = "image/png";
  */
 export default function OpengraphImage() {
   const bars = [
-    { height: 44, color: "rgba(242,240,236,0.35)" },
-    { height: 72, color: "rgba(242,240,236,0.55)" },
-    { height: 58, color: "rgba(242,240,236,0.75)" },
-    { height: 92, color: "#2B5BFF" },
+    { height: 40, color: "rgba(27,68,224,0.55)" },
+    { height: 60, color: "rgba(43,91,255,0.75)" },
+    { height: 80, color: "#5B84FF" },
+    { height: 100, color: "#46D9F5" },
   ];
 
   return new ImageResponse(
@@ -28,22 +28,43 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#05070C",
+          backgroundColor: "#03050B",
           padding: 80,
         }}
       >
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 10 }}>
-          {bars.map((bar, index) => (
+        {/* The mark: four ascending pillars on a HUD baseline, lead bar lit. */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 10 }}>
+            {bars.map((bar, index) => (
+              <div
+                key={index}
+                style={{
+                  width: 16,
+                  height: bar.height,
+                  borderRadius: 8,
+                  backgroundColor: bar.color,
+                }}
+              />
+            ))}
+          </div>
+          <div style={{ display: "flex", gap: 4 }}>
             <div
-              key={index}
               style={{
-                width: 16,
-                height: bar.height,
-                borderRadius: 8,
-                backgroundColor: bar.color,
+                width: 74,
+                height: 4,
+                borderRadius: 2,
+                backgroundColor: "rgba(242,240,236,0.14)",
               }}
             />
-          ))}
+            <div
+              style={{
+                width: 16,
+                height: 4,
+                borderRadius: 2,
+                backgroundColor: "#17B8DA",
+              }}
+            />
+          </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
@@ -53,7 +74,7 @@ export default function OpengraphImage() {
               fontSize: 26,
               letterSpacing: 4,
               textTransform: "uppercase",
-              color: "#5B84FF",
+              color: "#46D9F5",
             }}
           >
             {site.positioning}

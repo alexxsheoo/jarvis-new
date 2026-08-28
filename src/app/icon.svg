@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Jarvis">
+  <rect width="32" height="32" rx="7" fill="#03050B" />
+  <g transform="translate(2 2)">
+    <rect x="3.5" y="24.4" width="21" height="1" rx="0.5" fill="#F2F0EC" opacity="0.14" />
+    <rect x="19.4" y="24.4" width="4.2" height="1" rx="0.5" fill="#17B8DA" />
+    <rect x="5" y="15" width="3" height="8" rx="1.5" fill="#1B44E0" opacity="0.55" />
+    <rect x="10" y="11" width="3" height="12" rx="1.5" fill="#2B5BFF" opacity="0.75" />
+    <rect x="15" y="7" width="3" height="16" rx="1.5" fill="#5B84FF" />
+    <rect x="20" y="3" width="3" height="20" rx="1.5" fill="#46D9F5" />
+    <rect x="20" y="3" width="3" height="4" rx="1.5" fill="#8EF1FF" />
+  </g>
+</svg>

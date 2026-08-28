@@ -3,16 +3,21 @@
 /* ============================================================
    Jarvis — AI Revenue Operating System
    Design tokens. Single source of truth (Tailwind v4, no JS config).
-   Dark-only surface system. Cobalt is a reserved system color.
+   Dark-only surface system.
+
+   Two accents, two jobs:
+     cobalt — commerce. CTA, focus, primary action, chart marks.
+     neon   — system. Live state, agent activity, data in transit.
+   Neon is never used for a button. Cobalt is never used for a status.
    ============================================================ */
 
 @theme {
-  /* --- Surfaces: near-black deep navy foundation --- */
-  --color-ink-950: #05070c; /* page */
-  --color-ink-900: #0a0f1a; /* alternating section */
-  --color-ink-850: #101726; /* card */
-  --color-ink-800: #182033; /* elevated / hover */
-  --color-ink-700: #232d45; /* strong fill */
+  /* --- Surfaces: deep navy-black foundation --- */
+  --color-ink-950: #03050b; /* page */
+  --color-ink-900: #070b14; /* alternating section */
+  --color-ink-850: #0c121f; /* card */
+  --color-ink-800: #131b2b; /* elevated / hover */
+  --color-ink-700: #1e2740; /* strong fill */
 
   /* --- Hairlines --- */
   --color-line: rgba(242, 240, 236, 0.08);
@@ -23,11 +28,21 @@
   --color-muted: #9ba3b4;
   --color-faint: #626c80;
 
-  /* --- Brand: reserved for CTA, active state, focus, data flow --- */
+  /* --- Brand: reserved for CTA, active state, focus --- */
   --color-cobalt-400: #5b84ff;
   --color-cobalt-500: #2b5bff;
   --color-cobalt-600: #1b44e0;
   --color-cobalt-glow: rgba(43, 91, 255, 0.12);
+
+  /* --- Signal: reserved for live system state and data in transit --- */
+  --color-neon-300: #8ef1ff;
+  --color-neon-400: #46d9f5;
+  --color-neon-500: #17b8da;
+  --color-neon-glow: rgba(70, 217, 245, 0.1);
+
+  /* --- HUD hairlines: signal-tinted structure --- */
+  --color-hud: rgba(70, 217, 245, 0.18);
+  --color-hud-strong: rgba(70, 217, 245, 0.42);
 
   /* --- Status: deliberately desaturated --- */
   --color-ok: #3fa37a;
@@ -41,11 +56,13 @@
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
 
-  /* --- Elevation: low only --- */
+  /* --- Elevation: low only. Neon shadows are rims, not blooms. --- */
   --shadow-panel: 0 1px 0 0 rgba(242, 240, 236, 0.06),
     0 8px 24px -8px rgba(0, 0, 0, 0.5);
   --shadow-raised: 0 1px 0 0 rgba(242, 240, 236, 0.08),
     0 16px 48px -12px rgba(0, 0, 0, 0.65);
+  --shadow-neon: 0 0 0 1px rgba(70, 217, 245, 0.16),
+    0 0 28px -10px rgba(70, 217, 245, 0.4);
 
   /* --- Motion --- */
   --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -138,12 +155,12 @@
     border: 3px solid var(--color-ink-950);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #2f3b57;
+    background: #29334f;
   }
 }
 
 /* ============================================================
-   Utilities
+   Utilities — structure
    ============================================================ */
 
 @utility hairline-b {
@@ -165,12 +182,59 @@
   background-size: 64px 64px;
 }
 
+/* A hairline that carries signal: bright at centre, dissolved at both ends.
+   Used under the header and between hero blocks. Static by itself. */
+@utility neon-hairline {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-hud) 22%,
+    var(--color-hud-strong) 50%,
+    var(--color-hud) 78%,
+    transparent 100%
+  );
+}
+
+/* Two opposing corner brackets — the cheapest honest HUD cue. Diagonal
+   rather than four corners so it frames without boxing the content in.
+   Offset clear of the target so the brackets read as a frame around a
+   rounded panel rather than as a broken border on it. */
+@utility hud-corners {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0.875rem;
+    height: 0.875rem;
+    pointer-events: none;
+  }
+
+  &::before {
+    top: -0.5rem;
+    left: -0.5rem;
+    border-top: 1px solid var(--color-hud-strong);
+    border-left: 1px solid var(--color-hud-strong);
+  }
+
+  &::after {
+    right: -0.5rem;
+    bottom: -0.5rem;
+    border-right: 1px solid var(--color-hud-strong);
+    border-bottom: 1px solid var(--color-hud-strong);
+  }
+}
+
 /* ============================================================
    Ambient system motion
    Operational, not decorative. Every keyframe RESOLVES to the
    resting state at 100%, so the reduced-motion rule below (which
    collapses duration and pins iteration to 1) leaves each element
    in a correct static state rather than mid-animation.
+
+   The two exceptions — travelling light and scanline — have no
+   meaningful resting position and are neutralised explicitly.
    ============================================================ */
 
 @keyframes jarvis-float {
@@ -219,10 +283,14 @@
 @keyframes jarvis-glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(43, 91, 255, 0);
+    box-shadow:
+      0 0 0 1px rgba(70, 217, 245, 0.1),
+      0 0 0 0 rgba(43, 91, 255, 0);
   }
   50% {
-    box-shadow: 0 0 24px -4px rgba(43, 91, 255, 0.45);
+    box-shadow:
+      0 0 0 1px rgba(70, 217, 245, 0.26),
+      0 0 26px -6px rgba(43, 91, 255, 0.5);
   }
 }
 
@@ -236,6 +304,51 @@
   50% {
     transform: scaleY(1);
     opacity: 1;
+  }
+}
+
+/* Logo bloom. Rests on a faint halo so the mark never goes flat when the
+   animation is collapsed — it breathes between lit and brighter. */
+@keyframes jarvis-bloom {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgba(70, 217, 245, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 7px rgba(70, 217, 245, 0.85));
+  }
+}
+
+/* An agent that currently holds work. Rests on a visible signal rim.
+   Inset only: this lands on cells inside a gapped grid, and an outer glow
+   would bleed over the neighbours rather than mark one module. */
+@keyframes jarvis-agent {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 1px rgba(70, 217, 245, 0.22);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(70, 217, 245, 0.55),
+      inset 0 0 14px -2px rgba(70, 217, 245, 0.3);
+  }
+}
+
+/* HUD sweep down a panel. Drives `background-position` rather than a transform
+   so the band traverses the full height of whatever it overlays without that
+   height being known. Purely a transit cue — no resting state. */
+@keyframes jarvis-scan {
+  0% {
+    background-position: 0 -140%;
+    opacity: 0;
+  }
+  14%,
+  86% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 0 240%;
+    opacity: 0;
   }
 }
 
@@ -265,9 +378,9 @@
   background-image: linear-gradient(
     90deg,
     transparent 0%,
-    var(--color-cobalt-500) 45%,
-    var(--color-cobalt-400) 50%,
-    var(--color-cobalt-500) 55%,
+    var(--color-cobalt-500) 40%,
+    var(--color-neon-400) 50%,
+    var(--color-cobalt-500) 60%,
     transparent 100%
   );
   background-size: 60% 100%;
@@ -284,6 +397,28 @@
   animation: jarvis-activity 1.6s var(--ease-standard) infinite;
 }
 
+@utility jarvis-bloom {
+  animation: jarvis-bloom 4.5s var(--ease-standard) infinite;
+}
+
+@utility jarvis-agent-active {
+  animation: jarvis-agent 3.4s var(--ease-standard) infinite;
+}
+
+/* Overlay a panel with this; give the element `absolute inset-0`. */
+@utility jarvis-scanline {
+  background-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-hud) 55%,
+    var(--color-hud-strong) 78%,
+    transparent 100%
+  );
+  background-size: 100% 28%;
+  background-repeat: no-repeat;
+  animation: jarvis-scan 7s var(--ease-standard) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -298,5 +433,10 @@
   .jarvis-flow-line {
     background-image: none;
     background-color: var(--color-line-strong);
+  }
+
+  /* Neither does the sweep. Remove it rather than park it mid-panel. */
+  .jarvis-scanline {
+    background-image: none;
   }
 }
