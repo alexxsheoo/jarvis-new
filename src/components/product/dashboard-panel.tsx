@@ -36,10 +36,10 @@ export function DashboardPanel() {
       <div className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line lg:grid-cols-4">
         {kpis.map((kpi) => (
           <div key={kpi.label} className="flex flex-col gap-2 bg-ink-850 p-4">
-            <span className="font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
+            <span className="type-label text-faint">
               {kpi.label}
             </span>
-            <span className="font-mono text-2xl tabular-nums text-paper">
+            <span className="type-metric text-2xl text-paper">
               {kpi.value}
             </span>
             <span
@@ -62,7 +62,7 @@ export function DashboardPanel() {
 
       <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
         <figure className="rounded-md border border-line bg-ink-850 p-4">
-          <figcaption className="font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
+          <figcaption className="type-label text-faint">
             Deals by stage — current quarter
           </figcaption>
 
@@ -84,7 +84,7 @@ export function DashboardPanel() {
                     className="h-2.5 rounded-r-xs bg-cobalt-500"
                     style={{ width: `${(stage.value / max) * 100}%` }}
                   />
-                  <span className="font-mono text-xs tabular-nums text-muted">
+                  <span className="type-metric text-xs text-muted">
                     {stage.value}
                   </span>
                 </div>
@@ -95,7 +95,7 @@ export function DashboardPanel() {
 
         <div className="rounded-md border border-line bg-ink-850 p-4">
           <span className="flex items-center justify-between gap-2">
-            <span className="font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
+            <span className="type-label text-faint">
               Agent activity
             </span>
             {/* Activity indicator: agents are working right now. */}

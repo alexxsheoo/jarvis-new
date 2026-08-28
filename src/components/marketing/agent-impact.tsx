@@ -63,7 +63,7 @@ export function AgentImpact() {
                     key={heading.label}
                     scope="col"
                     className={cn(
-                      "px-4 py-3.5 font-mono text-[11px] tracking-[0.08em] text-faint uppercase",
+                      "px-4 py-3.5 type-label-wide text-faint",
                       heading.align === "right" && "text-right",
                       heading.align === "center" && "text-center",
                       // The impact column is the one to read — tint the whole
@@ -94,10 +94,10 @@ export function AgentImpact() {
                   >
                     {row.measure}
                   </th>
-                  <td className="px-4 py-3.5 text-right font-mono text-sm tabular-nums text-muted">
+                  <td className="px-4 py-3.5 text-right type-metric text-sm text-muted">
                     {row.without}
                   </td>
-                  <td className="px-4 py-3.5 text-right font-mono text-sm tabular-nums text-neon-400">
+                  <td className="px-4 py-3.5 text-right type-metric text-sm text-neon-400">
                     {row.withAgent}
                   </td>
                   <td className="bg-cobalt-glow px-4 py-3.5 text-center">
@@ -122,7 +122,7 @@ export function AgentImpact() {
                       {row.impact}
                     </motion.span>
                   </td>
-                  <td className="px-4 py-3.5 text-right font-mono text-sm tabular-nums text-muted">
+                  <td className="px-4 py-3.5 text-right type-metric text-sm text-muted">
                     {row.range}
                     <span className="text-faint"> / mo</span>
                   </td>

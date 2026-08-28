@@ -31,10 +31,8 @@ export function ProductFrame({
       )}
     >
       <div className="hairline-b flex items-center justify-between gap-4 bg-ink-850 px-4 py-2.5">
-        <span className="truncate font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
-          {label}
-        </span>
-        <span className="flex shrink-0 items-center gap-1.5 font-mono text-[11px] tracking-[0.06em] text-muted uppercase">
+        <span className="truncate type-label text-faint">{label}</span>
+        <span className="flex shrink-0 items-center gap-1.5 type-label text-muted">
           {/* `text-ok` supplies currentColor for the expanding ring. */}
           <StatusDot tone="ok" className="jarvis-status text-ok" />
           {status}

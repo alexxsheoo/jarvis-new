@@ -74,7 +74,7 @@ export function VideoShowcase({
               className="size-6 text-faint"
               strokeWidth={1.5}
             />
-            <p className="font-mono text-[11px] tracking-[0.08em] text-faint uppercase">
+            <p className="type-label-wide text-faint">
               Video asset pending
             </p>
             <p className="max-w-[42ch] text-sm text-muted">{label}</p>

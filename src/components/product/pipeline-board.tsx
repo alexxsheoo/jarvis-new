@@ -50,10 +50,8 @@ export function PipelineBoard() {
       {columns.map((column, index) => (
         <div key={column.name} className="flex flex-col gap-2.5">
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
-              {column.name}
-            </span>
-            <span className="font-mono text-[11px] tabular-nums text-faint">
+            <span className="type-label text-faint">{column.name}</span>
+            <span className="type-metric text-[11px] text-faint">
               {column.leads.length + (position === index ? 1 : 0)}
             </span>
           </div>

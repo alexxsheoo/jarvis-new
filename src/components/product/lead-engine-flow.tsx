@@ -70,7 +70,7 @@ export function LeadEngineFlow() {
                 <div className="flex items-center justify-between gap-2">
                   <span
                     className={cn(
-                      "font-mono text-[11px] tracking-[0.06em] uppercase",
+                      "type-label",
                       isActive ? "text-cobalt-400" : "text-faint",
                     )}
                   >
@@ -89,7 +89,7 @@ export function LeadEngineFlow() {
                 <p className="text-xs leading-snug text-muted">{stage.detail}</p>
                 <p
                   className={cn(
-                    "mt-auto font-mono text-[11px] tabular-nums",
+                    "mt-auto type-metric text-[11px]",
                     isActive || isDone ? "text-cobalt-400" : "text-faint",
                   )}
                 >

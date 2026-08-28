@@ -124,7 +124,7 @@ export function Hero() {
                   {module.label}
                 </span>
               </span>
-              <span className="shrink-0 font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
+              <span className="shrink-0 type-label text-faint">
                 {module.state}
               </span>
             </li>

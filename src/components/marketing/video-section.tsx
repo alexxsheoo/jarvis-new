@@ -57,7 +57,7 @@ export function VideoSection() {
                   <span className="block truncate text-sm font-medium text-paper">
                     {step.label}
                   </span>
-                  <span className="font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
+                  <span className="type-label text-faint">
                     {step.human ? "Human" : `Step ${index + 1}`}
                   </span>
                 </span>

@@ -49,7 +49,7 @@ export function AgentStaff() {
                 <span className="block text-sm font-medium text-paper">
                   {agent.name}
                 </span>
-                <span className="mt-0.5 block font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
+                <span className="mt-0.5 block type-label text-faint">
                   {agent.role}
                 </span>
               </span>
@@ -65,9 +65,7 @@ export function AgentStaff() {
         className="flex flex-col gap-5 rounded-lg border border-line-strong bg-ink-900 p-5 shadow-panel lg:sticky lg:top-24 lg:self-start"
       >
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[11px] tracking-[0.06em] text-cobalt-400 uppercase">
-            {selected.role}
-          </span>
+          <span className="type-label text-cobalt-400">{selected.role}</span>
           <h3 className="font-display text-h3 text-paper">{selected.name}</h3>
           <p className="text-sm leading-relaxed text-muted">
             {selected.summary}
@@ -76,9 +74,7 @@ export function AgentStaff() {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="flex flex-col gap-2.5">
-            <span className="font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
-              Triggers
-            </span>
+            <span className="type-label text-faint">Triggers</span>
             <ul className="flex flex-col gap-1.5">
               {selected.triggers.map((trigger) => (
                 <li key={trigger} className="text-xs text-muted">
@@ -89,9 +85,7 @@ export function AgentStaff() {
           </div>
 
           <div className="flex flex-col gap-2.5">
-            <span className="font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
-              Actions
-            </span>
+            <span className="type-label text-faint">Actions</span>
             <ul className="flex flex-col gap-1.5">
               {selected.actions.map((action) => (
                 <li key={action} className="text-xs text-muted">
@@ -103,9 +97,7 @@ export function AgentStaff() {
         </div>
 
         <div className="hairline-t flex flex-col gap-2 pt-4">
-          <span className="font-mono text-[11px] tracking-[0.06em] text-warn uppercase">
-            Human approval
-          </span>
+          <span className="type-label text-warn">Human approval</span>
           <p className="text-xs leading-relaxed text-muted">
             {selected.approval}
           </p>

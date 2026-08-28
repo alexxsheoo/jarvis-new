@@ -79,7 +79,7 @@ export function WorkflowCanvas() {
                   </span>
                   <span
                     className={cn(
-                      "block font-mono text-[11px] tracking-[0.06em] uppercase",
+                      "block type-label",
                       isHuman ? "text-warn" : "text-faint",
                     )}
                   >

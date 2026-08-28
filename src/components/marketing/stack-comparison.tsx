@@ -56,7 +56,7 @@ export function StackComparison() {
                     <th
                       key={heading}
                       scope="col"
-                      className={`px-4 py-3.5 font-mono text-[11px] tracking-[0.08em] text-faint uppercase ${
+                      className={`px-4 py-3.5 type-label-wide text-faint ${
                         index >= 2 ? "text-right" : ""
                       } ${index === 3 ? "w-24" : ""}`}
                     >
@@ -84,7 +84,7 @@ export function StackComparison() {
                     {row.capability}
                   </th>
                   <td className="px-4 py-3 text-sm text-muted">{row.vendor}</td>
-                  <td className="px-4 py-3 text-right font-mono text-sm tabular-nums text-muted">
+                  <td className="px-4 py-3 text-right type-metric text-sm text-muted">
                     ${row.cost}
                   </td>
                   <td className="px-4 py-3">
@@ -131,7 +131,7 @@ export function StackComparison() {
               value={stackTotal}
               prefix="$"
               suffix="+ / month"
-              className="font-mono text-h2 tabular-nums text-muted"
+              className="type-metric text-h2 text-muted"
             />
             <span className="text-xs text-faint">
               Sum of the example costs above.
@@ -152,7 +152,7 @@ export function StackComparison() {
             <span className="font-mono text-eyebrow text-cobalt-400 uppercase">
               Jarvis Core
             </span>
-            <span className="font-mono text-h2 tabular-nums text-paper">
+            <span className="type-metric text-h2 text-paper">
               Starting from ${jarvisPrice}/month
             </span>
             <span className="text-xs text-muted">

@@ -34,14 +34,14 @@ export function AgentConversation() {
       {/* Thread header: a rule broken by the label, as in the CRM itself. */}
       <div className="flex items-center gap-3">
         <span aria-hidden className="h-px flex-1 bg-line" />
-        <span className="flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] text-muted uppercase">
+        <span className="flex items-center gap-2 type-label-wide text-muted">
           <SparklesIcon aria-hidden className="size-3.5 text-neon-400" strokeWidth={1.5} />
           Lead conversion
         </span>
         <span aria-hidden className="h-px flex-1 bg-line" />
       </div>
 
-      <p className="text-right font-mono text-[11px] tracking-[0.06em] text-faint uppercase">
+      <p className="text-right type-label text-faint">
         {leadName}
       </p>
 
@@ -59,7 +59,7 @@ export function AgentConversation() {
             )}
           >
             {message.from === "agent" ? (
-              <span className="flex items-center gap-1.5 font-mono text-[11px] tracking-[0.06em] text-cobalt-400 uppercase">
+              <span className="flex items-center gap-1.5 type-label text-cobalt-400">
                 <SparklesIcon aria-hidden className="size-3" strokeWidth={1.5} />
                 AI agent
               </span>

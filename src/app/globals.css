@@ -68,41 +68,55 @@
   --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-exit: cubic-bezier(0.4, 0, 1, 1);
 
-  /* --- Type scale --- */
+  /* --- Type scale ---
+     Tuned for Space Grotesk, which sets tighter than Inter Tight did and
+     carries taller ascenders. Two consequences, both handled here rather than
+     per component: the negative tracking is roughly a third lighter, or round
+     letterforms start colliding at display sizes, and leading is a touch more
+     open so multi-line headlines do not lock up. */
+
   --text-eyebrow: 0.75rem;
   --text-eyebrow--line-height: 1;
-  --text-eyebrow--letter-spacing: 0.14em;
+  /* JetBrains Mono is the widest of the three; 0.14em pushed eyebrows past
+     their containers, so the tracking comes back to compensate. */
+  --text-eyebrow--letter-spacing: 0.12em;
   --text-eyebrow--font-weight: 500;
 
   --text-display-xl: 4.5rem;
-  --text-display-xl--line-height: 1.02;
-  --text-display-xl--letter-spacing: -0.03em;
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--letter-spacing: -0.022em;
 
   --text-display-lg: 3.5rem;
-  --text-display-lg--line-height: 1.05;
-  --text-display-lg--letter-spacing: -0.03em;
+  --text-display-lg--line-height: 1.07;
+  --text-display-lg--letter-spacing: -0.021em;
 
   --text-display-md: 2.75rem;
-  --text-display-md--line-height: 1.08;
-  --text-display-md--letter-spacing: -0.028em;
+  --text-display-md--line-height: 1.1;
+  --text-display-md--letter-spacing: -0.02em;
 
   --text-h1: 2.5rem;
-  --text-h1--line-height: 1.12;
-  --text-h1--letter-spacing: -0.025em;
+  --text-h1--line-height: 1.14;
+  --text-h1--letter-spacing: -0.018em;
 
   --text-h2: 2rem;
-  --text-h2--line-height: 1.18;
-  --text-h2--letter-spacing: -0.022em;
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.016em;
 
   --text-h3: 1.5rem;
-  --text-h3--line-height: 1.25;
-  --text-h3--letter-spacing: -0.018em;
+  --text-h3--line-height: 1.28;
+  --text-h3--letter-spacing: -0.011em;
 }
 
+/* Three families, three jobs:
+     display — Space Grotesk. Headlines only. Editorial, slightly technical.
+     sans    — Inter. Body, UI, navigation, buttons. Never a headline.
+     mono    — JetBrains Mono. Metrics, labels, system numbers, accents.
+   A family is never used outside its job; that is what keeps the mix from
+   reading as decoration. */
 @theme inline {
-  --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", monospace;
 }
 
 /* ============================================================
@@ -119,16 +133,33 @@
     background-color: var(--color-ink-950);
     color: var(--color-paper);
     font-family: var(--font-sans);
+    /* All three families are variable, so let the real weights do the work
+       rather than letting the browser smear a synthetic bold. */
     font-synthesis-weight: none;
+    font-optical-sizing: auto;
     text-rendering: optimizeLegibility;
   }
 
+  /* Display sizes carry themselves at Medium; going heavier at 4.5rem reads
+     as shouting rather than editorial. */
   h1,
-  h2,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+
+  /* Small headings need the extra weight to hold against body copy at the
+     same size — Space Grotesk at 500 goes limp below about 1.5rem. */
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 500;
+    font-weight: 600;
+  }
+
+  /* Numbers should never reflow a column as they change. */
+  th,
+  td {
+    font-variant-numeric: tabular-nums;
   }
 
   ::selection {
@@ -157,6 +188,42 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #29334f;
   }
+}
+
+/* ============================================================
+   Utilities — typography
+
+   Composites for the two patterns that were being retyped by hand across
+   the site. Each sets family, size, and tracking together, because those
+   three are what make a label read as a system label rather than as small
+   body copy. Colour stays with the caller — it carries meaning.
+   ============================================================ */
+
+/* Field names, breadcrumbs, status text, column headings. */
+@utility type-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* The same label with more air, for table headings and frame chrome where
+   it sits alone rather than beside a value. */
+@utility type-label-wide {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Any figure that has to line up with the figure above it. Deliberately sets
+   no size or tracking, so it composes with the type scale instead of fighting
+   it — `type-metric text-h3` is a valid pairing. */
+@utility type-metric {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ============================================================
