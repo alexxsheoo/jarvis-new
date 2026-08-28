@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
 import { PageHero } from "@/components/layout/page-hero";
+import { AgentConversion } from "@/components/marketing/agent-conversion";
+import { AgentImpact } from "@/components/marketing/agent-impact";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { FeatureGrid } from "@/components/marketing/feature-grid";
 import { AgentStaff } from "@/components/product/agent-staff";
@@ -51,6 +53,10 @@ export default function AiStaffPage() {
           <AgentStaff />
         </Container>
       </Section>
+
+      <AgentConversion />
+
+      <AgentImpact />
 
       <FeatureGrid
         eyebrow="How they work"
