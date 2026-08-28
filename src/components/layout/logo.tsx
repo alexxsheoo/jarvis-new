@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 
-import { JarvisMark } from "@/components/brand/jarvis-mark";
+import wordmark from "../../../public/brand/jarvis-wordmark.png";
 import { cn } from "@/lib/cn";
 
 type LogoProps = {
@@ -10,8 +11,15 @@ type LogoProps = {
 };
 
 /**
- * Lockup: neon mark + wordmark. The mark carries the only ambient motion in
- * the header — everything else there stays still.
+ * The horizontal lockup — the bracketed wordmark bar from the Jarvis badge.
+ *
+ * The full badge (ring + bar) is the brand's primary mark, but its wordmark
+ * turns to mush below roughly 64px tall, which no navigation bar can give it.
+ * The bar alone stays legible down to ~24px, so chrome uses this and the badge
+ * is reserved for surfaces with room: social cards, the favicon.
+ *
+ * Static import so Next derives the intrinsic size and reserves layout space —
+ * a logo that shifts on load is the most visible CLS a header can have.
  */
 export function Logo({ className, animated = true }: LogoProps) {
   return (
@@ -19,14 +27,20 @@ export function Logo({ className, animated = true }: LogoProps) {
       href="/"
       aria-label="Jarvis — home"
       className={cn(
-        "group inline-flex items-center gap-2.5 rounded-xs outline-none",
+        "group inline-flex items-center rounded-xs outline-none",
         className,
       )}
     >
-      <JarvisMark animated={animated} className="size-5 shrink-0" />
-      <span className="font-display text-[17px] font-medium tracking-[-0.02em] text-paper transition-[text-shadow] duration-300 ease-standard group-hover:[text-shadow:0_0_16px_rgba(70,217,245,0.45)]">
-        Jarvis
-      </span>
+      <Image
+        src={wordmark}
+        alt=""
+        priority
+        sizes="180px"
+        className={cn(
+          "h-7 w-auto transition-opacity duration-200 ease-standard group-hover:opacity-90 md:h-7.5",
+          animated && "jarvis-bloom",
+        )}
+      />
     </Link>
   );
 }

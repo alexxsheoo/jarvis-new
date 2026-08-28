@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { ImageResponse } from "next/og";
 
 import { site } from "@/content/site";
@@ -7,18 +10,20 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 /**
+ * The OG runtime cannot resolve `/brand/...` the way the browser can, so the
+ * badge is inlined as a data URI. Read once at module scope: this route is
+ * prerendered at build time, so the cost never reaches a request.
+ */
+const badge = `data:image/png;base64,${readFileSync(
+  join(process.cwd(), "public", "brand", "jarvis-logo.png"),
+).toString("base64")}`;
+
+/**
  * Rendered by the OG runtime, which supports only a subset of CSS: no Tailwind,
  * no design tokens, and every container needs an explicit `display`.
  * Colours below are the literal token values.
  */
 export default function OpengraphImage() {
-  const bars = [
-    { height: 40, color: "rgba(27,68,224,0.55)" },
-    { height: 60, color: "rgba(43,91,255,0.75)" },
-    { height: 80, color: "#5B84FF" },
-    { height: 100, color: "#46D9F5" },
-  ];
-
   return new ImageResponse(
     (
       <div
@@ -32,40 +37,9 @@ export default function OpengraphImage() {
           padding: 80,
         }}
       >
-        {/* The mark: four ascending pillars on a HUD baseline, lead bar lit. */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          <div style={{ display: "flex", alignItems: "flex-end", gap: 10 }}>
-            {bars.map((bar, index) => (
-              <div
-                key={index}
-                style={{
-                  width: 16,
-                  height: bar.height,
-                  borderRadius: 8,
-                  backgroundColor: bar.color,
-                }}
-              />
-            ))}
-          </div>
-          <div style={{ display: "flex", gap: 4 }}>
-            <div
-              style={{
-                width: 74,
-                height: 4,
-                borderRadius: 2,
-                backgroundColor: "rgba(242,240,236,0.14)",
-              }}
-            />
-            <div
-              style={{
-                width: 16,
-                height: 4,
-                borderRadius: 2,
-                backgroundColor: "#17B8DA",
-              }}
-            />
-          </div>
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element -- the OG
+            runtime renders plain <img>; next/image does not exist here. */}
+        <img src={badge} alt="" width={150} height={132} />
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div

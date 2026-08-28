@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-import { JarvisMark } from "@/components/brand/jarvis-mark";
 import { Container } from "@/components/ui/container";
 import { StatusDot } from "@/components/ui/status-dot";
 import { footerColumns, legalNav } from "@/content/nav";
 import { site } from "@/content/site";
+
+import { Logo } from "./logo";
 
 export function Footer() {
   return (
@@ -14,12 +15,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             {/* Same lockup as the header, at rest — the footer is not a place
                 for a breathing mark. */}
-            <span className="flex items-center gap-2.5">
-              <JarvisMark animated={false} className="size-5 shrink-0" />
-              <span className="font-display text-[17px] font-medium tracking-[-0.02em] text-paper">
-                Jarvis
-              </span>
-            </span>
+            <Logo animated={false} className="self-start" />
             <p className="max-w-[28ch] text-sm leading-relaxed text-muted">
               The {site.positioning} for owner-led sales businesses.
             </p>
