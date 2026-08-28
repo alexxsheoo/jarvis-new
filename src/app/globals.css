@@ -82,9 +82,12 @@
   --text-eyebrow--letter-spacing: 0.12em;
   --text-eyebrow--font-weight: 500;
 
-  --text-display-xl: 4.5rem;
-  --text-display-xl--line-height: 1.05;
-  --text-display-xl--letter-spacing: -0.022em;
+  /* Hero only. Sized for impact rather than for the ramp — the jump from
+     display-lg is deliberate, since even scale steps are what make a page
+     read as a template. */
+  --text-display-xl: 5.25rem;
+  --text-display-xl--line-height: 1.03;
+  --text-display-xl--letter-spacing: -0.026em;
 
   --text-display-lg: 3.5rem;
   --text-display-lg--line-height: 1.07;
@@ -238,7 +241,100 @@
   border-top: 1px solid var(--color-line);
 }
 
-/* Grid backdrop used behind product frames. Static, not decorative noise. */
+/* ============================================================
+   Atmosphere
+
+   Depth here comes from light, grain, and parallax — never from a ruled
+   grid. A masked 64px grid behind a headline is the single most reused
+   tell of a generated landing page, so it is confined to the workflow
+   canvas below, where a grid is the actual product UI.
+
+   Every layer is one element painting gradients. No canvas, no particles,
+   no per-frame JavaScript.
+   ============================================================ */
+
+/* Base sky: navy lifted off black at the top, falling to pure ink. */
+@utility field-sky {
+  background-image:
+    radial-gradient(
+      ellipse 90% 55% at 50% -10%,
+      rgba(18, 34, 68, 0.75) 0%,
+      rgba(8, 15, 34, 0.35) 45%,
+      transparent 75%
+    ),
+    linear-gradient(to bottom, rgba(3, 5, 11, 0) 60%, var(--color-ink-950) 100%);
+}
+
+/* The single light source. One wide cobalt bloom with a tighter signal core
+   inside it — two washes of the same light, not two competing lights. */
+@utility field-bloom {
+  background-image:
+    radial-gradient(
+      ellipse 46% 30% at 50% 2%,
+      rgba(43, 91, 255, 0.28) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 22% 16% at 50% 0%,
+      rgba(70, 217, 245, 0.22) 0%,
+      transparent 72%
+    );
+}
+
+/* Star depth. Three tiles at different scales so nothing lines up and the
+   repeat never becomes readable. Dim enough to sit under body copy. */
+@utility field-stars-far {
+  background-image:
+    radial-gradient(1px 1px at 13% 22%, rgba(242, 240, 236, 0.5), transparent),
+    radial-gradient(1px 1px at 47% 9%, rgba(242, 240, 236, 0.34), transparent),
+    radial-gradient(1px 1px at 71% 37%, rgba(242, 240, 236, 0.42), transparent),
+    radial-gradient(1px 1px at 29% 61%, rgba(242, 240, 236, 0.3), transparent),
+    radial-gradient(1px 1px at 88% 74%, rgba(242, 240, 236, 0.38), transparent),
+    radial-gradient(1px 1px at 8% 84%, rgba(242, 240, 236, 0.28), transparent),
+    radial-gradient(1px 1px at 58% 91%, rgba(242, 240, 236, 0.34), transparent),
+    radial-gradient(1px 1px at 94% 15%, rgba(242, 240, 236, 0.3), transparent);
+  background-size: 340px 340px;
+}
+
+@utility field-stars-mid {
+  background-image:
+    radial-gradient(1.5px 1.5px at 21% 14%, rgba(242, 240, 236, 0.62), transparent),
+    radial-gradient(1.5px 1.5px at 63% 28%, rgba(142, 241, 255, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 38% 55%, rgba(242, 240, 236, 0.55), transparent),
+    radial-gradient(1.5px 1.5px at 82% 66%, rgba(242, 240, 236, 0.45), transparent),
+    radial-gradient(1.5px 1.5px at 11% 79%, rgba(142, 241, 255, 0.42), transparent),
+    radial-gradient(1.5px 1.5px at 72% 93%, rgba(242, 240, 236, 0.5), transparent);
+  background-size: 560px 560px;
+}
+
+@utility field-stars-near {
+  background-image:
+    radial-gradient(2px 2px at 33% 19%, rgba(242, 240, 236, 0.72), transparent),
+    radial-gradient(2px 2px at 78% 44%, rgba(142, 241, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 17% 68%, rgba(242, 240, 236, 0.62), transparent),
+    radial-gradient(2px 2px at 61% 86%, rgba(242, 240, 236, 0.55), transparent);
+  background-size: 820px 820px;
+}
+
+/* Film grain. The cheapest, largest step away from the plastic-gradient look
+   that reads as generated — real surfaces have noise. */
+@utility field-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* Corner falloff. Keeps the eye centred and stops the bloom feeling flat. */
+@utility field-vignette {
+  background-image: radial-gradient(
+    ellipse 78% 68% at 50% 38%,
+    transparent 40%,
+    rgba(3, 5, 11, 0.55) 82%,
+    var(--color-ink-950) 100%
+  );
+}
+
+/* Grid backdrop for the workflow canvas — real product UI, not page
+   decoration. Deliberately not used behind any headline. */
 @utility grid-field {
   background-image: linear-gradient(
       to right,
@@ -473,6 +569,51 @@
 }
 
 /* Overlay a panel with this; give the element `absolute inset-0`. */
+/* Parallax drift for the star planes.
+   Driven by the scroll timeline rather than a scroll listener: the animation
+   runs on the compositor, costs no main-thread work, and needs no JavaScript
+   at all. Browsers without scroll timelines (Safari, Firefox at time of
+   writing) simply get the static field, which is a complete design — the
+   depth is in the three scales, the motion only sharpens it. */
+@keyframes field-drift-far {
+  to {
+    transform: translate3d(0, -4%, 0);
+  }
+}
+
+@keyframes field-drift-mid {
+  to {
+    transform: translate3d(0, -9%, 0);
+  }
+}
+
+@keyframes field-drift-near {
+  to {
+    transform: translate3d(0, -16%, 0);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .field-parallax-far,
+  .field-parallax-mid,
+  .field-parallax-near {
+    animation-timeline: scroll(root);
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    will-change: transform;
+  }
+
+  .field-parallax-far {
+    animation-name: field-drift-far;
+  }
+  .field-parallax-mid {
+    animation-name: field-drift-mid;
+  }
+  .field-parallax-near {
+    animation-name: field-drift-near;
+  }
+}
+
 @utility jarvis-scanline {
   background-image: linear-gradient(
     180deg,
@@ -505,5 +646,15 @@
   /* Neither does the sweep. Remove it rather than park it mid-panel. */
   .jarvis-scanline {
     background-image: none;
+  }
+
+  /* Scroll-linked animations ignore duration, so the blanket rule above does
+     not stop them — cancel the parallax outright. The star field keeps its
+     three scales and simply holds still. */
+  .field-parallax-far,
+  .field-parallax-mid,
+  .field-parallax-near {
+    animation: none !important;
+    transform: none !important;
   }
 }

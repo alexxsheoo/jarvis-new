@@ -1,14 +1,17 @@
 import Link from "next/link";
 
+import { DepthField } from "@/components/motion/depth-field";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 
 export default function NotFound() {
   return (
     <div className="relative flex flex-1 items-center overflow-hidden py-32">
+      <DepthField intensity="quiet" className="-z-10" />
+      <div aria-hidden className="field-vignette pointer-events-none absolute inset-0 -z-10" />
       <div
         aria-hidden
-        className="grid-field pointer-events-none absolute inset-0 opacity-30 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)]"
+        className="field-grain pointer-events-none absolute inset-0 -z-10 opacity-[0.05] mix-blend-overlay"
       />
       <Container className="relative flex flex-col items-start gap-6">
         <span className="font-mono text-eyebrow text-cobalt-400 uppercase">

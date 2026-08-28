@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { DepthField } from "@/components/motion/depth-field";
 import { Container } from "@/components/ui/container";
 
 type PageHeroProps = {
@@ -17,9 +18,14 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden pt-16 pb-14 md:pt-24 md:pb-20">
+      {/* Same atmosphere as the homepage hero, held back — an inner page
+          should feel like the same system, not compete with the front door. */}
+      <div aria-hidden className="field-sky pointer-events-none absolute inset-0 -z-10" />
+      <DepthField intensity="quiet" className="-z-10" />
+      <div aria-hidden className="field-vignette pointer-events-none absolute inset-0 -z-10" />
       <div
         aria-hidden
-        className="grid-field pointer-events-none absolute inset-0 opacity-30 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]"
+        className="field-grain pointer-events-none absolute inset-0 -z-10 opacity-[0.05] mix-blend-overlay"
       />
       <Container width="wide" className="relative flex flex-col gap-6">
         <span className="font-mono text-eyebrow text-cobalt-400 uppercase">

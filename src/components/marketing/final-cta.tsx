@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
+import { DepthField } from "@/components/motion/depth-field";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { site } from "@/content/site";
@@ -8,9 +9,17 @@ import { site } from "@/content/site";
 export function FinalCta() {
   return (
     <section id="cta" className="hairline-t relative overflow-hidden bg-ink-950 py-24 md:py-32">
+      {/* The page closes on the same sky it opened on. Bloom is centred here
+          rather than at the horizon, so the CTA sits in the light. */}
+      <DepthField intensity="quiet" className="-z-10" />
       <div
         aria-hidden
-        className="grid-field pointer-events-none absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,black,transparent)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_48%_54%_at_50%_50%,rgba(43,91,255,0.2)_0%,transparent_70%)]"
+      />
+      <div aria-hidden className="field-vignette pointer-events-none absolute inset-0 -z-10" />
+      <div
+        aria-hidden
+        className="field-grain pointer-events-none absolute inset-0 -z-10 opacity-[0.05] mix-blend-overlay"
       />
 
       <Container className="relative flex flex-col items-center gap-7 text-center">

@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
+import { DepthField } from "@/components/motion/depth-field";
 import { Reveal } from "@/components/motion/reveal";
 import { DashboardPanel } from "@/components/product/dashboard-panel";
 import { ProductFrame } from "@/components/product/product-frame";
@@ -28,25 +29,22 @@ const modules = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24">
-      {/* Static field, one cobalt wash for depth, one narrow signal wash at the
-          horizon. No animation back here — the motion belongs to the system
-          rail and the panel, where it means something. */}
+    <section className="relative isolate overflow-hidden pt-24 pb-20 md:pt-36 md:pb-28">
+      {/* Backdrop, painted back to front. Depth comes from light, distance,
+          and grain — there is deliberately no ruled grid behind the headline.
+          Every layer is a gradient on one element; nothing here runs script. */}
+      <div aria-hidden className="field-sky pointer-events-none absolute inset-0 -z-10" />
+      <DepthField className="-z-10" />
+      <div aria-hidden className="field-bloom pointer-events-none absolute inset-0 -z-10" />
+      <div aria-hidden className="field-vignette pointer-events-none absolute inset-0 -z-10" />
+      {/* Grain last, over the light, at the threshold of visible. */}
       <div
         aria-hidden
-        className="grid-field pointer-events-none absolute inset-0 opacity-30 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[64rem] -translate-x-1/2 rounded-full bg-cobalt-glow blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/2 h-40 w-[34rem] -translate-x-1/2 rounded-full bg-neon-glow blur-3xl"
+        className="field-grain pointer-events-none absolute inset-0 -z-10 opacity-[0.055] mix-blend-overlay"
       />
 
       <Container width="wide" className="relative">
-        <div className="flex max-w-3xl flex-col items-start gap-7">
+        <div className="flex max-w-[52rem] flex-col items-start gap-8">
           <span className="inline-flex items-center gap-2.5 rounded-full border border-hud bg-ink-900/80 px-3 py-1.5 font-mono text-eyebrow text-muted uppercase">
             {/* `text-neon-400` supplies currentColor for the expanding ring. */}
             <StatusDot
