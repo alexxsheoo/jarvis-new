@@ -3,10 +3,11 @@ import Link from "next/link";
 
 import { DepthField } from "@/components/motion/depth-field";
 import { Reveal } from "@/components/motion/reveal";
-import { DashboardPanel } from "@/components/product/dashboard-panel";
 import { ProductFrame } from "@/components/product/product-frame";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { Example } from "@/components/ui/dashboard-with-collapsible-sidebar";
+import { ShaderBackground } from "@/components/ui/pulsing-border";
 import { StatusDot } from "@/components/ui/status-dot";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -36,6 +37,18 @@ export function Hero() {
       <div aria-hidden className="field-sky pointer-events-none absolute inset-0 -z-10" />
       <DepthField className="-z-10" />
       <div aria-hidden className="field-bloom pointer-events-none absolute inset-0 -z-10" />
+      {/* Pulsing border, over the atmospheric light so it reads as interface
+          rather than weather. The shader writes opaque alpha, which would bury
+          the star field underneath it — but its base colour is near-black, so
+          `screen` makes that base contribute nothing and composites only the
+          glow. Held at 55% because the shader's own palette peaks at white and
+          full strength competes with the headline. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-55 mix-blend-screen"
+      >
+        <ShaderBackground className="h-full w-full" />
+      </div>
       <div aria-hidden className="field-vignette pointer-events-none absolute inset-0 -z-10" />
       {/* Grain last, over the light, at the threshold of visible. */}
       <div
@@ -131,8 +144,14 @@ export function Hero() {
 
         <Reveal delay={0.15} className="mt-10 md:mt-12">
           <div className="hud-corners relative">
-            <ProductFrame label="Dashboards / Revenue">
-              <DashboardPanel />
+            <ProductFrame label="Dashboards / Revenue" bodyClassName="p-0">
+              {/* Fixed height with the overflow clipped, so it reads as a
+                  screenshot of a running app rather than a page embedded in a
+                  page. Dark by default to sit in the brand, though the toggle
+                  inside still works and is scoped to this subtree. */}
+              <div className="h-[26rem] overflow-hidden md:h-[32rem]">
+                <Example embedded defaultDark />
+              </div>
             </ProductFrame>
             {/* Sweep across the panel: the system reading its own surface. */}
             <span

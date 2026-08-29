@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Tailwind v4 wires `dark:` to prefers-color-scheme unless told otherwise.
+   The marketing site is dark-only and uses no `dark:` utilities at all, but the
+   dashboard ships a light/dark toggle that flips a class — without this the
+   toggle would run and change nothing. Scoped to `.dark`, so it cannot affect
+   anything that does not opt in. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ============================================================
    Jarvis — AI Revenue Operating System
    Design tokens. Single source of truth (Tailwind v4, no JS config).
