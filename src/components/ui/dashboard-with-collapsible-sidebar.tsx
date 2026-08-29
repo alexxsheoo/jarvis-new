@@ -2,21 +2,25 @@
 
 import type { LucideIcon } from "lucide-react";
 import {
-  Activity,
-  BarChart3,
   Bell,
+  Building2,
+  CalendarCheck,
   ChevronDown,
   ChevronsRight,
   DollarSign,
+  GitBranch,
+  Handshake,
   HelpCircle,
-  Home,
-  Monitor,
+  LayoutDashboard,
+  Megaphone,
   Moon,
-  Package,
+  Send,
   Settings,
-  ShoppingCart,
+  Sparkles,
   Sun,
   Tag,
+  Timer,
+  TrendingDown,
   TrendingUp,
   User,
   Users,
@@ -30,7 +34,7 @@ import React, { useState } from "react";
  *
  * 1. Props are typed. The original destructures untyped parameters, which are
  *    implicit `any` under this project's `strict: true` and fail `tsc`.
- * 2. Top Products prices were `Math.random()` evaluated during render. In the
+ * 2. The prices in the right-hand list were `Math.random()` during render. In the
  *    App Router that runs once on the server and again on the client, so the
  *    numbers disagree and React reports a hydration mismatch. They are now
  *    fixed data.
@@ -85,13 +89,13 @@ const Sidebar = ({ embedded = false }: { embedded?: boolean }) => {
       <TitleSection open={open} />
 
       <div className="mb-8 space-y-1">
-        <Option Icon={Home} title="Dashboard" selected={selected} setSelected={setSelected} open={open} />
-        <Option Icon={DollarSign} title="Sales" selected={selected} setSelected={setSelected} open={open} notifs={3} />
-        <Option Icon={Monitor} title="View Site" selected={selected} setSelected={setSelected} open={open} />
-        <Option Icon={ShoppingCart} title="Products" selected={selected} setSelected={setSelected} open={open} />
-        <Option Icon={Tag} title="Tags" selected={selected} setSelected={setSelected} open={open} />
-        <Option Icon={BarChart3} title="Analytics" selected={selected} setSelected={setSelected} open={open} />
-        <Option Icon={Users} title="Members" selected={selected} setSelected={setSelected} open={open} notifs={12} />
+        <Option Icon={LayoutDashboard} title="Dashboard" selected={selected} setSelected={setSelected} open={open} />
+        <Option Icon={Building2} title="Listings" selected={selected} setSelected={setSelected} open={open} />
+        <Option Icon={Users} title="Leads" selected={selected} setSelected={setSelected} open={open} notifs={12} />
+        <Option Icon={CalendarCheck} title="Viewings" selected={selected} setSelected={setSelected} open={open} notifs={3} />
+        <Option Icon={GitBranch} title="Pipeline" selected={selected} setSelected={setSelected} open={open} />
+        <Option Icon={Sparkles} title="AI Staff" selected={selected} setSelected={setSelected} open={open} />
+        <Option Icon={Megaphone} title="Marketing" selected={selected} setSelected={setSelected} open={open} />
       </div>
 
       {open && (
@@ -156,9 +160,9 @@ const TitleSection = ({ open }: { open: boolean }) => {
               <div className="flex items-center gap-2">
                 <div>
                   <span className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
-                    TomIsLoading
+                    Verity Homes
                   </span>
-                  <span className="block text-xs text-gray-500 dark:text-gray-400">Pro Plan</span>
+                  <span className="block text-xs text-gray-500 dark:text-gray-400">Jarvis Core</span>
                 </div>
               </div>
             </div>
@@ -218,34 +222,44 @@ const ToggleClose = ({
   );
 };
 
+/**
+ * Illustrative figures for a residential sales desk, deliberately using the
+ * same vocabulary as `dashboard-panel.tsx` and `content/agents.ts` — pipeline
+ * value, viewings booked, first response — so the mockup reads as the same
+ * product as the rest of the site rather than a second, parallel one.
+ *
+ * These are example numbers inside a product frame, not measured results.
+ */
 const stats = [
-  { Icon: DollarSign, label: "Total Sales", value: "$24,567", delta: "+12% from last month", tint: "bg-blue-50 dark:bg-blue-900/20", fg: "text-blue-600 dark:text-blue-400" },
-  { Icon: Users, label: "Active Users", value: "1,234", delta: "+5% from last week", tint: "bg-green-50 dark:bg-green-900/20", fg: "text-green-600 dark:text-green-400" },
-  { Icon: ShoppingCart, label: "Orders", value: "456", delta: "+8% from yesterday", tint: "bg-purple-50 dark:bg-purple-900/20", fg: "text-purple-600 dark:text-purple-400" },
-  { Icon: Package, label: "Products", value: "89", delta: "+3 new this week", tint: "bg-orange-50 dark:bg-orange-900/20", fg: "text-orange-600 dark:text-orange-400" },
+  { Icon: DollarSign, label: "Pipeline value", value: "$1.42M", delta: "+12.4% vs last month", tint: "bg-blue-50 dark:bg-blue-900/20", fg: "text-blue-600 dark:text-blue-400" },
+  { Icon: Building2, label: "Active listings", value: "48", delta: "+6 new this week", tint: "bg-green-50 dark:bg-green-900/20", fg: "text-green-600 dark:text-green-400" },
+  { Icon: CalendarCheck, label: "Viewings booked", value: "38", delta: "+6 vs last week", tint: "bg-purple-50 dark:bg-purple-900/20", fg: "text-purple-600 dark:text-purple-400" },
+  // Falling is the good direction here, so the trend arrow points down while
+  // staying green — an up arrow would read as a regression.
+  { Icon: Timer, label: "Avg. first response", value: "42s", delta: "−18s vs last week", tint: "bg-orange-50 dark:bg-orange-900/20", fg: "text-orange-600 dark:text-orange-400", down: true },
 ];
 
 const activities = [
-  { icon: DollarSign, title: "New sale recorded", desc: "Order #1234 completed", time: "2 min ago", tint: "bg-green-50 dark:bg-green-900/20", fg: "text-green-600 dark:text-green-400" },
-  { icon: Users, title: "New user registered", desc: "john.doe@example.com joined", time: "5 min ago", tint: "bg-blue-50 dark:bg-blue-900/20", fg: "text-blue-600 dark:text-blue-400" },
-  { icon: Package, title: "Product updated", desc: "iPhone 15 Pro stock updated", time: "10 min ago", tint: "bg-purple-50 dark:bg-purple-900/20", fg: "text-purple-600 dark:text-purple-400" },
-  { icon: Activity, title: "System maintenance", desc: "Scheduled backup completed", time: "1 hour ago", tint: "bg-orange-50 dark:bg-orange-900/20", fg: "text-orange-600 dark:text-orange-400" },
-  { icon: Bell, title: "New notification", desc: "Marketing campaign results", time: "2 hours ago", tint: "bg-red-50 dark:bg-red-900/20", fg: "text-red-600 dark:text-red-400" },
+  { icon: CalendarCheck, title: "Viewing booked", desc: "14 Vine Street — Thu 10:30", time: "2 min ago", tint: "bg-green-50 dark:bg-green-900/20", fg: "text-green-600 dark:text-green-400" },
+  { icon: Users, title: "New lead captured", desc: "Portal enquiry — 3-bed, Elmhurst", time: "5 min ago", tint: "bg-blue-50 dark:bg-blue-900/20", fg: "text-blue-600 dark:text-blue-400" },
+  { icon: Handshake, title: "Offer received", desc: "$415,000 on 8 Ridgeway Close", time: "18 min ago", tint: "bg-purple-50 dark:bg-purple-900/20", fg: "text-purple-600 dark:text-purple-400" },
+  { icon: Tag, title: "Price adjusted", desc: "22 Barrow Lane — down $10,000", time: "1 hour ago", tint: "bg-orange-50 dark:bg-orange-900/20", fg: "text-orange-600 dark:text-orange-400" },
+  { icon: Send, title: "Follow-up sequence sent", desc: "24 dormant leads re-engaged", time: "2 hours ago", tint: "bg-red-50 dark:bg-red-900/20", fg: "text-red-600 dark:text-red-400" },
 ];
 
 const quickStats = [
-  { label: "Conversion Rate", value: "3.2%", width: "32%", bar: "bg-blue-500" },
-  { label: "Bounce Rate", value: "45%", width: "45%", bar: "bg-orange-500" },
-  { label: "Page Views", value: "8.7k", width: "87%", bar: "bg-green-500" },
+  { label: "Lead → viewing", value: "34%", width: "34%", bar: "bg-blue-500" },
+  { label: "Viewing → offer", value: "21%", width: "21%", bar: "bg-orange-500" },
+  { label: "Listings under offer", value: "62%", width: "62%", bar: "bg-green-500" },
 ];
 
 /** Fixed, not Math.random() — random values here desynchronise SSR markup
  *  from the first client render and trip a hydration mismatch. */
-const topProducts = [
-  { name: "iPhone 15 Pro", price: "$1,199" },
-  { name: "MacBook Air M2", price: "$1,099" },
-  { name: "AirPods Pro", price: "$249" },
-  { name: "iPad Air", price: "$599" },
+const topListings = [
+  { name: "3 Elmhurst Gardens", price: "$712,000" },
+  { name: "14 Vine Street", price: "$649,000" },
+  { name: "22 Barrow Lane", price: "$529,000" },
+  { name: "8 Ridgeway Close", price: "$415,000" },
 ];
 
 const ExampleContent = ({
@@ -260,7 +274,7 @@ const ExampleContent = ({
       <div className="mb-8 flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Dashboard</h1>
-          <p className="mt-1 text-gray-600 dark:text-gray-400">Welcome back to your dashboard</p>
+          <p className="mt-1 text-gray-600 dark:text-gray-400">Everything that moved on your pipeline today</p>
         </div>
         <div className="flex items-center gap-4">
           <button
@@ -296,7 +310,11 @@ const ExampleContent = ({
               <div className={`rounded-lg p-2 ${stat.tint}`}>
                 <stat.Icon className={`h-5 w-5 ${stat.fg}`} />
               </div>
-              <TrendingUp className="h-4 w-4 text-green-500" />
+              {stat.down ? (
+                <TrendingDown className="h-4 w-4 text-green-500" />
+              ) : (
+                <TrendingUp className="h-4 w-4 text-green-500" />
+              )}
             </div>
             <h3 className="mb-1 font-medium text-gray-600 dark:text-gray-400">{stat.label}</h3>
             <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
@@ -355,9 +373,9 @@ const ExampleContent = ({
           </div>
 
           <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
-            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-gray-100">Top Products</h3>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-gray-100">Top listings</h3>
             <div className="space-y-3">
-              {topProducts.map((product) => (
+              {topListings.map((product) => (
                 <div key={product.name} className="flex items-center justify-between py-2">
                   <span className="text-sm text-gray-600 dark:text-gray-400">{product.name}</span>
                   <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{product.price}</span>
