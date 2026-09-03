@@ -9,10 +9,10 @@ export const teamSizes = [
 ] as const;
 
 export const pillarOptions = [
-  "Jarvis Core",
-  "Jarvis AI Staff",
-  "Jarvis Lead Engines",
-  "Jarvis Custom",
+  "Jarvis CRM",
+  "xCerebro AI Agents",
+  "Lead Scraper",
+  "Custom Builds",
 ] as const;
 
 /** Shared by the client form and the server action so validation cannot diverge. */

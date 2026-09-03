@@ -20,7 +20,7 @@ const solutions = [
       "The owner is still the best closer, and the system depends on them remembering everything.",
     approach:
       "AI staff take first response and follow-up so the owner only touches deals that are ready for a decision.",
-    pillars: ["Core", "AI Staff"],
+    pillars: ["Jarvis CRM", "xCerebro"],
   },
   {
     id: "acquisitions",
@@ -29,7 +29,7 @@ const solutions = [
       "Lists arrive raw, overlap with what you already own, and go stale before anyone works them.",
     approach:
       "Engines source, clean, dedupe, and score nightly, then route only the priority set to the right buyer.",
-    pillars: ["Lead Engines", "Custom"],
+    pillars: ["Lead Scraper", "Custom Builds"],
   },
   {
     id: "services",
@@ -38,7 +38,7 @@ const solutions = [
       "Missed calls are lost jobs, and quoting depends on whoever is free to call back.",
     approach:
       "Every missed call triggers an immediate text, qualification, and a booked estimate against real availability.",
-    pillars: ["AI Staff", "Core"],
+    pillars: ["xCerebro", "Jarvis CRM"],
   },
   {
     id: "brokerages",

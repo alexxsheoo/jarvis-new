@@ -94,7 +94,7 @@ const Sidebar = ({ embedded = false }: { embedded?: boolean }) => {
         <Option Icon={Users} title="Leads" selected={selected} setSelected={setSelected} open={open} notifs={12} />
         <Option Icon={CalendarCheck} title="Viewings" selected={selected} setSelected={setSelected} open={open} notifs={3} />
         <Option Icon={GitBranch} title="Pipeline" selected={selected} setSelected={setSelected} open={open} />
-        <Option Icon={Sparkles} title="AI Staff" selected={selected} setSelected={setSelected} open={open} />
+        <Option Icon={Sparkles} title="AI Agents" selected={selected} setSelected={setSelected} open={open} />
         <Option Icon={Megaphone} title="Marketing" selected={selected} setSelected={setSelected} open={open} />
       </div>
 
@@ -162,7 +162,7 @@ const TitleSection = ({ open }: { open: boolean }) => {
                   <span className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
                     Verity Homes
                   </span>
-                  <span className="block text-xs text-gray-500 dark:text-gray-400">Jarvis Core</span>
+                  <span className="block text-xs text-gray-500 dark:text-gray-400">Jarvis CRM</span>
                 </div>
               </div>
             </div>
@@ -179,7 +179,7 @@ const Logo = () => {
     <div className="grid size-10 shrink-0 place-content-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-sm">
       <svg
         width="20"
-        height="auto"
+        height="16"
         viewBox="0 0 50 39"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

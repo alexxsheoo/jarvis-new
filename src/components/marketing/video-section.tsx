@@ -15,8 +15,8 @@ import { Section, SectionHeader } from "@/components/ui/section";
 const chain = [
   { label: "Lead enters", icon: InboxIcon },
   { label: "Lead Engine", icon: DatabaseIcon },
-  { label: "Jarvis Core", icon: LayersIcon },
-  { label: "AI Staff", icon: BotIcon },
+  { label: "Jarvis CRM", icon: LayersIcon },
+  { label: "xCerebro", icon: BotIcon },
   { label: "Human approval", icon: UserCheckIcon, human: true },
   { label: "Appointment", icon: CalendarCheckIcon },
 ];
@@ -76,7 +76,7 @@ export function VideoSection() {
         <VideoShowcase
           src="/videos/jarvis-system-demo.mp4"
           modalSrc="/videos/jarvis-system-demo.mp4"
-          label="A lead moving from intake through the Lead Engine, Jarvis Core, AI Staff, and human approval to a booked appointment."
+          label="A lead moving from intake through Lead Scraper, Jarvis CRM, xCerebro agents, and human approval to a booked appointment."
           caption="Placeholder — replace with real product footage at /public/videos/jarvis-system-demo.mp4"
         />
       </Container>

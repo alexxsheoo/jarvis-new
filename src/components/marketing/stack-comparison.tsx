@@ -40,7 +40,7 @@ export function StackComparison() {
               Keep the System.
             </>
           }
-          description="Your CRM should not require six other subscriptions just to run your sales process. Jarvis brings the core revenue workflow into one connected system."
+          description="Your CRM should not require six other subscriptions just to run your sales process. Jarvis CRM brings the core revenue workflow into one connected platform."
         />
 
         <div className="overflow-x-auto rounded-lg border border-line">
@@ -150,7 +150,7 @@ export function StackComparison() {
             className="flex flex-col gap-2 rounded-lg border border-cobalt-500/50 bg-cobalt-glow p-6"
           >
             <span className="font-mono text-eyebrow text-cobalt-400 uppercase">
-              Jarvis Core
+              Jarvis CRM
             </span>
             <span className="type-metric text-h2 text-paper">
               Starting from ${jarvisPrice}/month
@@ -163,7 +163,10 @@ export function StackComparison() {
 
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-[62ch] text-xs leading-relaxed text-faint">
-            Third-party costs shown are{" "}
+            Comparison reflects Jarvis CRM platform capabilities. AI agent
+            deployments, lead scraping and data services, communications usage,
+            and custom implementation may be priced separately. Third-party
+            costs shown are{" "}
             <span className="text-muted">illustrative examples</span> for generic
             tool categories, not verified pricing for any named product. Your
             actual stack cost will differ.

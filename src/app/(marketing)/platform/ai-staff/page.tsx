@@ -10,7 +10,7 @@ import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 
 export const metadata: Metadata = {
-  title: "Jarvis AI Staff",
+  title: "xCerebro AI Agents",
   description:
     "Role-based AI agents with defined triggers, scoped actions, and human approval gates — Lead Concierge, Follow-Up, Appointment Setter, and more.",
 };
@@ -38,7 +38,7 @@ export default function AiStaffPage() {
   return (
     <>
       <PageHero
-        eyebrow="Jarvis AI Staff"
+        eyebrow="xCerebro AI Agents"
         title="Role-based agents that carry real work"
         description="AI staff handle the work that depends on speed and consistency — first response, follow-up, booking, and coordination — inside the same system your team uses."
       />

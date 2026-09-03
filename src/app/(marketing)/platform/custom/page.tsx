@@ -10,7 +10,7 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import { steps } from "@/content/homepage";
 
 export const metadata: Metadata = {
-  title: "Jarvis Custom",
+  title: "Custom Builds",
   description:
     "Custom pipelines, workflows, integrations, and bespoke AI agents — assembled into an operating system built around your business.",
 };
@@ -42,7 +42,7 @@ export default function CustomPage() {
   return (
     <>
       <PageHero
-        eyebrow="Jarvis Custom"
+        eyebrow="Custom Builds"
         title="Built around your business"
         description="Most software asks you to change how you work. Custom is the part of Jarvis that changes the system instead — for the operations that do not fit a standard shape."
       />

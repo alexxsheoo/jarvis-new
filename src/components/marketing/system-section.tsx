@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/motion/reveal";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { platformPillars } from "@/content/nav";
+import { offers } from "@/content/products";
 
 import { PillarTabs } from "./pillar-tabs";
 
@@ -11,12 +11,12 @@ export function SystemSection() {
       <Container width="wide" className="flex flex-col gap-12">
         <SectionHeader
           eyebrow="The system"
-          title="Four parts, one operating system"
-          description="Each piece works on its own. Together they remove the handoffs where deals go quiet."
+          title="Four offers, one operating system"
+          description="Three products and one build team. Each stands alone; together they remove the handoffs where deals go quiet."
         />
 
         <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2 lg:grid-cols-4">
-          {platformPillars.map((pillar) => (
+          {offers.map((pillar) => (
             <div
               key={pillar.href}
               className="flex flex-col gap-3 bg-ink-950 p-6"
@@ -27,7 +27,7 @@ export function SystemSection() {
                 strokeWidth={1.5}
               />
               <h3 className="font-display text-base font-medium text-paper">
-                {pillar.label}
+                {pillar.name}
               </h3>
               <p className="text-sm leading-relaxed text-muted">
                 {pillar.summary}

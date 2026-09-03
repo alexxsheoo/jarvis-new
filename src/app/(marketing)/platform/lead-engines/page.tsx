@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 
 export const metadata: Metadata = {
-  title: "Jarvis Lead Engines",
+  title: "Lead Scraper",
   description:
     "Public record sourcing, data cleanup, enrichment, deduplication, lead scoring, routing, and custom scrapers — running continuously.",
 };
@@ -49,7 +49,7 @@ export default function LeadEnginesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Jarvis Lead Engines"
+        eyebrow="Lead Scraper"
         title="Leads sourced, cleaned, and routed on their own"
         description="Most teams do not have a lead problem — they have a list problem. Engines turn raw sources into records that are ready to work the moment someone opens them."
       />
