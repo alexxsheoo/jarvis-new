@@ -14,8 +14,8 @@ import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
 /**
- * The four platform pillars read as modules of a running system rather than as
- * a feature list. States are operational words, not metrics — nothing here
+ * The four offers as modules of a running system rather than as a feature
+ * list. States are operational words, not metrics — nothing here
  * should be mistaken for telemetry from a real account.
  *
  * `delay` staggers the status pulses so the rail reads as four independent
@@ -23,10 +23,10 @@ import { cn } from "@/lib/cn";
  * server and client.
  */
 const modules = [
-  { label: "CRM & Pipelines", state: "Connected", delay: "0s" },
-  { label: "Lead Engines", state: "Live", delay: "0.5s" },
-  { label: "AI Staff", state: "Active", delay: "1s", working: true },
-  { label: "Custom Workflows", state: "Running", delay: "1.5s" },
+  { label: "Jarvis CRM", state: "Connected", delay: "0s" },
+  { label: "Lead Scraper", state: "Live", delay: "0.5s" },
+  { label: "xCerebro AI Agents", state: "Active", delay: "1s", working: true },
+  { label: "Custom Builds", state: "Scoped", delay: "1.5s" },
 ];
 
 export function Hero() {
@@ -58,38 +58,38 @@ export function Hero() {
       />
 
       <Container width="wide" className="relative">
-        <div className="flex max-w-[52rem] flex-col items-start gap-8">
+        <div className="flex max-w-[54rem] flex-col items-start gap-8">
           <span className="inline-flex items-center gap-2.5 rounded-full border border-hud bg-ink-900/80 px-3 py-1.5 font-mono text-eyebrow text-muted uppercase">
             {/* `text-neon-400` supplies currentColor for the expanding ring. */}
             <StatusDot
               tone="live"
               className="jarvis-status text-neon-400"
             />
-            {site.positioning}
+            The {site.positioning}
           </span>
 
           {/* Words rather than characters: 7 pieces instead of 46, so the
               headline resolves as language instead of confetti — and the
               per-piece transforms stay cheap. Tuned well under the demo
               defaults; a 115px drop on a 5.25rem headline is a stunt. */}
-          <h1 className="text-display-md md:text-display-lg lg:text-display-xl text-balance text-paper">
+          <h1 className="text-h1 md:text-display-md lg:text-display-lg text-balance text-paper">
             <DropText
               inline
-              text="Your revenue operation, running as one system."
+              text="Run the CRM. Deploy the agents. Generate the leads. Connect the whole operation."
               splitBy="words"
               staggerFrom="left"
-              yOffset={-38}
-              blur={6}
-              duration={0.75}
-              stagger={0.075}
+              yOffset={-32}
+              blur={5}
+              duration={0.7}
+              stagger={0.055}
               ease="power2.out"
             />
           </h1>
 
           <p className="max-w-[56ch] text-lg leading-relaxed text-muted md:text-xl">
-            Jarvis connects CRM, lead generation, automation, and AI staff into
-            a single operating system — shaped around how your business actually
-            sells, not around someone else&rsquo;s template.
+            Jarvis gives you the CRM. xCerebro gives you the AI workforce.
+            Lead Scraper finds and prepares targeted opportunities. And when
+            your business needs something different, we build it.
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row">
