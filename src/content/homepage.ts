@@ -142,6 +142,6 @@ export const faqs = [
   {
     question: "What does it cost?",
     answer:
-      "Pricing depends on scope — how many pipelines, agents, and integrations you need. Because every build is scoped to your operation, we quote after the mapping conversation rather than listing a tier you would outgrow.",
+      "The platform plans are published — Basic, Elite, and Premium, starting at $97 a month. What varies is the build on top: how many pipelines, agents, and integrations your operation needs. That part is scoped with you and quoted after the mapping conversation.",
   },
 ];

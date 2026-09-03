@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { PageHero } from "@/components/layout/page-hero";
 import { CtaBand } from "@/components/marketing/cta-band";
+import { PricingComparison } from "@/components/marketing/pricing-comparison";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
@@ -14,7 +15,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Jarvis is scoped to your operation — pipelines, agents, and integrations. Pricing is quoted after a mapping conversation.",
+    "Published plans from $97 a month. The build on top — pipelines, agents, and integrations — is scoped with you and quoted separately.",
 };
 
 const tiers = [
@@ -72,16 +73,18 @@ export default function PricingPage() {
     <>
       <PageHero
         eyebrow="Pricing"
-        title="Scoped to your operation, quoted after we map it"
-        description="Every build differs in how many pipelines, agents, and integrations it needs. We would rather quote something accurate than publish a tier you would outgrow in a quarter."
+        title="Published plans, scoped around your operation"
+        description="Two numbers, not one. The plan is a fixed monthly price you can compare below. The build that sits on top of it is scoped with you, because no two operations need the same pipelines, agents, and integrations."
       />
+
+      <PricingComparison />
 
       <Section tone="alt">
         <Container width="wide" className="flex flex-col gap-10">
           <SectionHeader
-            eyebrow="What you can build"
+            eyebrow="The build"
             title="Three common shapes"
-            description="Most builds start at one of these and get adjusted during mapping."
+            description="This is the work that goes on top of a plan, not another price list. Most builds start at one of these and get adjusted during mapping."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
@@ -139,6 +142,7 @@ export default function PricingPage() {
           </p>
         </Container>
       </Section>
+
 
       <Section>
         <Container className="flex flex-col gap-10">

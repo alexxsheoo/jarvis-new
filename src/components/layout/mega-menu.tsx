@@ -10,11 +10,21 @@ import { site } from "@/content/site";
 /**
  * Desktop navigation. `Platform` opens a four-column panel so the product
  * architecture is readable without a click.
+ *
+ * `onOpenChange` exists so the header can go solid while a panel is open. At
+ * the top of the page the header is deliberately transparent, which leaves the
+ * nav strip see-through above an opaque panel — the page showing through the
+ * bar it is supposed to sit under.
  */
-export function MegaMenu() {
+export function MegaMenu({
+  onOpenChange,
+}: {
+  onOpenChange?: (open: boolean) => void;
+}) {
   return (
     <NavigationMenu.Root
       delayDuration={80}
+      onValueChange={(value) => onOpenChange?.(value !== "")}
       className="relative hidden lg:flex"
     >
       <NavigationMenu.List className="flex items-center gap-1">
@@ -27,7 +37,13 @@ export function MegaMenu() {
             />
           </NavigationMenu.Trigger>
 
-          <NavigationMenu.Content className="absolute top-0 left-0 w-full data-[motion=from-end]:animate-none data-[motion=from-start]:animate-none">
+          {/* The surface lives here, not only on the Viewport. The Viewport is
+              the element Radix animates from zero height, so anything relying
+              on it for a background renders over the page unbacked until that
+              transition resolves — which is exactly the see-through panel. The
+              Content carrying its own opaque surface is correct at every frame,
+              and the Viewport keeps its own for the rounded clip. */}
+          <NavigationMenu.Content className="absolute top-0 left-0 w-full rounded-lg bg-ink-850 data-[motion=from-end]:animate-none data-[motion=from-start]:animate-none">
             <div className="grid grid-cols-4 gap-8 p-8">
               {platformPillars.map((pillar) => (
                 <div key={pillar.href} className="flex flex-col gap-4">

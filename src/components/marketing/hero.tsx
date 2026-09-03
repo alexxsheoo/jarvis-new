@@ -7,6 +7,7 @@ import { ProductFrame } from "@/components/product/product-frame";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Example } from "@/components/ui/dashboard-with-collapsible-sidebar";
+import DropText from "@/components/ui/drop-text";
 import { ShaderBackground } from "@/components/ui/pulsing-border";
 import { StatusDot } from "@/components/ui/status-dot";
 import { site } from "@/content/site";
@@ -67,8 +68,22 @@ export function Hero() {
             {site.positioning}
           </span>
 
+          {/* Words rather than characters: 7 pieces instead of 46, so the
+              headline resolves as language instead of confetti — and the
+              per-piece transforms stay cheap. Tuned well under the demo
+              defaults; a 115px drop on a 5.25rem headline is a stunt. */}
           <h1 className="text-display-md md:text-display-lg lg:text-display-xl text-balance text-paper">
-            Your revenue operation, running as one system.
+            <DropText
+              inline
+              text="Your revenue operation, running as one system."
+              splitBy="words"
+              staggerFrom="left"
+              yOffset={-38}
+              blur={6}
+              duration={0.75}
+              stagger={0.075}
+              ease="power2.out"
+            />
           </h1>
 
           <p className="max-w-[56ch] text-lg leading-relaxed text-muted md:text-xl">
