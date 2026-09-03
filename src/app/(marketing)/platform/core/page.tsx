@@ -10,7 +10,7 @@ import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 
 export const metadata: Metadata = {
-  title: "Jarvis Core",
+  title: "Jarvis CRM",
   description:
     "CRM, custom pipelines, unified conversations, workflows, calendars, dashboards, reporting, integrations, and permissions in one operating layer.",
 };
@@ -58,7 +58,7 @@ export default function CorePage() {
   return (
     <>
       <PageHero
-        eyebrow="Jarvis Core"
+        eyebrow="Jarvis CRM"
         title="The operating layer for your revenue"
         description="Core is the system of record everything else runs on. Pipelines, conversations, and work in one place — so no deal depends on someone remembering it."
       />

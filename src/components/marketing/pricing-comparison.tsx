@@ -13,6 +13,7 @@ import {
   pricingPlans,
   type PlanCell,
 } from "@/content/pricing";
+import { offers } from "@/content/products";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
@@ -59,9 +60,9 @@ export function PricingComparison() {
     <Section id="compare">
       <Container width="wide" className="flex flex-col gap-10">
         <SectionHeader
-          eyebrow="Compare plans"
+          eyebrow="Jarvis CRM plans"
           title="What each plan carries"
-          description="Every plan runs the same operating layer. The difference is how much of the deal flow and coaching comes with it."
+          description="These are Jarvis CRM subscription plans. xCerebro AI Agents, Lead Scraper, and Custom Builds are separate offers, priced on their own."
         />
 
         <div className="overflow-x-auto rounded-lg border border-line">
@@ -186,6 +187,24 @@ export function PricingComparison() {
               </tr>
             </tbody>
           </table>
+        </div>
+
+        {/* The table only prices the CRM. Saying so beside it is the
+            difference between a plan and an implied bundle. */}
+        <div className="flex flex-col gap-4">
+          <span className="type-label-wide text-faint">Priced separately</span>
+          <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-3">
+            {offers
+              .filter((offer) => offer.id !== "crm")
+              .map((offer) => (
+                <div key={offer.id} className="flex flex-col gap-1.5 bg-ink-950 p-5">
+                  <span className="font-display text-sm font-medium text-paper">
+                    {offer.name}
+                  </span>
+                  <span className="text-sm text-muted">{offer.pricing}</span>
+                </div>
+              ))}
+          </div>
         </div>
       </Container>
     </Section>

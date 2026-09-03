@@ -76,7 +76,7 @@ export function CoreSection() {
   return (
     <PillarSection
       id="core"
-      eyebrow="Jarvis Core"
+      eyebrow="Jarvis CRM"
       title="The operating layer for your revenue"
       description="One record per contact, pipelines that match your stages, and every conversation in one place — with the reporting to prove what moved."
       capabilities={[
@@ -103,7 +103,7 @@ export function AiStaffSection() {
     <PillarSection
       id="ai-staff"
       tone="alt"
-      eyebrow="Jarvis AI Staff"
+      eyebrow="xCerebro AI Agents"
       title="Role-based agents that carry real work"
       description="Not a chatbot bolted onto a CRM. Each agent has a defined role, explicit triggers, a scope of allowed actions, and the approval gates you set."
       capabilities={[
@@ -124,7 +124,7 @@ export function LeadEnginesSection() {
   return (
     <PillarSection
       id="lead-engines"
-      eyebrow="Jarvis Lead Engines"
+      eyebrow="Lead Scraper"
       title="Leads sourced, cleaned, and routed on their own"
       description="Public records and custom scrapers feed a pipeline that normalizes, enriches, deduplicates, scores, and assigns — before anyone opens a list."
       capabilities={[
@@ -150,7 +150,7 @@ export function CustomSection() {
     <PillarSection
       id="custom"
       tone="alt"
-      eyebrow="Jarvis Custom"
+      eyebrow="Custom Builds"
       title="Built around your business"
       description="When the standard shape does not fit, the system changes — not your process. Custom pipelines, workflows, integrations, and agents scoped to how you already operate."
       capabilities={[

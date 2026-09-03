@@ -15,12 +15,12 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Published plans from $97 a month. The build on top — pipelines, agents, and integrations — is scoped with you and quoted separately.",
+    "Jarvis CRM from $97 a month. xCerebro AI Agents, Lead Scraper, and Custom Builds are priced separately.",
 };
 
 const tiers = [
   {
-    name: "Core",
+    name: "Jarvis CRM",
     summary: "The operating layer for a team that needs one system of record.",
     includes: [
       "CRM and custom pipelines",
@@ -33,11 +33,11 @@ const tiers = [
     featured: false,
   },
   {
-    name: "Core + AI Staff",
+    name: "CRM + xCerebro",
     summary:
-      "Everything in Core, plus agents carrying first response, follow-up, and booking.",
+      "The CRM, plus xCerebro agents carrying first response, follow-up, and booking.",
     includes: [
-      "Everything in Core",
+      "Everything in Jarvis CRM",
       "Role-based AI agents",
       "Trigger and action scoping",
       "Human approval gates",
@@ -47,11 +47,11 @@ const tiers = [
     featured: true,
   },
   {
-    name: "Full system",
+    name: "Connected system",
     summary:
-      "Core, AI Staff, and Lead Engines with the custom work your operation needs.",
+      "CRM, xCerebro agents, and Lead Scraper with the custom work your operation needs.",
     includes: [
-      "Everything in Core + AI Staff",
+      "Everything in CRM + xCerebro",
       "Lead sourcing and enrichment",
       "Deduplication and scoring",
       "Custom scrapers",
@@ -74,7 +74,7 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         title="Published plans, scoped around your operation"
-        description="Two numbers, not one. The plan is a fixed monthly price you can compare below. The build that sits on top of it is scoped with you, because no two operations need the same pipelines, agents, and integrations."
+        description="Jarvis CRM has a published monthly price. xCerebro AI Agents, Lead Scraper, and Custom Builds are separate offers — priced by deployment, by data source, or by scope — so one subscription does not buy all four."
       />
 
       <PricingComparison />

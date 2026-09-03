@@ -97,13 +97,13 @@ export const proof = [
     industry: "Acquisitions",
     headline: "Sourced lists turned into a working pipeline",
     body: "County records scraped nightly, deduplicated against existing contacts, scored, and routed to the right buyer.",
-    tags: ["Lead Engines", "Custom pipelines"],
+    tags: ["Lead Scraper", "Custom pipelines"],
   },
   {
     industry: "Services & trades",
     headline: "Every missed call answered before it churns",
     body: "Inbound calls that go unanswered trigger an immediate text, qualification, and a booked estimate slot.",
-    tags: ["AI Staff", "Calendars"],
+    tags: ["xCerebro", "Calendars"],
   },
   {
     industry: "Agencies",

@@ -16,13 +16,13 @@ const panels = [
   },
   {
     value: "ai-staff",
-    label: "AI Staff",
+    label: "xCerebro",
     frame: "Conversations / Inbox",
     body: <ConversationInbox />,
   },
   {
     value: "lead-engines",
-    label: "Lead Engines",
+    label: "Lead Scraper",
     frame: "Engines / Public records",
     body: <LeadEngineFlow />,
   },
