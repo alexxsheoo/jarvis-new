@@ -14,6 +14,10 @@ import { MobileNav } from "./mobile-nav";
 
 export function Header() {
   const [condensed, setCondensed] = useState(false);
+  // A panel hanging off a see-through bar reads as a bug, so an open menu
+  // makes the header solid regardless of scroll position.
+  const [menuOpen, setMenuOpen] = useState(false);
+  const solid = condensed || menuOpen;
 
   useEffect(() => {
     const onScroll = () => setCondensed(window.scrollY > 16);
@@ -26,9 +30,10 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-40 transition-[height,background-color,border-color] duration-200 ease-standard",
-        condensed
-          ? "h-15 border-b border-line bg-ink-950/85 backdrop-blur-md"
-          : "h-18 border-b border-transparent bg-transparent",
+        condensed ? "h-15" : "h-18",
+        solid
+          ? "border-b border-line bg-ink-950/95 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent",
       )}
     >
       {/* Once docked, the underline carries signal — the bar reads as part of
@@ -37,7 +42,7 @@ export function Header() {
         aria-hidden
         className={cn(
           "neon-hairline pointer-events-none absolute inset-x-0 -bottom-px h-px transition-opacity duration-300 ease-standard",
-          condensed ? "opacity-100" : "opacity-0",
+          solid ? "opacity-100" : "opacity-0",
         )}
       />
 
@@ -45,7 +50,7 @@ export function Header() {
         <Logo />
 
         <div className="flex-1">
-          <MegaMenu />
+          <MegaMenu onOpenChange={setMenuOpen} />
         </div>
 
         <div className="hidden items-center gap-2 lg:flex">
