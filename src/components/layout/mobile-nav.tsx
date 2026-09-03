@@ -18,7 +18,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { legalNav, platformPillars, primaryNav } from "@/content/nav";
+import { legalNav, navPanels, primaryNav } from "@/content/nav";
 import { site } from "@/content/site";
 
 import { Logo } from "./logo";
@@ -69,8 +69,15 @@ export function MobileNav() {
         </div>
 
         <div className="flex-1 overflow-y-auto px-6 pb-8">
-          <Accordion type="single" collapsible className="flex flex-col">
-            {platformPillars.map((pillar) => (
+          {navPanels.map((panel) => (
+            <div key={panel.label} className="flex flex-col">
+              {/* The heading is what carries the architecture on mobile —
+                  without it the two groups read as one flat list again. */}
+              <span className="pt-6 pb-2 type-label-wide text-faint">
+                {panel.label}
+              </span>
+              <Accordion type="single" collapsible className="flex flex-col">
+            {panel.groups.map((pillar) => (
               <AccordionItem key={pillar.href} value={pillar.href}>
                 <AccordionTrigger>
                   <span className="flex items-center gap-2.5">
@@ -106,7 +113,9 @@ export function MobileNav() {
                 </AccordionContent>
               </AccordionItem>
             ))}
-          </Accordion>
+              </Accordion>
+            </div>
+          ))}
 
           <div className="flex flex-col">
             {primaryNav.map((item) => (
