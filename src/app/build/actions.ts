@@ -1,5 +1,3 @@
-"use server";
-
 import { flattenError } from "zod";
 
 import { buildRequestSchema } from "@/lib/schemas";
@@ -9,7 +7,7 @@ export type BuildRequestResult =
   | { ok: false; message: string; fieldErrors?: Record<string, string[]> };
 
 /**
- * Validates a Build My Jarvis submission on the server using the same schema
+ * Validates a Build My Jarvis submission using the shared schema.
  * the client form uses.
  *
  * TODO(delivery): this currently only validates and logs. Wire it to the real

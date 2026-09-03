@@ -13,3 +13,7 @@ export default function robots(): MetadataRoute.Robots {
     sitemap: new URL("/sitemap.xml", site.url).toString(),
   };
 }
+
+// PREVIEW BRANCH: required by `output: export`, which cannot infer that a
+// route handler is static.
+export const dynamic = "force-static";

@@ -29,3 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 }
+
+// PREVIEW BRANCH: required by `output: export`, which cannot infer that a
+// route handler is static.
+export const dynamic = "force-static";

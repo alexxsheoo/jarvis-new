@@ -86,3 +86,6 @@ export default function OpengraphImage() {
     size,
   );
 }
+
+// PREVIEW BRANCH: required by `output: export`.
+export const dynamic = "force-static";
