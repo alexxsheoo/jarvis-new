@@ -153,20 +153,13 @@ export function ProductsServices() {
               Different tools for different jobs.
             </>
           }
-          description="Jarvis CRM is the hub most teams start with. xCerebro, Lead Scraper, and Custom Builds attach to it as the operation grows — each bought on its own terms."
+          description="The CRM runs the business. These three attach to it when the operation needs more — each bought on its own terms, none of them required."
         />
 
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-3">
-            <span className="type-label-wide text-cobalt-400">Start here</span>
-            <span aria-hidden className="h-px flex-1 bg-line" />
-          </div>
-
-          <OfferCard offer={offers[0]} featured />
-
-          <div className="mt-4 flex items-center gap-3">
             <span className="type-label-wide text-faint">
-              Add when you need them
+              Add to your CRM
             </span>
             <span aria-hidden className="h-px flex-1 bg-line" />
           </div>
