@@ -3,10 +3,12 @@
  *
  * IMPORTANT — two different kinds of number are deliberately kept apart:
  *
- *   `alternative.cost` is an ILLUSTRATIVE MARKET RANGE. It is a plausible
- *   figure for what the conventional approach costs, not a quote, not sourced
- *   pricing research, and not a claim about any named vendor. Same rule as
- *   `stack.ts`. Replace with checked figures before this is used in a pitch.
+ *   `alternative.cost` is what the conventional approach costs, and its
+ *   provenance differs per entry. The lead-list figure is typical annual spend
+ *   supplied by the business. The assistant and contractor ranges are still
+ *   ILLUSTRATIVE ESTIMATES — plausible, but not sourced research and not
+ *   claims about any named vendor. Same rule as `stack.ts`; check those two
+ *   before they carry weight in a pitch.
  *
  *   `offer.cost` is NEVER invented. Only Jarvis CRM has a published price, so
  *   the other three say how they are quoted rather than what they cost. Do not
@@ -89,11 +91,11 @@ export const costComparisons: CostComparison[] = [
     offerId: "scraper",
     title: "Buying lists vs running your own source",
     intro:
-      "Bought lists arrive already worked. The same records are usually available at the source, and pulling them yourself changes who has them and how fresh they are.",
+      "The spend is not the worst part. A bought list has usually been sold to everyone else in the market first, so the owners on it have already heard from every buyer holding the same file.",
     alternative: {
       label: "Purchased lead lists",
-      cost: "$0.40–$2.50",
-      costNote: "per record, bought repeatedly — illustrative range",
+      cost: "$10,000+",
+      costNote: "a year, for records other buyers already worked",
     },
     offer: {
       label: "Lead Scraper",
@@ -102,9 +104,14 @@ export const costComparisons: CostComparison[] = [
     },
     rows: [
       {
-        measure: "Exclusivity",
-        alternative: "Frequently resold to other buyers",
+        measure: "Who else has it",
+        alternative: "Sold to everyone in the market, then worked by all of them",
         offer: "Pulled for you from the public source",
+      },
+      {
+        measure: "What the owner has heard",
+        alternative: "The same pitch from every buyer holding the file",
+        offer: "Your approach, before the record is on anyone else's list",
       },
       {
         measure: "Freshness",
@@ -175,4 +182,4 @@ export const costComparisons: CostComparison[] = [
 ];
 
 export const costDisclaimer =
-  "Costs shown for the conventional approach are illustrative market ranges, not quotes, not sourced pricing research, and not claims about any named vendor. Jarvis CRM is the only offer here with a published price; the rest are quoted by scope. Your own numbers will differ.";
+  "Costs shown for the conventional approach are typical figures, not quotes and not claims about any named vendor. Jarvis CRM is the only offer here with a published price; the rest are quoted by scope. Your own numbers will differ.";
