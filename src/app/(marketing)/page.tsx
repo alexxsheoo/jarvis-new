@@ -17,6 +17,7 @@ import { SystemMap } from "@/components/marketing/system-map";
 import { TestimonialsSection } from "@/components/marketing/testimonials-section";
 import { TrustBar } from "@/components/marketing/trust-bar";
 import { VideoSection } from "@/components/marketing/video-section";
+import { WhyVideo } from "@/components/marketing/why-video";
 
 /**
  * The homepage sells Jarvis CRM. Everything from the hero to the testimonials
@@ -42,6 +43,7 @@ export default function HomePage() {
       <StackComparison />
       <CrmPricing />
       <ProofSection />
+      <WhyVideo />
       <TestimonialsSection />
 
       {/* Then, and only then, what else you can attach to it. */}
