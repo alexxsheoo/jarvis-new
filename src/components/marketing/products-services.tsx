@@ -46,17 +46,29 @@ const accents: Record<
   },
 };
 
-function OfferCard({ offer }: { offer: Offer }) {
+function OfferCard({
+  offer,
+  featured = false,
+}: {
+  offer: Offer;
+  featured?: boolean;
+}) {
   const accent = accents[offer.accent];
 
   return (
     <Link
       href={offer.href}
       className={cn(
-        "group flex flex-col gap-5 rounded-lg border p-6 transition-colors duration-200 ease-standard hover:bg-ink-850",
+        "group rounded-lg border transition-colors duration-200 ease-standard hover:bg-ink-850",
         accent.card,
+        // The anchor product lays out across two columns on desktop so it
+        // reads as the thing you start with, not the first of four equals.
+        featured
+          ? "flex flex-col gap-6 p-7 lg:grid lg:grid-cols-[1.1fr_1fr] lg:gap-10"
+          : "flex flex-col gap-5 p-6",
       )}
     >
+      <span className={cn("flex flex-col gap-5", !featured && "contents")}>
       <span className="flex items-center justify-between gap-3">
         <span
           className={cn(
@@ -80,10 +92,15 @@ function OfferCard({ offer }: { offer: Offer }) {
         >
           {offer.name}
         </span>
-        <span className="text-base text-muted">{offer.promise}</span>
+        <span className={cn("text-muted", featured ? "text-lg" : "text-base")}>
+          {offer.promise}
+        </span>
       </span>
 
       <span className="text-sm leading-relaxed text-muted">{offer.summary}</span>
+      </span>
+
+      <span className={cn("flex flex-col gap-5", !featured && "contents")}>
 
       {/* Two columns once a list runs long — Lead Scraper carries twelve
           capabilities and a single column turns the card into a scroll. */}
@@ -118,6 +135,7 @@ function OfferCard({ offer }: { offer: Offer }) {
           className="size-4 transition-transform duration-200 ease-standard group-hover:translate-x-0.5"
         />
       </span>
+      </span>
     </Link>
   );
 }
@@ -135,13 +153,29 @@ export function ProductsServices() {
               Different tools for different jobs.
             </>
           }
-          description="Start with the product you need today, or connect the full system as your operation grows."
+          description="Jarvis CRM is the hub most teams start with. xCerebro, Lead Scraper, and Custom Builds attach to it as the operation grows — each bought on its own terms."
         />
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {offers.map((offer) => (
-            <OfferCard key={offer.id} offer={offer} />
-          ))}
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center gap-3">
+            <span className="type-label-wide text-cobalt-400">Start here</span>
+            <span aria-hidden className="h-px flex-1 bg-line" />
+          </div>
+
+          <OfferCard offer={offers[0]} featured />
+
+          <div className="mt-4 flex items-center gap-3">
+            <span className="type-label-wide text-faint">
+              Add when you need them
+            </span>
+            <span aria-hidden className="h-px flex-1 bg-line" />
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {offers.slice(1).map((offer) => (
+              <OfferCard key={offer.id} offer={offer} />
+            ))}
+          </div>
         </div>
 
         {/* The scraper gets a real product surface rather than a card. Of the
