@@ -1,3 +1,4 @@
+import { CostComparisons } from "@/components/marketing/cost-comparisons";
 import { CrmFeatures } from "@/components/marketing/crm-features";
 import { CrmPricing } from "@/components/marketing/crm-pricing";
 import { FaqSection } from "@/components/marketing/faq-section";
@@ -16,6 +17,7 @@ import { SystemMap } from "@/components/marketing/system-map";
 import { TestimonialsSection } from "@/components/marketing/testimonials-section";
 import { TrustBar } from "@/components/marketing/trust-bar";
 import { VideoSection } from "@/components/marketing/video-section";
+import { WhyVideo } from "@/components/marketing/why-video";
 
 /**
  * The homepage sells Jarvis CRM. Everything from the hero to the testimonials
@@ -41,10 +43,12 @@ export default function HomePage() {
       <StackComparison />
       <CrmPricing />
       <ProofSection />
+      <WhyVideo />
       <TestimonialsSection />
 
       {/* Then, and only then, what else you can attach to it. */}
       <ProductsServices />
+      <CostComparisons />
       <SystemMap />
 
       <HowItWorks />
