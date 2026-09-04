@@ -1,3 +1,4 @@
+import { CostComparisons } from "@/components/marketing/cost-comparisons";
 import { CrmFeatures } from "@/components/marketing/crm-features";
 import { CrmPricing } from "@/components/marketing/crm-pricing";
 import { FaqSection } from "@/components/marketing/faq-section";
@@ -45,6 +46,7 @@ export default function HomePage() {
 
       {/* Then, and only then, what else you can attach to it. */}
       <ProductsServices />
+      <CostComparisons />
       <SystemMap />
 
       <HowItWorks />
