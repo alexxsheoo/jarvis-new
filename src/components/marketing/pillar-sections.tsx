@@ -89,7 +89,7 @@ export function CoreSection() {
         "Integrations",
         "Permissions",
       ]}
-      href="/platform/core"
+      href="/products/jarvis-crm"
     >
       <ProductFrame label="Pipelines / Acquisitions">
         <PipelineBoard />
@@ -113,7 +113,7 @@ export function AiStaffSection() {
         "Human approval gates",
         "Full activity log",
       ]}
-      href="/platform/ai-staff"
+      href="/products/xcerebro-ai-agents"
     >
       <AgentStaff />
     </PillarSection>
@@ -136,7 +136,7 @@ export function LeadEnginesSection() {
         "Routing",
         "Custom scrapers",
       ]}
-      href="/platform/lead-engines"
+      href="/products/lead-scraper"
     >
       <ProductFrame label="Engines / Public records" status="Running">
         <LeadEngineFlow />
@@ -160,7 +160,7 @@ export function CustomSection() {
         "Bespoke AI agents",
         "Business operating systems",
       ]}
-      href="/platform/custom"
+      href="/services/custom-builds"
     >
       <ProductFrame label="Workflows / Offer approval" status="Draft">
         <WorkflowCanvas />

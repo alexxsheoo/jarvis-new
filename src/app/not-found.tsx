@@ -32,7 +32,7 @@ export default function NotFound() {
             Back to home
           </Link>
           <Link
-            href="/platform/core"
+            href="/products/jarvis-crm"
             className={buttonVariants({ variant: "secondary", size: "lg" })}
           >
             Explore the platform

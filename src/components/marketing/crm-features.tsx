@@ -51,7 +51,7 @@ export function CrmFeatures() {
               Every feature above is part of the {brand.crm} subscription.
             </p>
             <Link
-              href="/platform/core"
+              href="/products/jarvis-crm"
               className={cn(
                 buttonVariants({ variant: "secondary", size: "sm" }),
                 "self-start",

@@ -27,7 +27,7 @@ import { WhyVideo } from "@/components/marketing/why-video";
  *
  * The other three offers appear once, together, after that case is made. They
  * keep their own names and their own pricing, but they are positioned as
- * additions rather than as alternatives. Their depth lives on /platform/*,
+ * additions rather than as alternatives. Their depth lives on their own pages,
  * which is where someone who wants it will go.
  */
 export default function HomePage() {
