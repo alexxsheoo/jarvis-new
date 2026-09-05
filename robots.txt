@@ -1,0 +1,8 @@
+User-Agent: *
+Allow: /
+Disallow: /signin
+Disallow: /status
+Disallow: /resources/docs
+Disallow: /resources/changelog
+
+Sitemap: https://justjarvis.com/sitemap.xml

@@ -1,0 +1,22 @@
+1:"$Sreact.fragment"
+2:I[48079,["/jarvis-new/_next/static/chunks/05hi-g7p6nijj.js","/jarvis-new/_next/static/chunks/0sq55v1m0usrj.js","/jarvis-new/_next/static/chunks/0zyly5r83_3vi.js","/jarvis-new/_next/static/chunks/3y1lvs4bj7x-z.js","/jarvis-new/_next/static/chunks/0nzl1j_ji-j8y.js"],"MovedPage"]
+3:I[97367,["/jarvis-new/_next/static/chunks/0h2qsuyze9ds1.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/jarvis-new/_next/static/chunks/0h2qsuyze9ds1.js"],"ViewportBoundary"]
+9:I[97367,["/jarvis-new/_next/static/chunks/0h2qsuyze9ds1.js"],"MetadataBoundary"]
+a:I[27201,["/jarvis-new/_next/static/chunks/0h2qsuyze9ds1.js"],"IconMark"]
+c:I[39756,["/jarvis-new/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+d:I[37457,["/jarvis-new/_next/static/chunks/0h2qsuyze9ds1.js"],"default"]
+7:X
+f:X
+f:C
+0:{"buildId":"OO__QW4PUxzwpA_wmGdpN","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"to":"/products/lead-scraper","name":"Lead Scraper"}],[["$","script","script-0",{"src":"/jarvis-new/_next/static/chunks/0nzl1j_ji-j8y.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Lead Scraper — Jarvis"}],["$","meta","1",{"name":"description","content":"Jarvis is the AI Revenue Operating System for owner-led sales businesses — CRM, lead engines, AI staff, and custom workflows connected in one system."}],["$","meta","2",{"name":"robots","content":"noindex, follow"}],["$","link","3",{"rel":"canonical","href":"https://justjarvis.com/products/lead-scraper/"}],["$","meta","4",{"property":"og:title","content":"Jarvis — AI Revenue Operating System"}],["$","meta","5",{"property":"og:description","content":"Jarvis is the AI Revenue Operating System for owner-led sales businesses — CRM, lead engines, AI staff, and custom workflows connected in one system."}],["$","meta","6",{"property":"og:url","content":"https://justjarvis.com/"}],["$","meta","7",{"property":"og:site_name","content":"Jarvis"}],["$","meta","8",{"property":"og:image","content":"https://justjarvis.com/opengraph-image?2cf16a293ade298f"}],["$","meta","9",{"property":"og:image:type","content":"image/png"}],["$","meta","10",{"property":"og:image:width","content":"1200"}],["$","meta","11",{"property":"og:image:height","content":"630"}],["$","meta","12",{"property":"og:image:alt","content":"Jarvis — AI Revenue Operating System"}],["$","meta","13",{"property":"og:type","content":"website"}],["$","meta","14",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","15",{"name":"twitter:title","content":"Jarvis — AI Revenue Operating System"}],["$","meta","16",{"name":"twitter:description","content":"Jarvis is the AI Revenue Operating System for owner-led sales businesses — CRM, lead engines, AI staff, and custom workflows connected in one system."}],["$","meta","17",{"name":"twitter:image","content":"https://justjarvis.com/opengraph-image?2cf16a293ade298f"}],["$","meta","18",{"name":"twitter:image:alt","content":"Jarvis — AI Revenue Operating System"}],["$","meta","19",{"name":"twitter:image:type","content":"image/png"}],["$","meta","20",{"name":"twitter:image:width","content":"1200"}],["$","meta","21",{"name":"twitter:image:height","content":"630"}],["$","link","22",{"rel":"icon","href":"/jarvis-new/favicon.ico?favicon.3wnfo5uzwnsz1.ico","sizes":"256x256","type":"image/x-icon"}],["$","link","23",{"rel":"icon","href":"/jarvis-new/icon.png?icon.3apvg4b1btoys.png","sizes":"512x512","type":"image/png"}],["$","$La","24",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@b","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Lc",null,{"parallelRouterKey":"children","template":["$","$Ld",null,{}]}]]}],"isPartial":"$@e","staleTime":"$7","varyParams":"$f"},{"rsc":["$","$1","c",{"children":[null,["$","$Lc",null,{"parallelRouterKey":"children","template":["$","$Ld",null,{}]}]]}],"isPartial":"$@10","staleTime":"$7","varyParams":"$f"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+5:null
+12:true
+7:300
+7:C
+11:0
+b:"$undefined"
+e:"$undefined"
+10:"$undefined"
+6:"$undefined"
