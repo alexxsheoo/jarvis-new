@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { PageHero } from "@/components/layout/page-hero";
 import { AgentConversion } from "@/components/marketing/agent-conversion";
+import { AgentCost } from "@/components/marketing/agent-cost";
 import { AgentImpact } from "@/components/marketing/agent-impact";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { FeatureGrid } from "@/components/marketing/feature-grid";
@@ -57,6 +58,8 @@ export default function AiStaffPage() {
       <AgentConversion />
 
       <AgentImpact />
+
+      <AgentCost />
 
       <FeatureGrid
         eyebrow="How they work"
