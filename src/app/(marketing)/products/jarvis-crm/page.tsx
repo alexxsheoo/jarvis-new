@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { CrmBento } from "@/components/marketing/crm-bento";
+import { CrmShowcase } from "@/components/marketing/crm-showcase";
 import { FeatureGrid } from "@/components/marketing/feature-grid";
 import { ConversationInbox } from "@/components/product/conversation-inbox";
 import { PipelineBoard } from "@/components/product/pipeline-board";
@@ -91,6 +92,8 @@ export default function CorePage() {
       </Section>
 
       <CrmBento />
+
+      <CrmShowcase />
 
       <FeatureGrid
         tone="alt"
