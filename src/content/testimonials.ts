@@ -6,9 +6,8 @@
  * company is a fabricated endorsement, and it is the kind of content that does
  * real damage when a visitor checks it.
  *
- * The section renders only when this array has entries, so the homepage simply
- * skips it until then. Fill it with quotes you actually have permission to
- * publish and it appears with no other change.
+ * These quotes belong on /testimonials, never on the homepage. Until approved
+ * quotes are supplied, that page shows explicitly labelled component samples.
  *
  * For each entry, use words the customer actually said. `role` and `company`
  * should be what they agreed to be identified as.
@@ -17,7 +16,8 @@ export type Testimonial = {
   quote: string;
   name: string;
   role: string;
-  company: string;
+  company?: string;
+  image?: string;
 };
 
 export const testimonials: Testimonial[] = [];

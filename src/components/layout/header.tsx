@@ -46,8 +46,8 @@ export function Header() {
         )}
       />
 
-      <Container width="wide" className="flex h-full items-center gap-8">
-        <Logo />
+      <Container width="wide" className="flex h-full items-center gap-4">
+        <Logo className="shrink-0" />
 
         <div className="flex-1">
           <MegaMenu onOpenChange={setMenuOpen} />
