@@ -102,7 +102,7 @@ export function CrmSection() {
       cta="Explore Jarvis CRM"
       note="Starting from $97/month. AI agent deployments, lead scraping, and custom implementation are separate."
     >
-      <ProductFrame label="Pipelines / Acquisitions">
+      <ProductFrame label="Jarvis CRM / Example pipeline" status="Demo">
         <PipelineBoard />
       </ProductFrame>
     </OfferSection>

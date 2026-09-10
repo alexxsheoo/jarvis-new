@@ -13,20 +13,12 @@ import { StatusDot } from "@/components/ui/status-dot";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
-/**
- * The four offers as modules of a running system rather than as a feature
- * list. States are operational words, not metrics — nothing here
- * should be mistaken for telemetry from a real account.
- *
- * `delay` staggers the status pulses so the rail reads as four independent
- * components reporting in, not one flashing row. Static strings, identical on
- * server and client.
- */
+/** CRM capabilities shown as a deterministic example workflow. */
 const modules = [
-  { label: "Jarvis CRM", state: "Connected", delay: "0s" },
-  { label: "Lead Scraper", state: "Live", delay: "0.5s" },
-  { label: "xCerebro AI Agents", state: "Active", delay: "1s", working: true },
-  { label: "Custom Builds", state: "Scoped", delay: "1.5s" },
+  { label: "Contacts", state: "Organize", delay: "0s" },
+  { label: "Pipelines", state: "Track", delay: "0.5s" },
+  { label: "Follow-up", state: "Automate", delay: "1s", working: true },
+  { label: "Reporting", state: "Measure", delay: "1.5s" },
 ];
 
 export function Hero() {
@@ -65,7 +57,7 @@ export function Hero() {
               tone="live"
               className="jarvis-status text-neon-400"
             />
-            The {site.positioning}
+            Jarvis CRM
           </span>
 
           {/* Words rather than characters: 7 pieces instead of 46, so the
@@ -75,7 +67,7 @@ export function Hero() {
           <h1 className="text-h1 md:text-display-md lg:text-display-lg text-balance text-paper">
             <DropText
               inline
-              text="Run the CRM. Deploy the agents. Generate the leads. Connect the whole operation."
+              text="Your leads. Your pipeline. One place to run it all."
               splitBy="words"
               staggerFrom="left"
               yOffset={-32}
@@ -87,9 +79,9 @@ export function Hero() {
           </h1>
 
           <p className="max-w-[56ch] text-lg leading-relaxed text-muted md:text-xl">
-            Jarvis gives you the CRM. xCerebro gives you the AI workforce.
-            Lead Scraper finds and prepares targeted opportunities. And when
-            your business needs something different, we build it.
+            Jarvis CRM brings your contacts, conversations, pipelines, appointments,
+            and follow-up into one workspace. Run your day-to-day here, then
+            add AI agents, lead sourcing, or a custom build when you need more.
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -126,7 +118,7 @@ export function Hero() {
             style={{ animationDuration: "5.5s" }}
           />
           <span className="shrink-0 font-mono text-[11px] tracking-[0.14em] text-neon-400 uppercase">
-            All modules online
+            CRM workflow preview
           </span>
         </div>
 
@@ -159,7 +151,7 @@ export function Hero() {
 
         <Reveal delay={0.15} className="mt-10 md:mt-12">
           <div className="hud-corners relative">
-            <ProductFrame label="Dashboards / Revenue" bodyClassName="p-0">
+            <ProductFrame label="Jarvis CRM / Example dashboard" status="Demo" bodyClassName="p-0">
               {/* Fixed height with the overflow clipped, so it reads as a
                   screenshot of a running app rather than a page embedded in a
                   page. Dark by default to sit in the brand, though the toggle

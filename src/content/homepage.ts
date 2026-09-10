@@ -101,7 +101,7 @@ export const proof = [
   },
   {
     industry: "Services & trades",
-    headline: "Every missed call answered before it churns",
+    headline: "A missed call starts a follow-up workflow",
     body: "Inbound calls that go unanswered trigger an immediate text, qualification, and a booked estimate slot.",
     tags: ["xCerebro", "Calendars"],
   },
@@ -142,6 +142,6 @@ export const faqs = [
   {
     question: "What does it cost?",
     answer:
-      "The platform plans are published — Basic, Elite, and Premium, starting at $97 a month. What varies is the build on top: how many pipelines, agents, and integrations your operation needs. That part is scoped with you and quoted after the mapping conversation.",
+      "Jarvis CRM plans start at $97/month. Bundles add xCerebro AI Agents, Lead Scraper, or Custom Builds according to your scope. Those deployments, data services, usage, and implementation are quoted separately; they are not all included in the base CRM plan.",
   },
 ];

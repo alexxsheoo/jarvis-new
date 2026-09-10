@@ -3,10 +3,10 @@ export const site = {
   positioning: "AI Revenue Operating System",
   line: "Built around your business.",
   description:
-    "Jarvis is the AI Revenue Operating System for owner-led sales businesses — CRM, lead engines, AI staff, and custom workflows connected in one system.",
+    "Jarvis CRM brings leads, conversations, pipelines, appointments, automation, and reporting into one workspace. Add xCerebro AI Agents, Lead Scraper, and Custom Builds through scoped bundles.",
   url: "https://justjarvis.com",
   cta: {
     primary: { label: "Build My System", href: "/build" },
-    secondary: { label: "Explore Products", href: "/#products" },
+    secondary: { label: "See How It Works", href: "/#how-it-works" },
   },
 } as const;

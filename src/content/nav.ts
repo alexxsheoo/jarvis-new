@@ -82,17 +82,16 @@ export const serviceNav: NavGroup[] = toGroups(services);
 
 /** Both header panels, in the order they appear. */
 export const navPanels: { label: string; groups: NavGroup[] }[] = [
-  { label: "Products", groups: productNav },
-  { label: "Services", groups: serviceNav },
+  { label: "Products & Services", groups: [...productNav.filter((group) => group.href !== "/products/jarvis-crm"), ...serviceNav] },
 ];
 
 /** Top-level header items rendered as plain links, after the panels. */
 export const primaryNav: NavLink[] = [
+  { label: "Features", href: "/#crm-features" },
+  { label: "How It Works", href: "/#how-it-works" },
   { label: "Solutions", href: "/solutions" },
-  { label: "Customers", href: "/#proof" },
   { label: "Pricing", href: "/pricing" },
   { label: "Resources", href: "/resources" },
-  { label: "Company", href: "/about" },
 ];
 
 export type FooterColumn = {

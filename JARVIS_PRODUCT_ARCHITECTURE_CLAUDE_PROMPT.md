@@ -1,5 +1,7 @@
 # JARVIS WEBSITE — PRODUCT CLARITY + HOMEPAGE RESTRUCTURE PROMPT
 
+> **Latest direction — September 9, 2026:** Use the GitHub build as the baseline. This website is primarily for **Jarvis CRM**: features, how it works, product demos, and CRM pricing. Promote xCerebro AI Agents, Lead Scraper, and Custom Builds as optional **CRM bundles** after the CRM case is established, and keep their distinct identities in a **Products & Services** menu. Bundle prices must be scoped, without implying every product is included in $97/month. Separate product websites will be integrated when the owner provides finished URLs. This direction supersedes conflicting homepage/navigation guidance below. The owner explicitly authorized committing, pushing, and publishing this update; future changes still require their own authorization.
+
 You are working inside the existing `jarvis-new` Next.js project.
 
 IMPORTANT: This is an iteration on the CURRENT build, not a rebuild.

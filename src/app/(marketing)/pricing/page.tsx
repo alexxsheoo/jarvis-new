@@ -20,15 +20,15 @@ export const metadata: Metadata = {
 
 const tiers = [
   {
-    name: "Jarvis CRM",
-    summary: "The operating layer for a team that needs one system of record.",
+    name: "CRM + Lead Scraper",
+    summary: "Your CRM, with lead sourcing and preparation scoped to your market.",
     includes: [
-      "CRM and custom pipelines",
-      "Unified conversations",
-      "Workflows, tasks, calendars",
-      "Dashboards and reporting",
-      "Standard integrations",
-      "Role-based permissions",
+      "Jarvis CRM platform",
+      "Selected public and custom sources",
+      "Cleanup and deduplication",
+      "Available data enrichment",
+      "Lead scoring and routing",
+      "Source and market scoping",
     ],
     featured: false,
   },
@@ -47,7 +47,7 @@ const tiers = [
     featured: true,
   },
   {
-    name: "Connected system",
+    name: "Custom CRM bundle",
     summary:
       "CRM, xCerebro agents, and Lead Scraper with the custom work your operation needs.",
     includes: [
@@ -79,12 +79,12 @@ export default function PricingPage() {
 
       <PricingComparison />
 
-      <Section tone="alt">
+      <Section id="bundles" tone="alt">
         <Container width="wide" className="flex flex-col gap-10">
           <SectionHeader
-            eyebrow="The build"
-            title="Three common shapes"
-            description="This is the work that goes on top of a plan, not another price list. Most builds start at one of these and get adjusted during mapping."
+            eyebrow="Optional CRM bundles"
+            title="Start with your CRM. Choose what connects."
+            description="Keep Jarvis CRM on its own, or combine it with xCerebro AI Agents, Lead Scraper, and Custom Builds. Each bundle is scoped and quoted; the base CRM price does not include all products and services."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
