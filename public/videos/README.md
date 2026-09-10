@@ -1,19 +1,13 @@
 # Product video assets
 
-`VideoShowcase` expects MP4 files at these paths. Until they exist the component
-renders a labelled "Video asset pending" placeholder rather than a broken player
-— nothing on the page breaks if they are missing.
+The landing page's "See Jarvis Work" section uses the provided narrated Jarvis CRM overview.
 
-| Path | Used by |
-|---|---|
-| `jarvis-system-demo.mp4` | Homepage "See Jarvis Work" section |
-| `jarvis-ai-staff.mp4` | Reserved — AI Staff |
-| `jarvis-lead-engine.mp4` | Reserved — Lead Engines |
+| File | Purpose |
+| --- | --- |
+| `jarvis-system-demo.mp4` | Complete 74-second overview, 1920 x 1080 at 25 fps, H.264 video and original AAC audio. |
+| `jarvis-crm-overview-poster.jpg` | Matching poster extracted from the supplied overview. |
+| `jarvis-why-poster.png` | Existing poster for the separate scroll-revealed "Why teams switch" section. |
 
-Guidelines:
+`VideoShowcase` uses native controls for play/pause, seeking, volume, and fullscreen. It does not autoplay or loop; audio is preserved and plays only after visitor interaction. `preload="none"` keeps the video file from downloading with the initial page. The poster appears until playback begins, including for visitors who prefer reduced motion.
 
-- **H.264 MP4**, since the component declares `type="video/mp4"`.
-- **No audio track.** Playback is muted and looping by design; audio would be
-  silently discarded and only inflate the file.
-- Keep loops short (10–20s) and small (< 6 MB) — they autoplay on load.
-- Supply a matching poster image and pass it via the `poster` prop.
+The supplied source was optimized for web delivery with H.264 CRF 22, the original AAC track copied unchanged, and `faststart` metadata. The original file in Downloads was not changed. Keep the `/jarvis-new/` prefix on public media paths in the GitHub Pages preview branch.
