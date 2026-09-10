@@ -1,59 +1,35 @@
-import { QuoteIcon } from "lucide-react";
-
-import { Reveal } from "@/components/motion/reveal";
 import { Container } from "@/components/ui/container";
-import { Section, SectionHeader } from "@/components/ui/section";
+import TestimonialCards from "@/components/ui/testimonial-v2";
+import { testimonialSamples } from "@/content/testimonial-samples";
 import { testimonials } from "@/content/testimonials";
 
-/**
- * Customer testimonials.
- *
- * Renders nothing while `testimonials` is empty, which it is until real quotes
- * are supplied. An empty section is better than a section of invented praise:
- * a fabricated endorsement attributed to a named person is the one kind of
- * placeholder that cannot be quietly corrected later.
- */
+/** Only mounted on the dedicated Testimonials page. */
 export function TestimonialsSection() {
-  if (testimonials.length === 0) return null;
+  const isSample = testimonials.length === 0;
 
   return (
-    <Section id="testimonials" tone="alt">
-      <Container width="wide" className="flex flex-col gap-12">
-        <SectionHeader
-          eyebrow="Customers"
-          title="Why teams keep it"
-          description="What owners say once the system has been running long enough to judge."
+    <section
+      id="testimonials"
+      aria-label="Testimonials"
+      className="pb-20 md:pb-28"
+    >
+      <Container width="wide" className="flex flex-col gap-8">
+        {isSample ? (
+          <div className="mx-auto max-w-2xl rounded-lg border border-hud bg-ink-900 px-6 py-4 text-center">
+            <p className="font-mono text-xs text-neon-300">
+              Sample testimonials · Design preview
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              These sample profiles and ERP quotes come from the card template.
+              They are not reviews from Jarvis CRM customers.
+            </p>
+          </div>
+        ) : null}
+        <TestimonialCards
+          testimonials={isSample ? testimonialSamples : testimonials}
+          isSample={isSample}
         />
-
-        <div className="grid gap-4 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <Reveal
-              key={`${testimonial.company}-${testimonial.name}`}
-              delay={index * 0.08}
-              className="h-full"
-            >
-              <figure className="flex h-full flex-col gap-5 rounded-lg border border-line bg-ink-950 p-6">
-                <QuoteIcon
-                  aria-hidden
-                  className="size-5 shrink-0 text-cobalt-400"
-                  strokeWidth={1.5}
-                />
-                <blockquote className="flex-1 text-sm leading-relaxed text-muted">
-                  {testimonial.quote}
-                </blockquote>
-                <figcaption className="hairline-t flex flex-col gap-0.5 pt-4">
-                  <span className="text-sm font-medium text-paper">
-                    {testimonial.name}
-                  </span>
-                  <span className="type-label text-faint">
-                    {testimonial.role} · {testimonial.company}
-                  </span>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
       </Container>
-    </Section>
+    </section>
   );
 }

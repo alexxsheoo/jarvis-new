@@ -90,6 +90,7 @@ export const primaryNav: NavLink[] = [
   { label: "Features", href: "/#crm-features" },
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Solutions", href: "/solutions" },
+  { label: "Testimonials", href: "/testimonials" },
   { label: "Pricing", href: "/pricing" },
   { label: "Resources", href: "/resources" },
 ];

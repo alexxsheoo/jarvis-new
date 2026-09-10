@@ -28,10 +28,10 @@ export function MegaMenu({
       onValueChange={(value) => onOpenChange?.(value !== "")}
       className="relative hidden xl:flex"
     >
-      <NavigationMenu.List className="flex items-center gap-1">
+      <NavigationMenu.List className="flex items-center">
         {navPanels.map((panel) => (
           <NavigationMenu.Item key={panel.label}>
-            <NavigationMenu.Trigger className="group inline-flex items-center gap-1.5 rounded-sm px-3 py-2 text-sm font-medium text-muted transition-colors hover:text-paper data-[state=open]:text-paper">
+            <NavigationMenu.Trigger className="group inline-flex items-center gap-1.5 whitespace-nowrap rounded-sm px-2 py-2 text-sm font-medium text-muted transition-colors hover:text-paper data-[state=open]:text-paper">
               {panel.label}
               <ChevronDownIcon
                 aria-hidden
@@ -70,7 +70,7 @@ export function MegaMenu({
             <NavigationMenu.Link asChild>
               <Link
                 href={item.href}
-                className="inline-flex items-center rounded-sm px-3 py-2 text-sm font-medium text-muted transition-colors hover:text-paper"
+                className="inline-flex items-center whitespace-nowrap rounded-sm px-2 py-2 text-sm font-medium text-muted transition-colors hover:text-paper"
               >
                 {item.label}
               </Link>
