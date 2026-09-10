@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { FeatureGrid } from "@/components/marketing/feature-grid";
+import { SystemMap } from "@/components/marketing/system-map";
 import { ProductFrame } from "@/components/product/product-frame";
 import { WorkflowCanvas } from "@/components/product/workflow-canvas";
 import { Container } from "@/components/ui/container";
@@ -75,17 +76,26 @@ export default function CustomPage() {
           />
           <ol className="grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step) => (
-              <li key={step.number} className="flex flex-col gap-3 bg-ink-900 p-6">
+              <li
+                key={step.number}
+                className="flex flex-col gap-3 bg-ink-900 p-6"
+              >
                 <span className="font-mono text-eyebrow text-cobalt-400 uppercase">
                   {step.number}
                 </span>
-                <h3 className="font-display text-h3 text-paper">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-muted">{step.body}</p>
+                <h3 className="font-display text-h3 text-paper">
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted">
+                  {step.body}
+                </p>
               </li>
             ))}
           </ol>
         </Container>
       </Section>
+
+      <SystemMap />
 
       <CtaBand />
     </>

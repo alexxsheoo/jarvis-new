@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { FeatureGrid } from "@/components/marketing/feature-grid";
-import { LeadEngineFlow } from "@/components/product/lead-engine-flow";
+import { LeadScraper } from "@/components/product/lead-scraper";
 import { ProductFrame } from "@/components/product/product-frame";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
@@ -59,10 +59,14 @@ export default function LeadEnginesPage() {
           <SectionHeader
             eyebrow="The pipeline"
             title="From raw source to assigned owner"
-            description="Each stage narrows the set. What reaches a person is deduplicated, enriched, and scored."
+            description="Follow an example run from public records to CRM routing. Counts are illustrative; available sources and data fields vary by market."
           />
-          <ProductFrame label="Engines / Public records" status="Running">
-            <LeadEngineFlow />
+          <ProductFrame
+            label="Lead Scraper / Example run 4182"
+            status="Demo"
+            bodyClassName="p-0"
+          >
+            <LeadScraper />
           </ProductFrame>
         </Container>
       </Section>

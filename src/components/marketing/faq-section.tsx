@@ -14,10 +14,7 @@ export function FaqSection() {
   return (
     <Section id="faq">
       <Container className="flex flex-col gap-10">
-        <SectionHeader
-          eyebrow="Questions"
-          title="What owners ask before they build"
-        />
+        <SectionHeader eyebrow="Questions" title="Questions about Jarvis CRM" />
 
         <Accordion type="single" collapsible className="flex flex-col">
           {faqs.map((faq) => (

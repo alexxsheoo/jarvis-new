@@ -1,56 +1,41 @@
 import {
   CalendarCheckIcon,
-  BotIcon,
-  DatabaseIcon,
   InboxIcon,
   LayersIcon,
-  UserCheckIcon,
+  MessageSquareIcon,
 } from "lucide-react";
 
 import { VideoShowcase } from "@/components/product/video-showcase";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 
-/** The conceptual path a single lead takes through the system. */
+/** The everyday lead workflow inside Jarvis CRM. */
 const chain = [
   { label: "Lead enters", icon: InboxIcon },
-  { label: "Lead Engine", icon: DatabaseIcon },
-  { label: "Jarvis CRM", icon: LayersIcon },
-  { label: "xCerebro", icon: BotIcon },
-  { label: "Human approval", icon: UserCheckIcon, human: true },
+  { label: "Pipeline", icon: LayersIcon },
+  { label: "Follow-up", icon: MessageSquareIcon },
   { label: "Appointment", icon: CalendarCheckIcon },
 ];
 
 export function VideoSection() {
   return (
-    <Section id="see-it-work">
+    <Section id="see-it-work" className="scroll-mt-20">
       <Container width="wide" className="flex flex-col gap-10">
         <SectionHeader
-          eyebrow="See Jarvis Work"
-          title={
-            <>
-              One lead.
-              <br />
-              One system.
-              <br />
-              Every next action connected.
-            </>
-          }
-          description="The same record moves through sourcing, routing, conversation, and approval without anyone re-entering it."
+          eyebrow="See Jarvis CRM in action"
+          title="From the first inquiry to the next appointment."
+          description="Take a look inside Jarvis CRM: contacts, conversations, pipelines, and follow-up in one workspace."
         />
 
         {/* CSS-only travelling light — no client JS for the chain itself. */}
         <ol className="flex flex-col gap-3 lg:flex-row lg:items-stretch">
           {chain.map((step, index) => (
-            <li key={step.label} className="flex flex-1 items-center gap-3">
-              <div className="flex flex-1 items-center gap-3 rounded-md border border-line bg-ink-850 p-3">
-                <span
-                  className={`flex size-8 shrink-0 items-center justify-center rounded-sm border ${
-                    step.human
-                      ? "border-warn/30 text-warn"
-                      : "border-line text-cobalt-400"
-                  }`}
-                >
+            <li
+              key={step.label}
+              className="flex min-w-0 flex-1 items-center gap-3"
+            >
+              <div className="flex min-w-0 flex-1 items-center gap-3 rounded-md border border-line bg-ink-850 p-3">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-sm border border-line text-cobalt-400">
                   <step.icon aria-hidden className="size-4" strokeWidth={1.5} />
                 </span>
                 <span className="min-w-0">
@@ -58,7 +43,7 @@ export function VideoSection() {
                     {step.label}
                   </span>
                   <span className="type-label text-faint">
-                    {step.human ? "Human" : `Step ${index + 1}`}
+                    Step {index + 1}
                   </span>
                 </span>
               </div>

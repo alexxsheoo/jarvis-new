@@ -10,8 +10,8 @@ export function ProofSection() {
       <Container width="wide" className="flex flex-col gap-12">
         <SectionHeader
           eyebrow="Example workflows"
-          title="One system, many industries"
-          description="Illustrative workflows for different industries, not customer results. Start with Jarvis CRM and add the products or services your process needs."
+          title="A CRM for the way your team sells"
+          description="Examples of how different teams can organize their day in Jarvis CRM. These are illustrative workflows, not customer results."
         />
 
         <div className="grid gap-4 lg:grid-cols-3">
@@ -24,7 +24,9 @@ export function ProofSection() {
                 <h3 className="font-display text-h3 text-balance text-paper">
                   {item.headline}
                 </h3>
-                <p className="text-sm leading-relaxed text-muted">{item.body}</p>
+                <p className="text-sm leading-relaxed text-muted">
+                  {item.body}
+                </p>
                 <div className="mt-auto flex flex-wrap gap-2 pt-2">
                   {item.tags.map((tag) => (
                     <Badge key={tag}>{tag}</Badge>
