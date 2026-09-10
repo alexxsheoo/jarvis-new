@@ -7,7 +7,10 @@
 
 export const metrics = [
   { value: "< 60s", label: "First response to every inbound lead" },
-  { value: "1 system", label: "Replacing the CRM, dialer, and automation stack" },
+  {
+    value: "1 system",
+    label: "Replacing the CRM, dialer, and automation stack",
+  },
   { value: "24/7", label: "AI staff working pipelines around the clock" },
 ];
 
@@ -95,29 +98,29 @@ export const securityPoints = [
 export const proof = [
   {
     industry: "Acquisitions",
-    headline: "Sourced lists turned into a working pipeline",
-    body: "County records scraped nightly, deduplicated against existing contacts, scored, and routed to the right buyer.",
-    tags: ["Lead Scraper", "Custom pipelines"],
+    headline: "Every opportunity has a next step",
+    body: "Keep seller details, conversations, and follow-up tasks with each opportunity as it moves from inquiry to offer.",
+    tags: ["Contacts", "Custom pipelines"],
   },
   {
     industry: "Services & trades",
-    headline: "A missed call starts a follow-up workflow",
-    body: "Inbound calls that go unanswered trigger an immediate text, qualification, and a booked estimate slot.",
-    tags: ["xCerebro", "Calendars"],
+    headline: "From inquiry to booked estimate",
+    body: "Bring calls and messages into one contact record, assign follow-up, and track the estimate appointment alongside the conversation.",
+    tags: ["Follow-up", "Calendars"],
   },
   {
     industry: "Agencies",
-    headline: "Client reporting that assembles itself",
-    body: "Unified conversations and attribution roll into one dashboard per client, refreshed without anyone exporting a CSV.",
-    tags: ["Core", "Reporting"],
+    headline: "See which deals need attention",
+    body: "Review pipeline stages, activity, and deal owners together so the team can see what moved and what needs a reply.",
+    tags: ["Pipelines", "Reporting"],
   },
 ];
 
 export const faqs = [
   {
-    question: "Is Jarvis only for real estate?",
+    question: "Is Jarvis CRM only for real estate?",
     answer:
-      "No. Jarvis started in real estate, which is why the lead engines are unusually good at public-record sourcing. The system itself is industry-agnostic — it runs acquisitions, services businesses, brokerages, and agencies on the same core with different configuration.",
+      "No. Jarvis CRM supports acquisitions, service businesses, brokerages, and agencies. Configure contact fields, pipeline stages, and workflows around the way your team sells.",
   },
   {
     question: "How long does implementation take?",
@@ -130,18 +133,18 @@ export const faqs = [
       "Only the ones Jarvis makes redundant. Your phone system, calendar, ad accounts, and payment processor stay where they are and connect in. The CRM and automation layers are usually what get consolidated.",
   },
   {
-    question: "What can the AI staff do without a human?",
+    question: "How does CRM follow-up work?",
     answer:
-      "Exactly what you decide during the build. Every agent has explicit triggers, allowed actions, and approval gates. Most teams start with AI handling first response and follow-up while keeping offers and contracts behind human sign-off.",
+      "Workflow rules can trigger messages, tasks, and appointment reminders when a contact or deal reaches a defined step. Your team sets the rules and can review the conversation and next action on the contact record.",
   },
   {
     question: "Who owns the data?",
     answer:
-      "You do. Every record is exportable at any time, and the activity log shows every change made by a person or an agent.",
+      "You do. You can export your contact data, and the activity history keeps record changes visible to your team.",
   },
   {
     question: "What does it cost?",
     answer:
-      "Jarvis CRM plans start at $97/month. Bundles add xCerebro AI Agents, Lead Scraper, or Custom Builds according to your scope. Those deployments, data services, usage, and implementation are quoted separately; they are not all included in the base CRM plan.",
+      "Jarvis CRM plans start at $97/month. Optional products, data services, communications usage, and implementation are priced separately. CRM bundle options are available on the pricing page.",
   },
 ];

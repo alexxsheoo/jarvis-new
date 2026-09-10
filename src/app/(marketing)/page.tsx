@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 
-import { CostComparisons } from "@/components/marketing/cost-comparisons";
 import { CrmFeatures } from "@/components/marketing/crm-features";
 import { CrmPricing } from "@/components/marketing/crm-pricing";
 import { FaqSection } from "@/components/marketing/faq-section";
 import { FinalCta } from "@/components/marketing/final-cta";
 import { Hero } from "@/components/marketing/hero";
 import { HowItWorks } from "@/components/marketing/how-it-works";
-import { HumanAiSection } from "@/components/marketing/human-ai-section";
 import { IntegrationsSection } from "@/components/marketing/integrations-section";
 import { CrmSection } from "@/components/marketing/offer-sections";
 import { ProblemSection } from "@/components/marketing/problem-section";
@@ -15,9 +13,7 @@ import { ProductsServices } from "@/components/marketing/products-services";
 import { ProofSection } from "@/components/marketing/proof-section";
 import { SecuritySection } from "@/components/marketing/security-section";
 import { StackComparison } from "@/components/marketing/stack-comparison";
-import { SystemMap } from "@/components/marketing/system-map";
 import { VideoSection } from "@/components/marketing/video-section";
-import { WhyVideo } from "@/components/marketing/why-video";
 
 /**
  * The homepage sells Jarvis CRM. Everything from the hero to the product proof
@@ -44,20 +40,15 @@ export default function HomePage() {
       <CrmSection />
       <CrmFeatures />
       <HowItWorks />
+      <VideoSection />
       <StackComparison />
       <CrmPricing />
       <ProofSection />
-      <WhyVideo />
-
-      {/* Then, and only then, what else you can attach to it. */}
-      <ProductsServices />
-      <CostComparisons />
-      <SystemMap />
-
       <IntegrationsSection />
       <SecuritySection />
-      <VideoSection />
-      <HumanAiSection />
+
+      {/* A quick path to the separate product and service pages. */}
+      <ProductsServices />
       <FaqSection />
       <FinalCta />
     </>

@@ -1,0 +1,211 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: 4.25rem 4rem;
+  background: var(--color-ink-950);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 30% -15% 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 60% 55% at 50% 64%,
+    rgba(43, 91, 255, 0.15),
+    transparent 80%
+  );
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 64rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.title {
+  margin-top: 1.5rem;
+  font-size: clamp(2.125rem, 4.35vw, 3.65rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  color: var(--color-paper);
+}
+
+.description {
+  max-width: 36rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.productFigure {
+  margin-top: 3rem;
+}
+.deviceStage {
+  position: relative;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+.desktop {
+  display: none;
+}
+
+.phone {
+  position: relative;
+  z-index: 2;
+  width: 17rem;
+  margin-inline: auto;
+  padding: 6px;
+  border: 1px solid #586174;
+  border-radius: 2.5rem;
+  background: #171c27;
+  box-shadow:
+    0 2px 0 1px #0a0c12,
+    0 22px 65px -20px #000;
+}
+
+.phone::before,
+.phone::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  border-radius: 1px;
+  background: #434b5e;
+}
+.phone::before {
+  top: 6rem;
+  left: -3px;
+  height: 3rem;
+}
+.phone::after {
+  top: 7.5rem;
+  right: -3px;
+  height: 4rem;
+}
+
+.phoneScreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 33rem;
+  overflow: hidden;
+  border: 1px solid #080a10;
+  border-radius: 2.125rem;
+  background: var(--color-ink-900);
+}
+.phoneStatus {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2.5rem;
+  padding: 0.5rem 1.25rem 0;
+  font-size: 10px;
+  color: var(--color-paper);
+}
+.notch {
+  position: absolute;
+  top: 0.65rem;
+  left: 50%;
+  width: 4.25rem;
+  height: 1.15rem;
+  transform: translateX(-50%);
+  border-radius: 2rem;
+  background: #000;
+}
+.incoming,
+.outgoing {
+  max-width: 90%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.7rem;
+  font-size: 11px;
+  line-height: 1.55;
+}
+.incoming {
+  align-self: flex-start;
+  border: 1px solid var(--color-line);
+  border-bottom-left-radius: 2px;
+  background: var(--color-ink-800);
+  color: var(--color-paper);
+}
+.outgoing {
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+  background: #234bc9;
+  color: #fff;
+}
+.appointment {
+  margin-top: 0.25rem;
+  padding: 0.9rem;
+  border: 1px solid var(--color-hud);
+  border-radius: 0.75rem;
+  background: var(--color-ink-850);
+}
+.homeIndicator {
+  display: block;
+  width: 4rem;
+  height: 3px;
+  margin: 0.35rem auto 0.6rem;
+  border-radius: 4px;
+  background: var(--color-muted);
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    padding-top: 4.75rem;
+  }
+  .description {
+    font-size: 1.0625rem;
+  }
+  .productFigure {
+    margin-top: 3.75rem;
+  }
+}
+
+/* Keep the original desktop dashboard and mobile phone board mutually exclusive.
+   Tablets use the mobile board until the dashboard has enough room at 1024px. */
+@media (min-width: 64rem) {
+  .desktop {
+    display: block;
+    width: 100%;
+  }
+  .desktopViewport {
+    height: 32rem;
+    overflow: hidden;
+  }
+  .phone {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .productFigure {
+    animation: product-enter 550ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+}
+
+@keyframes product-enter {
+  from {
+    opacity: 0.65;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .productFigure {
+    animation: none !important;
+    transform: none !important;
+  }
+}

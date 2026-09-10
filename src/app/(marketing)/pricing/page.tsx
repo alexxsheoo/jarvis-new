@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { PageHero } from "@/components/layout/page-hero";
 import { CtaBand } from "@/components/marketing/cta-band";
+import { CostComparisons } from "@/components/marketing/cost-comparisons";
 import { PricingComparison } from "@/components/marketing/pricing-comparison";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -21,7 +22,8 @@ export const metadata: Metadata = {
 const tiers = [
   {
     name: "CRM + Lead Scraper",
-    summary: "Your CRM, with lead sourcing and preparation scoped to your market.",
+    summary:
+      "Your CRM, with lead sourcing and preparation scoped to your market.",
     includes: [
       "Jarvis CRM platform",
       "Selected public and custom sources",
@@ -63,9 +65,11 @@ const tiers = [
 ];
 
 const pricingFaqs = faqs.filter((faq) =>
-  ["What does it cost?", "How long does implementation take?", "Do we have to replace the tools we already pay for?"].includes(
-    faq.question,
-  ),
+  [
+    "What does it cost?",
+    "How long does implementation take?",
+    "Do we have to replace the tools we already pay for?",
+  ].includes(faq.question),
 );
 
 export default function PricingPage() {
@@ -137,19 +141,24 @@ export default function PricingPage() {
           </div>
 
           <p className="font-mono text-xs text-faint">
-            Implementation is scoped separately from the running system. Both are
-            quoted together after mapping.
+            Implementation is scoped separately from the running system. Both
+            are quoted together after mapping.
           </p>
         </Container>
       </Section>
 
-
       <Section>
         <Container className="flex flex-col gap-10">
-          <SectionHeader eyebrow="Questions" title="Before you ask for a quote" />
+          <SectionHeader
+            eyebrow="Questions"
+            title="Before you ask for a quote"
+          />
           <dl className="flex flex-col gap-px overflow-hidden rounded-lg border border-line bg-line">
             {pricingFaqs.map((faq) => (
-              <div key={faq.question} className="flex flex-col gap-2 bg-ink-950 p-6">
+              <div
+                key={faq.question}
+                className="flex flex-col gap-2 bg-ink-950 p-6"
+              >
                 <dt className="font-display text-base font-medium text-paper">
                   {faq.question}
                 </dt>
@@ -161,6 +170,8 @@ export default function PricingPage() {
           </dl>
         </Container>
       </Section>
+
+      <CostComparisons />
 
       <CtaBand
         title="Get an accurate number"

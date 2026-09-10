@@ -6,6 +6,7 @@ import { AgentCost } from "@/components/marketing/agent-cost";
 import { AgentImpact } from "@/components/marketing/agent-impact";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { FeatureGrid } from "@/components/marketing/feature-grid";
+import { HumanAiSection } from "@/components/marketing/human-ai-section";
 import { AgentStaff } from "@/components/product/agent-staff";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
@@ -68,6 +69,8 @@ export default function AiStaffPage() {
         features={principles}
         columns={4}
       />
+
+      <HumanAiSection />
 
       <CtaBand
         title="Put an AI staff on your pipeline"
