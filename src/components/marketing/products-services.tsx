@@ -140,20 +140,53 @@ function OfferCard({
   );
 }
 
+const crmBundles: Offer[] = [
+  {
+    ...offers[1],
+    name: "Jarvis CRM + xCerebro AI Agents",
+    promise: "Your CRM, with an AI team on the work.",
+    summary: "Connect your CRM workflow to xCerebro agents for lead qualification, follow-up, appointment setting, and assigned operations tasks.",
+    capabilities: ["Jarvis CRM platform", "Role-based AI agents", "Follow-up & appointment setting", "Permissions & human approvals"],
+    pricing: "CRM plan + AI deployment. Scoped bundle quote.",
+    cta: "Explore Bundle Options",
+    href: "/pricing#bundles",
+  },
+  {
+    ...offers[2],
+    name: "Jarvis CRM + Lead Scraper",
+    promise: "Prepared opportunities, routed into your CRM.",
+    summary: "Connect selected public records and custom sources to your pipeline, with data cleanup, enrichment, deduplication, and routing scoped to your market.",
+    capabilities: ["Jarvis CRM platform", "Selected lead sources", "Cleanup & deduplication", "Enrichment & CRM routing"],
+    pricing: "CRM plan + data services. Priced by source, market, and scope.",
+    cta: "Explore Bundle Options",
+    href: "/pricing#bundles",
+  },
+  {
+    ...offers[3],
+    name: "Jarvis CRM + Custom Builds",
+    promise: "The CRM configured around your process.",
+    summary: "Combine Jarvis CRM with a scoped implementation: custom pipelines, automations, integrations, and optional AI and lead-data connections.",
+    capabilities: ["Jarvis CRM platform", "Custom pipelines & workflows", "Business integrations", "Optional AI & data connections"],
+    pricing: "CRM plan + scoped implementation. Custom quote.",
+    cta: "Explore Bundle Options",
+    href: "/pricing#bundles",
+  },
+];
+
 export function ProductsServices() {
   return (
     <Section id="products" tone="alt">
       <Container width="wide" className="flex flex-col gap-12">
         <SectionHeader
-          eyebrow="Products & services"
+          eyebrow="CRM bundles"
           title={
             <>
-              One company.
+              Start with Jarvis CRM.
               <br />
-              Different tools for different jobs.
+              Bundle the tools you need next.
             </>
           }
-          description="The CRM runs the business. These three attach to it when the operation needs more — each bought on its own terms, none of them required."
+          description="Use Jarvis CRM on its own, or bundle it with xCerebro AI Agents, Lead Scraper, and Custom Builds. We scope the combination around your team; additional products and services are quoted separately from the base CRM plan."
         />
 
         <div className="flex flex-col gap-5">
@@ -165,7 +198,7 @@ export function ProductsServices() {
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {offers.slice(1).map((offer) => (
+            {crmBundles.map((offer) => (
               <OfferCard key={offer.id} offer={offer} />
             ))}
           </div>

@@ -273,7 +273,7 @@ const ExampleContent = ({
     <div className="flex-1 overflow-auto bg-gray-50 p-6 dark:bg-gray-950">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Dashboard</h1>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Dashboard</h2>
           <p className="mt-1 text-gray-600 dark:text-gray-400">Everything that moved on your pipeline today</p>
         </div>
         <div className="flex items-center gap-4">

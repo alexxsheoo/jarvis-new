@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { CostComparisons } from "@/components/marketing/cost-comparisons";
 import { CrmFeatures } from "@/components/marketing/crm-features";
 import { CrmPricing } from "@/components/marketing/crm-pricing";
@@ -15,7 +17,6 @@ import { SecuritySection } from "@/components/marketing/security-section";
 import { StackComparison } from "@/components/marketing/stack-comparison";
 import { SystemMap } from "@/components/marketing/system-map";
 import { TestimonialsSection } from "@/components/marketing/testimonials-section";
-import { TrustBar } from "@/components/marketing/trust-bar";
 import { VideoSection } from "@/components/marketing/video-section";
 import { WhyVideo } from "@/components/marketing/why-video";
 
@@ -30,16 +31,20 @@ import { WhyVideo } from "@/components/marketing/why-video";
  * additions rather than as alternatives. Their depth lives on their own pages,
  * which is where someone who wants it will go.
  */
+export const metadata: Metadata = {
+  title: "Jarvis CRM | Leads, pipelines, and follow-up in one place",
+};
+
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustBar />
       <ProblemSection />
 
       {/* The CRM case, start to finish. */}
       <CrmSection />
       <CrmFeatures />
+      <HowItWorks />
       <StackComparison />
       <CrmPricing />
       <ProofSection />
@@ -51,7 +56,6 @@ export default function HomePage() {
       <CostComparisons />
       <SystemMap />
 
-      <HowItWorks />
       <IntegrationsSection />
       <SecuritySection />
       <VideoSection />

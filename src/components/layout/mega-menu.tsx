@@ -26,7 +26,7 @@ export function MegaMenu({
     <NavigationMenu.Root
       delayDuration={80}
       onValueChange={(value) => onOpenChange?.(value !== "")}
-      className="relative hidden lg:flex"
+      className="relative hidden xl:flex"
     >
       <NavigationMenu.List className="flex items-center gap-1">
         {navPanels.map((panel) => (

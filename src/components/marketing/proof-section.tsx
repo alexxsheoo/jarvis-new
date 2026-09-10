@@ -9,9 +9,9 @@ export function ProofSection() {
     <Section id="proof" tone="alt">
       <Container width="wide" className="flex flex-col gap-12">
         <SectionHeader
-          eyebrow="Proof"
+          eyebrow="Example workflows"
           title="One system, many industries"
-          description="Jarvis started in real estate. The engine that made it good at public-record sourcing turned out to be good at any business where leads arrive faster than people can work them."
+          description="Illustrative workflows for different industries, not customer results. Start with Jarvis CRM and add the products or services your process needs."
         />
 
         <div className="grid gap-4 lg:grid-cols-3">

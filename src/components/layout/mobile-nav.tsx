@@ -50,7 +50,7 @@ export function MobileNav() {
     <Sheet>
       <SheetTrigger
         aria-label="Open navigation"
-        className="inline-flex size-10 items-center justify-center rounded-sm text-muted transition-colors hover:text-paper lg:hidden"
+        className="inline-flex size-10 items-center justify-center rounded-sm text-muted transition-colors hover:text-paper xl:hidden"
       >
         <MenuIcon aria-hidden className="size-5" strokeWidth={1.5} />
       </SheetTrigger>
