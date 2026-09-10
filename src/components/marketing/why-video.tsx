@@ -24,8 +24,8 @@ export function WhyVideo() {
           { text: "Follow-up that does not depend on memory", tone: "border-line-strong bg-ink-850 text-paper" },
         ]}
         subText={`A short walkthrough of why owner-led teams move onto ${brand.crm} and what changes once they do.`}
-        // videoSrc="/videos/jarvis-why.mp4"  ← uncomment once the file exists
-        posterSrc="/videos/jarvis-why-poster.png"
+        // videoSrc="/jarvis-new/videos/jarvis-why.mp4"  ← uncomment once the file exists
+        posterSrc="/jarvis-new/videos/jarvis-why-poster.png"
         caption="Placeholder frame. Add the walkthrough at public/videos/jarvis-why.mp4 and pass it as videoSrc to play it here."
       />
     </Section>

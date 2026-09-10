@@ -74,8 +74,8 @@ export function VideoSection() {
         </ol>
 
         <VideoShowcase
-          src="/videos/jarvis-system-demo.mp4"
-          modalSrc="/videos/jarvis-system-demo.mp4"
+          src="/jarvis-new/videos/jarvis-system-demo.mp4"
+          modalSrc="/jarvis-new/videos/jarvis-system-demo.mp4"
           label="A lead moving from intake through Lead Scraper, Jarvis CRM, xCerebro agents, and human approval to a booked appointment."
           caption="Placeholder — replace with real product footage at /public/videos/jarvis-system-demo.mp4"
         />
