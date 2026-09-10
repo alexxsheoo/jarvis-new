@@ -1,1 +1,0 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,80393,t=>{t.q("/jarvis-new/_next/static/media/jarvis-wordmark.31hsul-akhyyc.png")}]);
