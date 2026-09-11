@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BuildForm } from "@/components/forms/build-form";
 import { Logo } from "@/components/layout/logo";
 import { Container } from "@/components/ui/container";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Custom build request",
@@ -88,10 +89,16 @@ export default function CustomBuildRequestPage() {
             © {new Date().getFullYear()} Jarvis
           </p>
           <Link
-            href="/privacy"
+            href={site.privacyPolicyUrl}
             className="font-mono text-xs text-faint hover:text-muted"
           >
-            Privacy
+            Privacy Policy
+          </Link>
+          <Link
+            href={site.termsUrl}
+            className="font-mono text-xs text-faint hover:text-muted"
+          >
+            Terms and Conditions
           </Link>
         </Container>
       </footer>

@@ -61,7 +61,7 @@ export function Header() {
 
         <div className="hidden items-center gap-2 xl:flex">
           <Link
-            href="/signin"
+            href={site.appUrl}
             className={buttonVariants({ variant: "ghost", size: "md" })}
           >
             Sign in
