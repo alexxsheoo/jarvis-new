@@ -1,14 +1,14 @@
-/** Owner-supplied checkout; verified to show Jarvis Standard at $97/month. */
+/** Owner-supplied SaaS checkout; verified as Jarvis Standard at $97/month. */
 export const standardPaymentLink =
-  "https://link.fastpaydirect.com/payment-link/6aa36290ceb12d9fc1a8c43e";
+  "https://buy.stripe.com/5kQ4gA5EcfLl73TcA09bO1q";
 
-/** Owner-supplied checkout; verified to show Jarvis Elite at $197/month. */
+/** Owner-supplied SaaS checkout; verified as Jarvis Elite at $197/month. */
 export const elitePaymentLink =
-  "https://link.fastpaydirect.com/payment-link/6aa363f9ceb12d9fc1a8c441";
+  "https://link.fastpaydirect.com/payment-link/6aa45856ceb12d9fc1a8c697";
 
-/** Owner-supplied checkout; verified to show Jarvis Premium at $297/month. */
+/** Owner-supplied SaaS checkout; verified as Jarvis Premium at $297/month. */
 export const premiumPaymentLink =
-  "https://link.fastpaydirect.com/payment-link/6aa364e4e9a073174b3b5bb6";
+  "https://link.fastpaydirect.com/payment-link/6aa45867ceb12d9fc1a8c699";
 
 /** Owner-supplied one-time $300 onboarding checkout. */
 export const privateOnboardingPaymentLink =
