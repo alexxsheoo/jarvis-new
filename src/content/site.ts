@@ -7,6 +7,7 @@ export const site = {
   url: "https://justjarvis.com",
   cta: {
     primary: { label: "Build My System", href: "/checkout" },
+    customBuild: { label: "Build My System", href: "/custom-build-request" },
     secondary: { label: "See How It Works", href: "/#how-it-works" },
   },
 } as const;

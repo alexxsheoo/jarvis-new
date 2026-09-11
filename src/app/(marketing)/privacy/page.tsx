@@ -21,7 +21,7 @@ export default function PrivacyPage() {
         template. Replace this block before launch.
       </PendingNotice>
       <p>
-        In the meantime: the Build My Jarvis form collects the contact and
+        In the meantime: the custom build request form collects the contact and
         business details you enter so we can scope a build. Questions about data
         handling can go to the team through the contact page.
       </p>

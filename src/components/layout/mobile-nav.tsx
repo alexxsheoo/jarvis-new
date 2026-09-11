@@ -45,7 +45,11 @@ function CloseLink({
   );
 }
 
-export function MobileNav() {
+export function MobileNav({
+  primaryCta = site.cta.primary,
+}: {
+  primaryCta?: { label: string; href: string };
+}) {
   return (
     <Sheet>
       <SheetTrigger
@@ -77,42 +81,42 @@ export function MobileNav() {
                 {panel.label}
               </span>
               <Accordion type="single" collapsible className="flex flex-col">
-            {panel.groups.map((pillar) => (
-              <AccordionItem key={pillar.href} value={pillar.href}>
-                <AccordionTrigger>
-                  <span className="flex items-center gap-2.5">
-                    <pillar.icon
-                      aria-hidden
-                      className="size-4 text-cobalt-400"
-                      strokeWidth={1.5}
-                    />
-                    {pillar.label}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <ul className="flex flex-col gap-1 pl-6.5">
-                    <li>
-                      <CloseLink
-                        href={pillar.href}
-                        className="block py-1.5 text-sm text-cobalt-400"
-                      >
-                        Overview
-                      </CloseLink>
-                    </li>
-                    {pillar.links.map((link) => (
-                      <li key={link.href}>
-                        <CloseLink
-                          href={link.href}
-                          className="block py-1.5 text-sm text-muted"
-                        >
-                          {link.label}
-                        </CloseLink>
-                      </li>
-                    ))}
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+                {panel.groups.map((pillar) => (
+                  <AccordionItem key={pillar.href} value={pillar.href}>
+                    <AccordionTrigger>
+                      <span className="flex items-center gap-2.5">
+                        <pillar.icon
+                          aria-hidden
+                          className="size-4 text-cobalt-400"
+                          strokeWidth={1.5}
+                        />
+                        {pillar.label}
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <ul className="flex flex-col gap-1 pl-6.5">
+                        <li>
+                          <CloseLink
+                            href={pillar.href}
+                            className="block py-1.5 text-sm text-cobalt-400"
+                          >
+                            Overview
+                          </CloseLink>
+                        </li>
+                        {pillar.links.map((link) => (
+                          <li key={link.href}>
+                            <CloseLink
+                              href={link.href}
+                              className="block py-1.5 text-sm text-muted"
+                            >
+                              {link.label}
+                            </CloseLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
               </Accordion>
             </div>
           ))}
@@ -153,10 +157,10 @@ export function MobileNav() {
             Sign in
           </CloseLink>
           <CloseLink
-            href={site.cta.primary.href}
+            href={primaryCta.href}
             className={buttonVariants({ variant: "primary", size: "lg" })}
           >
-            {site.cta.primary.label}
+            {primaryCta.label}
           </CloseLink>
         </div>
       </SheetContent>

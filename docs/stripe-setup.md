@@ -14,9 +14,11 @@ The public website is deployed to GitHub Pages as a static export. Use hosted ch
 
 ## Plan mapping
 
-The shared **Build My System** CTA opens `/checkout`. This static selection page shows all three monthly plans and links each choice directly to its configured hosted payment URL. It uses the same billing configuration as the individual review pages, including test-mode labels and unavailable states. The custom-build overview uses **Explore Custom Builds** so its label remains distinct.
+General and CRM **Build My System** CTAs open `/checkout`. This static selection page shows all three monthly plans and links each choice directly to its configured hosted payment URL. It uses the same billing configuration as the individual review pages, including test-mode labels and unavailable states. Custom Builds page CTAs and the Custom CRM bundle instead open `/custom-build-request` for a discovery-call inquiry.
 
-The selection flow passed lint, TypeScript, the production build, and all five billing tests. Generated HTML verified all 48 rendered Build My System links point to `/checkout`. Browser checks covered desktop and 320px mobile layouts, the mobile menu closing on navigation, and each plan opening its matching $97/$197/$297 monthly checkout. No payment was submitted.
+Previously shared `/build` URLs render the same plan-selection page directly, without needing JavaScript or a server redirect. The separate intake form is available at `/custom-build-request` for custom projects and partnership inquiries. Its delivery status is documented in [custom-build-intake.md](custom-build-intake.md).
+
+The original selection flow passed lint, TypeScript, the production build, and all five billing tests. Browser checks covered desktop and 320px mobile layouts, the mobile menu closing on navigation, and each plan opening its matching $97/$197/$297 monthly checkout. The later Custom Builds exception is documented separately. No payment was submitted.
 
 The display prices below already exist on the website. All three supplied checkout names, amounts, and monthly intervals were verified against their corresponding plans. Do not create or change prices automatically.
 

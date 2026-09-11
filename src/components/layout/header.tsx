@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -13,6 +14,11 @@ import { MegaMenu } from "./mega-menu";
 import { MobileNav } from "./mobile-nav";
 
 export function Header() {
+  const pathname = usePathname();
+  const isCustomBuild =
+    pathname.startsWith("/services/custom-builds") ||
+    pathname.startsWith("/platform/custom");
+  const primaryCta = isCustomBuild ? site.cta.customBuild : site.cta.primary;
   const [condensed, setCondensed] = useState(false);
   // A panel hanging off a see-through bar reads as a bug, so an open menu
   // makes the header solid regardless of scroll position.
@@ -50,7 +56,7 @@ export function Header() {
         <Logo className="shrink-0" />
 
         <div className="flex-1">
-          <MegaMenu onOpenChange={setMenuOpen} />
+          <MegaMenu onOpenChange={setMenuOpen} primaryCta={primaryCta} />
         </div>
 
         <div className="hidden items-center gap-2 xl:flex">
@@ -61,14 +67,14 @@ export function Header() {
             Sign in
           </Link>
           <Link
-            href={site.cta.primary.href}
+            href={primaryCta.href}
             className={buttonVariants({ variant: "primary", size: "md" })}
           >
-            {site.cta.primary.label}
+            {primaryCta.label}
           </Link>
         </div>
 
-        <MobileNav />
+        <MobileNav primaryCta={primaryCta} />
       </Container>
     </header>
   );

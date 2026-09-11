@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 const routes = [
   {
-    title: "Scope a build",
-    body: "The fastest path. Tell us how your business sells and we come back with a plan.",
+    title: "Start with Jarvis CRM",
+    body: "Choose Standard, Elite, or Premium and continue to payment.",
     href: site.cta.primary.href,
     label: site.cta.primary.label,
     primary: true,
@@ -32,7 +32,7 @@ const routes = [
   {
     title: "Partnerships",
     body: "Agencies and consultants implementing Jarvis for their own clients.",
-    href: "/build",
+    href: "/custom-build-request",
     label: "Start a conversation",
     primary: false,
   },

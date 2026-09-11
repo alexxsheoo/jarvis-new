@@ -3,221 +3,225 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckIcon } from "lucide-react";
 import { useState, useTransition } from "react";
-import { useForm, useWatch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import { submitBuildRequest } from "@/app/build/actions";
 import { Button } from "@/components/ui/button";
-import { Field, Input, Select, Textarea } from "@/components/ui/field";
-import {
-  buildRequestSchema,
-  pillarOptions,
-  teamSizes,
-  type BuildRequest,
-} from "@/lib/schemas";
-import { cn } from "@/lib/cn";
+import { Field, Input, Textarea } from "@/components/ui/field";
+import { buildRequestSchema, type BuildRequest } from "@/lib/schemas";
+
+type InputDefinition = {
+  name: keyof BuildRequest;
+  label: string;
+  type?: "text" | "email" | "tel" | "date" | "time";
+  autoComplete?: string;
+  required?: boolean;
+  placeholder?: string;
+};
+
+const contactFields: InputDefinition[] = [
+  {
+    name: "firstName",
+    label: "First name",
+    autoComplete: "given-name",
+    required: true,
+  },
+  {
+    name: "lastName",
+    label: "Last name",
+    autoComplete: "family-name",
+    required: true,
+  },
+  {
+    name: "email",
+    label: "Email",
+    type: "email",
+    autoComplete: "email",
+    required: true,
+  },
+  {
+    name: "phone",
+    label: "Phone",
+    type: "tel",
+    autoComplete: "tel",
+    required: true,
+  },
+  { name: "company", label: "Business name", autoComplete: "organization" },
+  {
+    name: "industry",
+    label: "Business or industry",
+    placeholder: "e.g. Real estate, consulting",
+    required: true,
+  },
+];
 
 export function BuildForm() {
   const [pending, startTransition] = useTransition();
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
-
   const {
     register,
     handleSubmit,
-    control,
-    setValue,
     formState: { errors },
   } = useForm<BuildRequest>({
     resolver: zodResolver(buildRequestSchema),
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      company: "",
       phone: "",
-      pillars: [],
-      currentTools: "",
+      company: "",
+      industry: "",
+      preferredDate: "",
+      preferredTime: "",
+      timeZone: "",
+      otherAvailability: "",
       goals: "",
     },
   });
 
-  // `useWatch` rather than `watch()` — the latter returns a function the React
-  // Compiler cannot memoize, which opts the whole component out of compilation.
-  const selectedPillars = useWatch({ control, name: "pillars" }) ?? [];
-
   const onSubmit = handleSubmit((values) => {
     setServerError(null);
     startTransition(async () => {
-      const result = await submitBuildRequest(values);
-      if (result.ok) {
-        setSubmitted(true);
-      } else {
-        setServerError(result.message);
+      try {
+        const result = await submitBuildRequest(values);
+        if (result.ok) {
+          setSubmitted(true);
+        } else {
+          setServerError(result.message);
+        }
+      } catch {
+        setServerError("Your request could not be sent. Please try again.");
       }
     });
   });
 
+  const renderInput = (field: InputDefinition) => (
+    <Field
+      key={field.name}
+      label={field.label}
+      htmlFor={field.name}
+      required={field.required}
+      error={errors[field.name]?.message}
+      className="min-w-0"
+    >
+      <Input
+        id={field.name}
+        type={field.type ?? "text"}
+        autoComplete={field.autoComplete}
+        placeholder={field.placeholder}
+        aria-required={field.required}
+        aria-invalid={Boolean(errors[field.name])}
+        aria-describedby={
+          errors[field.name] ? `${field.name}-error` : undefined
+        }
+        className="min-w-0"
+        {...register(field.name)}
+      />
+    </Field>
+  );
+
   if (submitted) {
     return (
-      <div className="flex flex-col items-start gap-4 rounded-lg border border-cobalt-500/40 bg-cobalt-glow p-8">
+      <div
+        role="status"
+        className="flex flex-col items-start gap-4 rounded-lg border border-cobalt-500/40 bg-cobalt-glow p-6"
+      >
         <span className="flex size-10 items-center justify-center rounded-full border border-cobalt-500/40 text-cobalt-400">
           <CheckIcon aria-hidden className="size-5" strokeWidth={1.5} />
         </span>
         <h2 className="font-display text-h3 text-paper">Request received</h2>
-        <p className="max-w-[52ch] text-sm leading-relaxed text-muted">
-          We&rsquo;ll read what you sent and come back within one business day
-          with a scoped plan tailored to your business.
+        <p className="text-sm leading-relaxed text-muted">
+          Your preferred time has been sent to our team. Your call is not booked
+          yet; we will contact you to confirm a time.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="flex flex-col gap-6">
-      <div className="grid gap-6 sm:grid-cols-2">
-        <Field label="Name" htmlFor="name" required error={errors.name?.message}>
-          <Input
-            id="name"
-            autoComplete="name"
-            aria-invalid={Boolean(errors.name)}
-            {...register("name")}
-          />
-        </Field>
+    <form
+      onSubmit={onSubmit}
+      noValidate
+      className="flex min-w-0 flex-col gap-8"
+    >
+      <p className="rounded-sm border border-line bg-ink-950 p-3 text-sm leading-relaxed text-muted">
+        This form is being set up. Requests cannot be sent yet.
+      </p>
 
-        <Field
-          label="Work email"
-          htmlFor="email"
-          required
-          error={errors.email?.message}
-        >
-          <Input
-            id="email"
-            type="email"
-            autoComplete="email"
-            aria-invalid={Boolean(errors.email)}
-            {...register("email")}
-          />
-        </Field>
-
-        <Field
-          label="Company"
-          htmlFor="company"
-          required
-          error={errors.company?.message}
-        >
-          <Input
-            id="company"
-            autoComplete="organization"
-            aria-invalid={Boolean(errors.company)}
-            {...register("company")}
-          />
-        </Field>
-
-        <Field label="Phone" htmlFor="phone" error={errors.phone?.message}>
-          <Input id="phone" type="tel" autoComplete="tel" {...register("phone")} />
-        </Field>
-      </div>
-
-      <Field
-        label="Team size"
-        htmlFor="teamSize"
-        required
-        error={errors.teamSize?.message}
-        className="sm:max-w-xs"
-      >
-        <Select
-          id="teamSize"
-          defaultValue=""
-          aria-invalid={Boolean(errors.teamSize)}
-          {...register("teamSize")}
-        >
-          <option value="" disabled>
-            Select…
-          </option>
-          {teamSizes.map((size) => (
-            <option key={size} value={size}>
-              {size}
-            </option>
-          ))}
-        </Select>
-      </Field>
-
-      <fieldset className="flex flex-col gap-3">
-        <legend className="flex items-center gap-1.5 text-sm font-medium text-paper">
-          What do you need?
-          <span aria-hidden className="text-cobalt-400">
-            *
-          </span>
+      <fieldset className="min-w-0">
+        <legend className="mb-5 font-display text-h3 text-paper">
+          Your details
         </legend>
-        <div className="grid gap-2 sm:grid-cols-2">
-          {pillarOptions.map((pillar) => {
-            const checked = selectedPillars.includes(pillar);
-            return (
-              <label
-                key={pillar}
-                className={cn(
-                  "flex cursor-pointer items-center gap-3 rounded-sm border p-3 text-sm transition-colors",
-                  checked
-                    ? "border-cobalt-500/50 bg-cobalt-glow text-paper"
-                    : "border-line bg-ink-900 text-muted hover:border-line-strong",
-                )}
-              >
-                <input
-                  type="checkbox"
-                  className="sr-only"
-                  checked={checked}
-                  onChange={(event) => {
-                    setValue(
-                      "pillars",
-                      event.target.checked
-                        ? [...selectedPillars, pillar]
-                        : selectedPillars.filter((p) => p !== pillar),
-                      { shouldValidate: true },
-                    );
-                  }}
-                />
-                <span
-                  aria-hidden
-                  className={cn(
-                    "flex size-4 shrink-0 items-center justify-center rounded-xs border",
-                    checked
-                      ? "border-cobalt-500 bg-cobalt-500 text-paper"
-                      : "border-line-strong",
-                  )}
-                >
-                  {checked ? <CheckIcon className="size-3" strokeWidth={3} /> : null}
-                </span>
-                {pillar}
-              </label>
-            );
+        <div className="grid gap-5 sm:grid-cols-2">
+          {contactFields.map(renderInput)}
+        </div>
+      </fieldset>
+
+      <fieldset className="min-w-0 border-t border-line pt-6">
+        <legend className="pr-3 font-display text-h3 text-paper">
+          Call availability
+        </legend>
+        <p
+          id="availability-hint"
+          className="mb-5 text-sm leading-relaxed text-muted"
+        >
+          Choose a time that works for you. We will confirm the call with you
+          separately.
+        </p>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {renderInput({
+            name: "preferredDate",
+            label: "Preferred date",
+            type: "date",
+            required: true,
+          })}
+          {renderInput({
+            name: "preferredTime",
+            label: "Preferred time",
+            type: "time",
+            required: true,
           })}
         </div>
-        {errors.pillars ? (
-          <p role="alert" className="text-xs text-alert">
-            {errors.pillars.message}
-          </p>
-        ) : null}
+        <div className="mt-5 flex flex-col gap-5">
+          {renderInput({
+            name: "timeZone",
+            label: "City or time zone",
+            placeholder: "e.g. Chicago, Central Time",
+            required: true,
+          })}
+          <Field
+            label="Other availability"
+            htmlFor="otherAvailability"
+            error={errors.otherAvailability?.message}
+          >
+            <Textarea
+              id="otherAvailability"
+              rows={3}
+              placeholder="Other dates or times that work for you"
+              maxLength={1000}
+              aria-invalid={Boolean(errors.otherAvailability)}
+              aria-describedby={
+                errors.otherAvailability ? "otherAvailability-error" : undefined
+              }
+              {...register("otherAvailability")}
+            />
+          </Field>
+        </div>
       </fieldset>
 
       <Field
-        label="What are you running today?"
-        htmlFor="currentTools"
-        hint="List your current tools, including your CRM, dialer, and spreadsheets."
-        error={errors.currentTools?.message}
-      >
-        <Textarea id="currentTools" rows={3} {...register("currentTools")} />
-      </Field>
-
-      <Field
-        label="What should Jarvis do first?"
+        label="What would you like us to build?"
         htmlFor="goals"
-        required
-        hint="The one thing that would matter most in the first 30 days."
         error={errors.goals?.message}
       >
         <Textarea
           id="goals"
-          rows={5}
+          rows={4}
+          maxLength={2000}
+          placeholder="Tell us what you need and which tools you use today."
           aria-invalid={Boolean(errors.goals)}
+          aria-describedby={errors.goals ? "goals-error" : undefined}
           {...register("goals")}
         />
       </Field>
@@ -229,11 +233,16 @@ export function BuildForm() {
       ) : null}
 
       <div className="flex flex-col items-start gap-3">
-        <Button type="submit" size="lg" disabled={pending}>
-          {pending ? "Sending…" : "Build My Jarvis"}
+        <Button
+          type="submit"
+          size="lg"
+          disabled={pending}
+          className="h-auto min-h-12 w-full whitespace-normal py-3 sm:w-auto"
+        >
+          {pending ? "Sending..." : "Request a discovery call"}
         </Button>
-        <p className="text-xs text-faint">
-          We use this to scope your build. No newsletter, no reselling.
+        <p className="text-xs leading-relaxed text-faint">
+          We use your details to discuss your project and arrange a call.
         </p>
       </div>
     </form>
