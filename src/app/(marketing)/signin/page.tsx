@@ -16,7 +16,7 @@ export default function SignInPage() {
     >
       <PendingNotice>
         No sign-in form is implemented here. Authentication belongs in the
-        product application, not the marketing site — point this route at the
+        product application, not the marketing site. Point this route at the
         real app login URL before launch.
       </PendingNotice>
     </ProsePage>

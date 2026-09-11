@@ -6,6 +6,7 @@ import { PageHero } from "@/components/layout/page-hero";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { CostComparisons } from "@/components/marketing/cost-comparisons";
 import { PricingComparison } from "@/components/marketing/pricing-comparison";
+import { PrivateOnboardingCard } from "@/components/marketing/private-onboarding-card";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
@@ -78,10 +79,16 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         title="Published plans, scoped around your operation"
-        description="Jarvis CRM has a published monthly price. xCerebro AI Agents, Lead Scraper, and Custom Builds are separate offers — priced by deployment, by data source, or by scope — so one subscription does not buy all four."
+        description="Jarvis CRM has a published monthly price. xCerebro AI Agents, Lead Scraper, and Custom Builds are separate offers, priced by deployment, data source, or scope. One subscription does not buy all four."
       />
 
       <PricingComparison />
+
+      <Section id="private-onboarding" tone="alt">
+        <Container width="wide">
+          <PrivateOnboardingCard />
+        </Container>
+      </Section>
 
       <Section id="bundles" tone="alt">
         <Container width="wide" className="flex flex-col gap-10">

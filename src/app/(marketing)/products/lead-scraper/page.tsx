@@ -11,7 +11,7 @@ import { Section, SectionHeader } from "@/components/ui/section";
 export const metadata: Metadata = {
   title: "Lead Scraper",
   description:
-    "Public record sourcing, data cleanup, enrichment, deduplication, lead scoring, routing, and custom scrapers — running continuously.",
+    "Public record sourcing, data cleanup, enrichment, deduplication, lead scoring, routing, and custom scrapers, running continuously.",
 };
 
 const stages = [
@@ -33,7 +33,7 @@ const stages = [
   },
   {
     title: "Lead scoring",
-    body: "Ranked against your own criteria for fit and intent — not a generic vendor score.",
+    body: "Ranked against your own criteria for fit and intent, not a generic vendor score.",
   },
   {
     title: "Routing",
@@ -51,7 +51,7 @@ export default function LeadEnginesPage() {
       <PageHero
         eyebrow="Lead Scraper"
         title="Leads sourced, cleaned, and routed on their own"
-        description="Most teams do not have a lead problem — they have a list problem. Engines turn raw sources into records that are ready to work the moment someone opens them."
+        description="Most teams do not have a lead problem. They have a list problem. Engines turn raw sources into records that are ready to work the moment someone opens them."
       />
 
       <Section tone="alt">

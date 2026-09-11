@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Hosted checkout
+
+CRM plan buttons lead to static checkout review pages. Standard ($97/month), Elite ($197/month), and Premium ($297/month) use the owner-supplied FastPayDirect payment links. See [Payment setup and automation requirements](docs/stripe-setup.md) and `.env.example` for optional Stripe overrides. Post-payment automations still need configuration in the payment platform.
+
+Private onboarding is a separate one-time $300 service with A2P setup, website creation, and two coaching sessions. Its checkout URL includes the provider's post-purchase redirect to the supplied calendar. See [private onboarding setup and verification](docs/private-onboarding.md).
+
 ## Getting Started
 
 First, run the development server:

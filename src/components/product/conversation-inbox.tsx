@@ -11,7 +11,7 @@ const threads = [
 ];
 
 const messages = [
-  { from: "them", body: "Saw the listing — is it still available?" },
+  { from: "them", body: "I saw the listing. Is it still available?" },
   { from: "agent", body: "It is. I can get you in Thursday at 10:30 or Friday at 2. Which works?" },
   { from: "them", body: "Thursday works" },
 ];
@@ -68,7 +68,7 @@ export function ConversationInbox() {
         <div className="hairline-t mt-1 flex flex-wrap items-center gap-2 pt-3">
           <Badge tone="brand">AI drafted</Badge>
           <span className="text-xs text-muted">
-            Booking Thu 10:30 — awaiting your approval
+            Booking Thu 10:30, awaiting your approval
           </span>
         </div>
       </div>

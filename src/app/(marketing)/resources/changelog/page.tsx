@@ -16,7 +16,7 @@ export default function ChangelogPage() {
     >
       <PendingNotice>
         No entries yet. Changelog entries should be generated from real releases
-        rather than written by hand here — inventing a release history would
+        rather than written by hand here. Inventing a release history would
         misrepresent the product.
       </PendingNotice>
     </ProsePage>

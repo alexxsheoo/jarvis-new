@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CrmHeroPreview } from "@/components/product/crm-hero-preview";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { WordsStagger } from "@/components/ui/words-stagger";
 import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
@@ -21,8 +22,10 @@ export default function HeroSection6() {
             <span aria-hidden className="h-px w-8 bg-cobalt-400/50" />
           </p>
           <h1 id="hero-heading" className={styles.title}>
-            Know who to follow up with.
-            <span className="block text-muted">Keep every deal in view.</span>
+            <WordsStagger>Know who to follow up with.</WordsStagger>{" "}
+            <WordsStagger className="block text-muted" delay={0.3}>
+              Keep every deal in view.
+            </WordsStagger>
           </h1>
           <p className={styles.description}>
             Keep contacts, conversations, and follow-ups with your pipeline.

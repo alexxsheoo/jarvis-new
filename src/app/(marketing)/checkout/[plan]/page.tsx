@@ -1,0 +1,191 @@
+import { ArrowRightIcon, CheckIcon, LockKeyholeIcon } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
+import { PageHero } from "@/components/layout/page-hero";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { pricingGroups, pricingPlans } from "@/content/pricing";
+import { getBillingConfiguration } from "@/lib/billing-config";
+
+type CheckoutPageProps = { params: Promise<{ plan: string }> };
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return [
+    ...pricingPlans.map((plan) => ({ plan: plan.id })),
+    { plan: "basic" },
+  ];
+}
+
+// Keep the previously shared Basic checkout URL working after the rename.
+function findPlanIndex(planId: string) {
+  const id = planId === "basic" ? "standard" : planId;
+  return pricingPlans.findIndex((item) => item.id === id);
+}
+
+export async function generateMetadata({
+  params,
+}: CheckoutPageProps): Promise<Metadata> {
+  const { plan: planId } = await params;
+  const plan = pricingPlans[findPlanIndex(planId)];
+  if (!plan) notFound();
+  return {
+    title: `Jarvis CRM ${plan.name} checkout`,
+    description: `Review the Jarvis CRM ${plan.name} monthly subscription.`,
+    robots: { index: false, follow: false },
+  };
+}
+
+export default async function CheckoutPage({ params }: CheckoutPageProps) {
+  const { plan: planId } = await params;
+  const planIndex = findPlanIndex(planId);
+  if (planIndex === -1) notFound();
+  const plan = pricingPlans[planIndex];
+  const billing = getBillingConfiguration();
+  const checkout = billing.destinations[plan.id];
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Jarvis CRM / subscription"
+        title={`Your ${plan.name} plan`}
+        description="Review your plan, then continue to checkout to enter your payment details."
+      />
+      <Section tone="alt" className="pt-10 md:pt-12">
+        <Container
+          width="wide"
+          className="grid items-start gap-10 lg:grid-cols-[1fr_24rem] lg:gap-16"
+        >
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-3">
+              <h2 className="font-display text-h2 text-paper">
+                What comes with {plan.name}
+              </h2>
+              <p className="max-w-[58ch] leading-relaxed text-muted">
+                {plan.summary}
+              </p>
+            </div>
+            <div className="grid gap-8 sm:grid-cols-2">
+              {pricingGroups.map((group) => {
+                const features = group.features.filter(
+                  (feature) => feature.values[planIndex] !== false,
+                );
+                if (!features.length) return null;
+                return (
+                  <div key={group.section} className="flex flex-col gap-4">
+                    <h3 className="type-label-wide text-faint">
+                      {group.section}
+                    </h3>
+                    <ul className="flex flex-col gap-3">
+                      {features.map((feature) => (
+                        <li
+                          key={feature.label}
+                          className="flex items-start gap-2.5 text-sm text-muted"
+                        >
+                          <CheckIcon
+                            aria-hidden
+                            className="mt-0.5 size-4 shrink-0 text-cobalt-400"
+                          />
+                          <span>
+                            {feature.label}
+                            {typeof feature.values[planIndex] === "string"
+                              ? ` (${feature.values[planIndex]})`
+                              : ""}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <aside
+            aria-label="Subscription summary"
+            className="flex flex-col gap-6 rounded-lg border border-line-strong bg-ink-950 p-6 sm:p-8"
+          >
+            <div className="flex flex-col gap-2">
+              <span className="type-label-wide text-cobalt-400">
+                Jarvis CRM
+              </span>
+              <h2 className="font-display text-h3 text-paper">{plan.name}</h2>
+              <p className="flex flex-wrap items-baseline gap-2">
+                <span className="type-metric text-display-md text-paper">
+                  {plan.price}
+                </span>
+                <span className="text-sm text-muted">{plan.cadence}</span>
+              </p>
+              <p className="text-sm leading-relaxed text-muted">
+                A recurring monthly subscription. Review the currency, taxes,
+                and total at checkout before subscribing.
+              </p>
+            </div>
+
+            {checkout ? (
+              <div className="flex flex-col gap-3">
+                {checkout.mode === "test" ? (
+                  <p className="rounded-md border border-cobalt-500/40 bg-cobalt-glow p-3 text-sm text-paper">
+                    Test checkout. No real payment will be taken.
+                  </p>
+                ) : null}
+                <a
+                  href={checkout.href}
+                  className={buttonVariants({ size: "lg" })}
+                >
+                  {checkout.mode === "test"
+                    ? "Open test checkout"
+                    : "Continue to payment"}
+                  <ArrowRightIcon aria-hidden className="size-4" />
+                </a>
+                <p className="flex items-center justify-center gap-2 text-xs text-faint">
+                  <LockKeyholeIcon aria-hidden className="size-3.5" />
+                  Hosted payment checkout
+                </p>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3">
+                <Button
+                  disabled
+                  size="lg"
+                  aria-describedby="checkout-availability"
+                >
+                  Checkout coming soon
+                </Button>
+                <p
+                  id="checkout-availability"
+                  className="text-sm leading-relaxed text-muted"
+                >
+                  Online checkout for this plan is not open yet. Please check
+                  back soon.
+                </p>
+              </div>
+            )}
+
+            <p className="border-t border-line pt-5 text-xs leading-relaxed text-faint">
+              xCerebro AI Agents, Lead Scraper, communications usage, and custom
+              implementation are priced separately.
+            </p>
+            <Link
+              href="/pricing"
+              className="text-sm font-medium text-cobalt-400 hover:text-paper"
+            >
+              Compare all plans
+            </Link>
+            <Link
+              href="/onboarding"
+              className="border-t border-line pt-5 text-sm leading-relaxed text-muted hover:text-paper"
+            >
+              Need setup help? View private onboarding for a one-time $300
+              payment.
+            </Link>
+          </aside>
+        </Container>
+      </Section>
+    </>
+  );
+}

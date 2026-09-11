@@ -15,8 +15,8 @@ export default function StatusPage() {
       description="Live platform health and incident history."
     >
       <PendingNotice>
-        This page shows no real status. Uptime must come from actual monitoring
-        — wire it to your status provider before launch, and remove the
+        This page shows no real status. Uptime must come from actual monitoring.
+        Wire it to your status provider before launch, and remove the
         &ldquo;All systems operational&rdquo; indicator in the footer until it
         reflects a real health check.
       </PendingNotice>

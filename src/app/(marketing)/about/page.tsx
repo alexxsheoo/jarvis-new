@@ -54,7 +54,7 @@ export default function AboutPage() {
             <p>
               The pattern turned out not to be specific to real estate. Any
               owner-led business where leads arrive faster than people can work
-              them has the same shape — and the same failure mode, where revenue
+              them has the same shape and the same failure mode, where revenue
               leaks in the handoffs between disconnected tools.
             </p>
             <p>

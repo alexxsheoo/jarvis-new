@@ -42,7 +42,7 @@ export const steps = [
   {
     number: "01",
     title: "Map",
-    body: "We document how your business actually sells — stages, roles, handoffs, and the rules you already run by.",
+    body: "We document how your business actually sells, including stages, roles, handoffs, and the rules you already run by.",
   },
   {
     number: "02",

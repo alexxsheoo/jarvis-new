@@ -3,14 +3,18 @@
  *
  * SOURCE: read from the live site at justjarvis.com on 2026-08-29 — plan
  * names, prices, and inclusions are what that page published, not invented
- * figures. Unlike `stack.ts` and `ai-agent.ts`, this is real. It is also a
+ * figures. The owner renamed Basic to Standard and supplied its $97/month
+ * checkout on 2026-09-10. Unlike `stack.ts` and `ai-agent.ts`, this is real. It is also a
  * copy, so it drifts the moment the live page changes: re-check before launch
  * and whenever pricing moves.
  */
 
 export type PlanCell = boolean | string;
 
+export type CrmPlanId = "standard" | "elite" | "premium";
+
 export type PricingPlan = {
+  id: CrmPlanId;
   name: string;
   price: string;
   cadence: string;
@@ -20,20 +24,23 @@ export type PricingPlan = {
 
 export const pricingPlans: PricingPlan[] = [
   {
-    name: "Basic",
+    id: "standard",
+    name: "Standard",
     price: "$97",
     cadence: "per month",
-    summary: "The operating layer — CRM, funnels, site, and automation.",
+    summary: "The operating layer for CRM, funnels, site, and automation.",
     featured: false,
   },
   {
+    id: "elite",
     name: "Elite",
     price: "$197",
     cadence: "per month",
-    summary: "Basic, plus the AI that works outreach and disposition.",
+    summary: "Standard, plus the AI that works outreach and disposition.",
     featured: true,
   },
   {
+    id: "premium",
     name: "Premium",
     price: "$297",
     cadence: "per month",

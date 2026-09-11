@@ -36,7 +36,7 @@ export function CrmBento() {
     <Section id="crm-bento" tone="alt">
       <Container width="wide" className="flex flex-col gap-12">
         <SectionHeader
-          eyebrow={`${brand.crm} — how it holds together`}
+          eyebrow={`${brand.crm} / how it holds together`}
           title="One record, and everything attached to it"
           description="The reason a CRM earns its place is that nothing important lives outside it. These are the parts that make that true."
         />
@@ -133,7 +133,7 @@ export function CrmBento() {
               <div className="space-y-2">
                 <CardTitle>Stages that match your process</CardTitle>
                 <CardDescription>
-                  As many pipelines as the business needs — acquisitions and
+                  As many pipelines as the business needs. Acquisitions and
                   service jobs do not have to share one board.
                 </CardDescription>
               </div>

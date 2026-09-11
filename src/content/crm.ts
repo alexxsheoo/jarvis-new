@@ -41,7 +41,7 @@ export const crmFeatures: CrmFeature[] = [
   },
   {
     title: "Workflow automation",
-    body: "Trigger the follow-up, the task, the reminder, and the stage change from what happens in the pipeline — so the process runs without anyone remembering it.",
+    body: "Trigger the follow-up, the task, the reminder, and the stage change from what happens in the pipeline, so the process runs without anyone remembering it.",
     icon: WorkflowIcon,
   },
   {
@@ -56,7 +56,7 @@ export const crmFeatures: CrmFeature[] = [
   },
   {
     title: "Reporting & dashboards",
-    body: "Pipeline value, stage movement, response times, and activity by owner — reported from the same records the team works in.",
+    body: "Pipeline value, stage movement, response times, and activity by owner, reported from the same records the team works in.",
     icon: BarChart3Icon,
   },
 ];

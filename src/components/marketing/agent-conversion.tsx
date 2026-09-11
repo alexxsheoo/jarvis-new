@@ -38,7 +38,7 @@ export function AgentConversion() {
           <p className="max-w-[52ch] text-lg leading-relaxed text-muted">
             Leads arrive from every channel at every hour. The sales agent picks
             each one up in seconds, qualifies it against your criteria, and
-            works toward the next real step — a booked call, not a reply that
+            works toward the next real step: a booked call, not a reply that
             closes the loop and goes nowhere.
           </p>
           <Link

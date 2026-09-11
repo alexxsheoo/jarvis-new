@@ -62,7 +62,7 @@ export function VideoSection() {
           src="/videos/jarvis-system-demo.mp4"
           poster="/videos/jarvis-crm-overview-poster.jpg"
           label="Jarvis CRM: AI-powered overview"
-          caption="Jarvis CRM — AI-powered overview. 1 minute 14 seconds."
+          caption="Jarvis CRM: AI-powered overview. 1 minute 14 seconds."
         />
       </Container>
     </Section>

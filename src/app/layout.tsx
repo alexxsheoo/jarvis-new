@@ -35,20 +35,20 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.positioning}`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | ${site.positioning}`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name} — ${site.positioning}`,
+    title: `${site.name} | ${site.positioning}`,
     description: site.description,
     url: site.url,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.positioning}`,
+    title: `${site.name} | ${site.positioning}`,
     description: site.description,
   },
 };
