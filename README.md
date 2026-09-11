@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Hosted checkout
 
-Build My System opens `/checkout`, where visitors choose Standard ($97/month), Elite ($197/month), or Premium ($297/month) and continue directly to the matching owner-supplied FastPayDirect payment link. Individual plan review pages remain available for details. See [Payment setup and automation requirements](docs/stripe-setup.md) and `.env.example` for optional Stripe overrides. Post-payment automations still need configuration in the payment platform.
+CRM Build My System buttons open `/checkout`, where visitors choose Standard ($97/month), Elite ($197/month), or Premium ($297/month) and continue directly to the matching owner-supplied SaaS Configurator sale link. Standard uses Stripe; Elite and Premium use FastPayDirect. Individual plan review pages remain available for details. See [Payment setup and automation requirements](docs/stripe-setup.md) and `.env.example` for optional Elite/Premium Stripe overrides. SaaS provisioning must be verified in the owning account; no purchase or account-creation test has been performed.
 
 Private onboarding is a separate one-time $300 service with A2P setup, website creation, and two coaching sessions. Its checkout URL includes the provider's post-purchase redirect to the supplied calendar. See [private onboarding setup and verification](docs/private-onboarding.md).
 
