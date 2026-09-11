@@ -25,7 +25,7 @@ export function Logo({ className, animated = true }: LogoProps) {
   return (
     <Link
       href="/"
-      aria-label="Jarvis — home"
+      aria-label="Jarvis home"
       className={cn(
         "group inline-flex items-center rounded-xs outline-none",
         className,

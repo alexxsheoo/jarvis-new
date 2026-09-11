@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const expectations = [
   {
     title: "A reply from a person",
-    body: "Someone who has scoped builds like yours reads what you sent — not an autoresponder.",
+    body: "Someone who has scoped builds like yours reads what you sent.",
   },
   {
     title: "A scoped plan, not a demo",

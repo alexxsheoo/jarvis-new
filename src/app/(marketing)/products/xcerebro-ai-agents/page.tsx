@@ -1,4 +1,6 @@
+import { ArrowUpRightIcon } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { PageHero } from "@/components/layout/page-hero";
 import { AgentConversion } from "@/components/marketing/agent-conversion";
@@ -8,19 +10,21 @@ import { CtaBand } from "@/components/marketing/cta-band";
 import { FeatureGrid } from "@/components/marketing/feature-grid";
 import { HumanAiSection } from "@/components/marketing/human-ai-section";
 import { AgentStaff } from "@/components/product/agent-staff";
+import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
+import { xcerebroWebsite } from "@/content/products";
 
 export const metadata: Metadata = {
   title: "xCerebro AI Agents",
   description:
-    "Role-based AI agents with defined triggers, scoped actions, and human approval gates — Lead Concierge, Follow-Up, Appointment Setter, and more.",
+    "Role-based AI agents with defined triggers, scoped actions, and human approval gates. Roles include Lead Concierge, Follow-Up Agent, Appointment Setter, and more.",
 };
 
 const principles = [
   {
     title: "A role, not a chatbot",
-    body: "Each agent owns a defined job with a scope of allowed actions — the same way you would brief a new hire.",
+    body: "Brief each agent like a new hire, with a defined job and a scope of allowed actions.",
   },
   {
     title: "Explicit triggers",
@@ -40,10 +44,21 @@ export default function AiStaffPage() {
   return (
     <>
       <PageHero
+        animateTitle
         eyebrow="xCerebro AI Agents"
         title="Role-based agents that carry real work"
-        description="AI staff handle the work that depends on speed and consistency — first response, follow-up, booking, and coordination — inside the same system your team uses."
-      />
+        description="AI staff handle time-sensitive work inside the same system your team uses, including first response, follow-up, booking, and coordination."
+      >
+        <div>
+          <Link
+            href={xcerebroWebsite}
+            className={buttonVariants({ size: "lg" })}
+          >
+            Visit xcerebro.ai
+            <ArrowUpRightIcon aria-hidden className="size-4" />
+          </Link>
+        </div>
+      </PageHero>
 
       <Section tone="alt">
         <Container width="wide" className="flex flex-col gap-8">

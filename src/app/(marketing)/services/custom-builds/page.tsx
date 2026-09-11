@@ -13,7 +13,7 @@ import { steps } from "@/content/homepage";
 export const metadata: Metadata = {
   title: "Custom Builds",
   description:
-    "Custom pipelines, workflows, integrations, and bespoke AI agents — assembled into an operating system built around your business.",
+    "Custom pipelines, workflows, integrations, and bespoke AI agents, assembled into an operating system built around your business.",
 };
 
 const offerings = [
@@ -35,7 +35,7 @@ const offerings = [
   },
   {
     title: "Business operating systems",
-    body: "When the whole operation needs modeling — intake through fulfillment — not just the sales end of it.",
+    body: "When the whole operation needs modeling from intake through fulfillment, not just the sales end of it.",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function CustomPage() {
       <PageHero
         eyebrow="Custom Builds"
         title="Built around your business"
-        description="Most software asks you to change how you work. Custom is the part of Jarvis that changes the system instead — for the operations that do not fit a standard shape."
+        description="Most software asks you to change how you work. Custom is the part of Jarvis that changes the system instead for the operations that do not fit a standard shape."
       />
 
       <Section tone="alt">

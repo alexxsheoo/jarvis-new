@@ -138,7 +138,7 @@ export function AgentImpact() {
             <span className="text-muted">illustrative examples</span>, not
             measured results, benchmark data, or a revenue forecast. The
             &ldquo;without&rdquo; column is industry-shaped and the ranges show
-            how to frame impact — your own numbers will differ.
+            how to frame impact. Your own numbers will differ.
           </p>
           <Link
             href={site.cta.primary.href}

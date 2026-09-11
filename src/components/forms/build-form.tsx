@@ -65,7 +65,7 @@ export function BuildForm() {
         <h2 className="font-display text-h3 text-paper">Request received</h2>
         <p className="max-w-[52ch] text-sm leading-relaxed text-muted">
           We&rsquo;ll read what you sent and come back within one business day
-          with a scoped plan — not a generic demo booking.
+          with a scoped plan tailored to your business.
         </p>
       </div>
     );
@@ -201,7 +201,7 @@ export function BuildForm() {
       <Field
         label="What are you running today?"
         htmlFor="currentTools"
-        hint="CRM, dialer, spreadsheets — whatever the stack currently is."
+        hint="List your current tools, including your CRM, dialer, and spreadsheets."
         error={errors.currentTools?.message}
       >
         <Textarea id="currentTools" rows={3} {...register("currentTools")} />

@@ -14,7 +14,6 @@ import {
   type PlanCell,
 } from "@/content/pricing";
 import { offers } from "@/content/products";
-import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
 const viewport = { once: true, margin: "-60px" } as const;
@@ -68,7 +67,7 @@ export function PricingComparison() {
         <div className="overflow-x-auto rounded-lg border border-line">
           <table className="w-full min-w-[46rem] border-collapse text-left">
             <caption className="sr-only">
-              Jarvis plan comparison: features included in Basic, Elite, and
+              Jarvis plan comparison: features included in Standard, Elite, and
               Premium.
             </caption>
             <thead>
@@ -171,7 +170,7 @@ export function PricingComparison() {
                     )}
                   >
                     <Link
-                      href={site.cta.primary.href}
+                      href={`/checkout/${plan.id}`}
                       className={cn(
                         buttonVariants({
                           variant: plan.featured ? "primary" : "secondary",

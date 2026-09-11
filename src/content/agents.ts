@@ -41,7 +41,7 @@ export const agents: Agent[] = [
     role: "Persistence",
     icon: RepeatIcon,
     summary:
-      "Works the long tail — multi-touch sequences that stop the moment a human replies.",
+      "Runs multi-touch sequences that stop the moment a human replies.",
     triggers: ["No reply in 48h", "Stage stalled", "Reactivation list"],
     actions: ["Send sequence step", "Log attempt", "Pause on reply"],
     approval: "Sequences pre-approved; new messaging needs sign-off.",
@@ -74,7 +74,7 @@ export const agents: Agent[] = [
     role: "Throughput",
     icon: GitBranchIcon,
     summary:
-      "Watches every stage for stalls, missing fields, and overdue tasks — then fixes or flags them.",
+      "Watches every stage for stalls, missing fields, and overdue tasks, then fixes or flags them.",
     triggers: ["Stage timeout", "Missing field", "Task overdue"],
     actions: ["Nudge owner", "Update record", "Reassign"],
     approval: "Reassignment above a threshold needs a manager.",
@@ -96,7 +96,7 @@ export const agents: Agent[] = [
     role: "Your process",
     icon: SettingsIcon,
     summary:
-      "A role built to your operation — your triggers, your tools, your approval gates.",
+      "A role built to your operation, with your triggers, tools, and approval gates.",
     triggers: ["Any system event", "Schedule", "Manual dispatch"],
     actions: ["Defined by you", "Any integration", "Any pipeline write"],
     approval: "Scoped during the build.",

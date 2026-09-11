@@ -29,8 +29,8 @@ export default function SecurityPage() {
 
       <PendingNotice>
         Formal compliance claims (SOC 2, GDPR, data residency, subprocessor
-        list) are deliberately absent. Add them only once they are verified —
-        publishing an unearned certification claim is a legal and trust risk.
+        list) are deliberately absent. Add them only once they are verified.
+        Publishing an unearned certification claim is a legal and trust risk.
       </PendingNotice>
     </ProsePage>
   );

@@ -46,7 +46,7 @@ export const costComparisons: CostComparison[] = [
     alternative: {
       label: "Virtual assistants",
       cost: "$900–$2,400",
-      costNote: "per assistant, per month — illustrative range",
+      costNote: "per assistant, per month (illustrative range)",
     },
     offer: {
       label: "xCerebro AI Agents",
@@ -82,7 +82,7 @@ export const costComparisons: CostComparison[] = [
       {
         measure: "Judgement calls",
         alternative: "A person decides in the moment",
-        offer: "Escalates to your team — agents do not decide these",
+        offer: "Escalates to your team. Agents do not decide these.",
       },
     ],
   },
@@ -149,7 +149,7 @@ export const costComparisons: CostComparison[] = [
     alternative: {
       label: "Agency or contract developer",
       cost: "$85–$175",
-      costNote: "per hour, or per-project — illustrative range",
+      costNote: "per hour or per project (illustrative range)",
     },
     offer: {
       label: "Custom Builds",

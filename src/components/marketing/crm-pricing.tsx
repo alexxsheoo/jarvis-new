@@ -6,7 +6,6 @@ import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { pricingGroups, pricingPlans } from "@/content/pricing";
 import { brand } from "@/content/products";
-import { site } from "@/content/site";
 import { cn } from "@/lib/cn";
 
 /**
@@ -37,7 +36,7 @@ export function CrmPricing() {
     <Section id="crm-pricing">
       <Container width="wide" className="flex flex-col gap-10">
         <SectionHeader
-          eyebrow={`${brand.crm} — pricing`}
+          eyebrow={`${brand.crm} / pricing`}
           title="One subscription, published"
           description="The CRM has a price you can read without a call. Plans differ in how much of the deal-flow tooling comes with them."
         />
@@ -82,7 +81,7 @@ export function CrmPricing() {
               </p>
 
               <Link
-                href={site.cta.primary.href}
+                href={`/checkout/${plan.id}`}
                 className={cn(
                   buttonVariants({
                     variant: plan.featured ? "primary" : "secondary",
@@ -108,6 +107,21 @@ export function CrmPricing() {
             className="inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-cobalt-400 transition-colors hover:text-paper"
           >
             Compare every plan
+            <ArrowRightIcon aria-hidden className="size-3.5" />
+          </Link>
+        </div>
+
+        <div className="flex flex-col gap-4 rounded-lg border border-line bg-ink-900 p-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-[66ch] text-sm leading-relaxed text-muted">
+            Want help getting set up? Private onboarding includes A2P setup,
+            website creation, and two coaching sessions for a one-time $300
+            payment.
+          </p>
+          <Link
+            href="/onboarding"
+            className="inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-cobalt-400 hover:text-paper"
+          >
+            View private onboarding
             <ArrowRightIcon aria-hidden className="size-3.5" />
           </Link>
         </div>

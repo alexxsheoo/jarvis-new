@@ -37,7 +37,7 @@ export function CostComparisons() {
         <SectionHeader
           eyebrow="What it replaces"
           title="The alternative already costs something"
-          description="Every one of these is a job businesses already pay for — in salaries, in bought lists, or in contractor hours. This is what changes when the system does it instead."
+          description="Every one of these is a job businesses already pay for through salaries, bought lists, or contractor hours. This is what changes when the system does it instead."
         />
 
         <div role="tablist" aria-label="Cost comparisons" className="flex flex-wrap gap-2">

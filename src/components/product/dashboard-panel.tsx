@@ -63,7 +63,7 @@ export function DashboardPanel() {
       <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
         <figure className="rounded-md border border-line bg-ink-850 p-4">
           <figcaption className="type-label text-faint">
-            Deals by stage — current quarter
+            Deals by stage (current quarter)
           </figcaption>
 
           <div className="relative mt-4 flex flex-col gap-3">

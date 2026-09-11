@@ -6,7 +6,7 @@ import { steps } from "@/content/homepage";
 export const metadata: Metadata = {
   title: "Implementation guide",
   description:
-    "What happens during mapping, build, connect, and go-live — and what Jarvis needs from your team.",
+    "What happens during mapping, build, connect, and go-live and what Jarvis needs from your team.",
 };
 
 export default function ImplementationPage() {
@@ -29,7 +29,7 @@ export default function ImplementationPage() {
       </ol>
       <p>
         Most builds go live in two to six weeks. The variable is how many
-        integrations and custom workflows are in scope — mapping happens first
+        integrations and custom workflows are in scope. Mapping happens first
         so that number is known before anything is built.
       </p>
     </ProsePage>

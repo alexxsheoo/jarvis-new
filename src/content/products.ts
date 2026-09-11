@@ -27,6 +27,9 @@ export const brand = {
   builds: "Custom Builds",
 } as const;
 
+/** Standalone product website supplied by the owner. */
+export const xcerebroWebsite = "https://xcerebro.ai/";
+
 /** Which accent an offer wears. Products get colour; the service is outlined. */
 export type OfferAccent = "cobalt" | "neon" | "data" | "outline";
 
@@ -84,12 +87,12 @@ export const offers: Offer[] = [
       "Marketing",
       "Custom AI roles",
     ],
-    href: "/products/xcerebro-ai-agents",
+    href: xcerebroWebsite,
     cta: "Meet the AI Agents",
     icon: BotIcon,
     accent: "neon",
     kind: "product",
-    pricing: "Separate product — deployment options",
+    pricing: "Separate product: deployment options",
   },
   {
     id: "scraper",
@@ -116,7 +119,7 @@ export const offers: Offer[] = [
     icon: DatabaseIcon,
     accent: "data",
     kind: "product",
-    pricing: "Separate product — priced by source, market, and scope",
+    pricing: "Separate product: priced by source, market, and scope",
   },
   {
     id: "builds",
@@ -139,7 +142,7 @@ export const offers: Offer[] = [
     icon: SlidersHorizontalIcon,
     accent: "outline",
     kind: "service",
-    pricing: "Custom quote — scoped implementation",
+    pricing: "Custom quote: scoped implementation",
   },
 ];
 

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const features = [
   {
     title: "CRM",
-    body: "One record per contact with full history — every call, message, task, and stage change in one timeline.",
+    body: "One record per contact with full history: every call, message, task, and stage change in one timeline.",
   },
   {
     title: "Custom pipelines",
@@ -32,7 +32,7 @@ const features = [
   },
   {
     title: "Workflows",
-    body: "Trigger-based automation across records, people, and outside systems — with approval gates where you want them.",
+    body: "Trigger-based automation across records, people, and outside systems, with approval gates where you want them.",
   },
   {
     title: "Tasks",
@@ -44,7 +44,7 @@ const features = [
   },
   {
     title: "Dashboards",
-    body: "Live views by owner, pipeline, and source — built to answer the questions you actually ask on Monday.",
+    body: "Live views by owner, pipeline, and source, built to answer the questions you actually ask on Monday.",
   },
   {
     title: "Reporting",
@@ -62,7 +62,7 @@ export default function CorePage() {
       <PageHero
         eyebrow="Jarvis CRM"
         title="The operating layer for your revenue"
-        description="Core is the system of record everything else runs on. Pipelines, conversations, and work in one place — so no deal depends on someone remembering it."
+        description="Core is the system of record everything else runs on. Pipelines, conversations, and work in one place, so no deal depends on someone remembering it."
       />
 
       <Section tone="alt">
@@ -83,7 +83,7 @@ export default function CorePage() {
           <SectionHeader
             eyebrow="Conversations"
             title="Every channel, one thread"
-            description="Calls, texts, and email attach to the record automatically — including anything an agent sent on your behalf."
+            description="Calls, texts, and email attach to the record automatically, including anything an agent sent on your behalf."
           />
           <ProductFrame label="Conversations / Inbox">
             <ConversationInbox />

@@ -21,7 +21,7 @@ export function CrmFeatures() {
     <Section id="crm-features" tone="alt">
       <Container width="wide" className="flex flex-col gap-12">
         <SectionHeader
-          eyebrow={`${brand.crm} — features`}
+          eyebrow={`${brand.crm} / features`}
           title="Everything the revenue workflow needs, in one place"
           description="The point of a CRM is that nothing lives outside it. These are the parts of the day-to-day that stop being separate tools once the work runs here."
         />

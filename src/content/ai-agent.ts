@@ -27,7 +27,7 @@ export const leadName = "J. Marsden";
 export const transcript: TranscriptMessage[] = [
   {
     from: "lead",
-    body: [{ text: "Hi — is the three-bed on Vine Street still available?" }],
+    body: [{ text: "Hi, is the three-bed on Vine Street still available?" }],
   },
   {
     from: "agent",
@@ -51,7 +51,7 @@ export const transcript: TranscriptMessage[] = [
   {
     from: "agent",
     body: [
-      { text: "Sent — " },
+      { text: "Sent! Your " },
       { text: "pricing", em: true },
       { text: " is in your inbox now. Fastest route is a " },
       { text: "15-minute call", em: true },

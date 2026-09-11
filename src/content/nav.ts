@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-import { brand, offers, products, services } from "./products";
+import { brand, offers, products, services, xcerebroWebsite } from "./products";
 
 export type NavLink = {
   label: string;
@@ -24,7 +24,8 @@ export type NavGroup = {
  * point of the architecture — a single "Platform" menu is what made every
  * offer read as a Jarvis module.
  *
- * Destinations are the product-named routes. The old /platform/* paths are
+ * xCerebro links to its standalone website; other offers use product-named
+ * routes. The old /platform/* paths are
  * kept as redirect stubs so shared links and anything already indexed still
  * resolve rather than 404.
  */
@@ -41,13 +42,9 @@ const linksById: Record<string, NavLink[]> = {
     { label: "Roles & permissions", href: "/products/jarvis-crm#permissions" },
   ],
   agents: [
-    { label: "Lead Concierge", href: "/products/xcerebro-ai-agents#lead-concierge" },
-    { label: "Follow-Up Agent", href: "/products/xcerebro-ai-agents#follow-up" },
-    { label: "Appointment Setter", href: "/products/xcerebro-ai-agents#setter" },
-    { label: "Acquisition Assistant", href: "/products/xcerebro-ai-agents#acquisition" },
-    { label: "Pipeline Coordinator", href: "/products/xcerebro-ai-agents#coordinator" },
-    { label: "Support Agent", href: "/products/xcerebro-ai-agents#support" },
-    { label: "Custom Agent", href: "/products/xcerebro-ai-agents#custom" },
+    { label: "What it does", href: `${xcerebroWebsite}#inside` },
+    { label: "How it works", href: `${xcerebroWebsite}#how-it-works` },
+    { label: "Ways to build", href: `${xcerebroWebsite}#tracks` },
   ],
   scraper: [
     { label: "County record sourcing", href: "/products/lead-scraper#sourcing" },

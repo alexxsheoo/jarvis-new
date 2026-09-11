@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       <PendingNotice>
         This page has no policy text yet. A privacy policy is a legal document
         that must be written or reviewed by qualified counsel against the
-        jurisdictions Jarvis operates in — it should not be drafted from a
+        jurisdictions Jarvis operates in. It should not be drafted from a
         template. Replace this block before launch.
       </PendingNotice>
       <p>

@@ -21,7 +21,7 @@ const resources = [
   },
   {
     title: "Implementation guide",
-    body: "What happens during mapping, build, connect, and go-live — and what we need from you.",
+    body: "What happens during mapping, build, connect, and go-live and what we need from you.",
     href: "/resources/implementation",
   },
   {

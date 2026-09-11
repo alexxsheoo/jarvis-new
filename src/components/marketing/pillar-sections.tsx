@@ -78,7 +78,7 @@ export function CoreSection() {
       id="core"
       eyebrow="Jarvis CRM"
       title="The operating layer for your revenue"
-      description="One record per contact, pipelines that match your stages, and every conversation in one place — with the reporting to prove what moved."
+      description="One record per contact, pipelines that match your stages, and every conversation in one place, with the reporting to prove what moved."
       capabilities={[
         "CRM",
         "Custom pipelines",
@@ -126,7 +126,7 @@ export function LeadEnginesSection() {
       id="lead-engines"
       eyebrow="Lead Scraper"
       title="Leads sourced, cleaned, and routed on their own"
-      description="Public records and custom scrapers feed a pipeline that normalizes, enriches, deduplicates, scores, and assigns — before anyone opens a list."
+      description="Public records and custom scrapers feed a pipeline that normalizes, enriches, deduplicates, scores, and assigns before anyone opens a list."
       capabilities={[
         "Public record sourcing",
         "Data cleanup",
@@ -152,7 +152,7 @@ export function CustomSection() {
       tone="alt"
       eyebrow="Custom Builds"
       title="Built around your business"
-      description="When the standard shape does not fit, the system changes — not your process. Custom pipelines, workflows, integrations, and agents scoped to how you already operate."
+      description="When the standard shape does not fit, the system adapts to your process. Custom pipelines, workflows, integrations, and agents scoped to how you already operate."
       capabilities={[
         "Custom pipelines",
         "Custom workflows",

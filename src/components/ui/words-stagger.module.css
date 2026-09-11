@@ -1,0 +1,18 @@
+.words {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Applies before hydration and immediately if the preference changes. */
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

@@ -240,10 +240,10 @@ const stats = [
 ];
 
 const activities = [
-  { icon: CalendarCheck, title: "Viewing booked", desc: "14 Vine Street — Thu 10:30", time: "2 min ago", tint: "bg-green-50 dark:bg-green-900/20", fg: "text-green-600 dark:text-green-400" },
-  { icon: Users, title: "New lead captured", desc: "Portal enquiry — 3-bed, Elmhurst", time: "5 min ago", tint: "bg-blue-50 dark:bg-blue-900/20", fg: "text-blue-600 dark:text-blue-400" },
+  { icon: CalendarCheck, title: "Viewing booked", desc: "14 Vine Street, Thu 10:30", time: "2 min ago", tint: "bg-green-50 dark:bg-green-900/20", fg: "text-green-600 dark:text-green-400" },
+  { icon: Users, title: "New lead captured", desc: "Portal enquiry, 3-bed, Elmhurst", time: "5 min ago", tint: "bg-blue-50 dark:bg-blue-900/20", fg: "text-blue-600 dark:text-blue-400" },
   { icon: Handshake, title: "Offer received", desc: "$415,000 on 8 Ridgeway Close", time: "18 min ago", tint: "bg-purple-50 dark:bg-purple-900/20", fg: "text-purple-600 dark:text-purple-400" },
-  { icon: Tag, title: "Price adjusted", desc: "22 Barrow Lane — down $10,000", time: "1 hour ago", tint: "bg-orange-50 dark:bg-orange-900/20", fg: "text-orange-600 dark:text-orange-400" },
+  { icon: Tag, title: "Price adjusted", desc: "22 Barrow Lane, down $10,000", time: "1 hour ago", tint: "bg-orange-50 dark:bg-orange-900/20", fg: "text-orange-600 dark:text-orange-400" },
   { icon: Send, title: "Follow-up sequence sent", desc: "24 dormant leads re-engaged", time: "2 hours ago", tint: "bg-red-50 dark:bg-red-900/20", fg: "text-red-600 dark:text-red-400" },
 ];
 

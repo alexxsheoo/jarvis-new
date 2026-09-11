@@ -9,7 +9,7 @@ import { Section, SectionHeader } from "@/components/ui/section";
 export const metadata: Metadata = {
   title: "Solutions",
   description:
-    "Jarvis for owner-led sales teams, acquisitions, services and trades, brokerages, and agencies — one operating system, configured per industry.",
+    "Jarvis for owner-led sales teams, acquisitions, services and trades, brokerages, and agencies. One operating system, configured per industry.",
 };
 
 const solutions = [
@@ -66,7 +66,7 @@ export default function SolutionsPage() {
       <PageHero
         eyebrow="Solutions"
         title="One system, configured to your industry"
-        description="Jarvis started in real estate and grew into the businesses that share its shape — owner-led teams where leads arrive faster than people can work them."
+        description="Jarvis started in real estate and grew into the businesses that share its shape: owner-led teams where leads arrive faster than people can work them."
       />
 
       <Section tone="alt">
