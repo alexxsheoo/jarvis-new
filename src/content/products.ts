@@ -138,7 +138,7 @@ export const offers: Offer[] = [
       "Data flows",
     ],
     href: "/services/custom-builds",
-    cta: "Build My System",
+    cta: "Explore Custom Builds",
     icon: SlidersHorizontalIcon,
     accent: "outline",
     kind: "service",

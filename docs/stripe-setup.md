@@ -14,6 +14,10 @@ The public website is deployed to GitHub Pages as a static export. Use hosted ch
 
 ## Plan mapping
 
+The shared **Build My System** CTA opens `/checkout`. This static selection page shows all three monthly plans and links each choice directly to its configured hosted payment URL. It uses the same billing configuration as the individual review pages, including test-mode labels and unavailable states. The custom-build overview uses **Explore Custom Builds** so its label remains distinct.
+
+The selection flow passed lint, TypeScript, the production build, and all five billing tests. Generated HTML verified all 48 rendered Build My System links point to `/checkout`. Browser checks covered desktop and 320px mobile layouts, the mobile menu closing on navigation, and each plan opening its matching $97/$197/$297 monthly checkout. No payment was submitted.
+
 The display prices below already exist on the website. All three supplied checkout names, amounts, and monthly intervals were verified against their corresponding plans. Do not create or change prices automatically.
 
 | Plan     | Current display | Review page          | Build variable                                   |

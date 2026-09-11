@@ -1,5 +1,7 @@
 # JARVIS WEBSITE — PRODUCT CLARITY + HOMEPAGE RESTRUCTURE PROMPT
 
+> **Build My System:** Every button with this label opens `/checkout`, where visitors choose Standard, Elite, or Premium and continue directly to that plan's configured payment link. Use the shared `site.cta.primary.href` for desktop, mobile, hero, and section CTAs. Keep the separate custom-build overview labeled **Explore Custom Builds**. Plan prices and inclusions stay unchanged.
+
 > **Payments:** All CRM plans use the owner's FastPayDirect links in `src/content/payments.ts`: **Standard $97/month**, **Elite $197/month**, and **Premium $297/month**. Each supplied checkout was inspected and matched its plan and monthly amount. `/checkout/standard`, `/checkout/elite`, and `/checkout/premium` open their respective hosted payment pages; `/checkout/basic` remains a compatible alias for Standard. Preserve GitHub Pages compatibility with hosted checkout. Do not label FastPayDirect destinations as Stripe. `/checkout/return` is informational and is never proof of payment. Post-payment automations still need the owner's payment platform, account access, and action details. See `docs/stripe-setup.md`.
 
 > **Copy style:** Do not use em dashes in visitor-facing sentences, headings, labels, captions, accessibility text, or page metadata. Use natural sentence breaks, commas, colons, or parentheses instead. Preserve numeric ranges and ordinary hyphenated words.
