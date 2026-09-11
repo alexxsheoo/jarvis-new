@@ -19,8 +19,10 @@ import { cn } from "@/lib/cn";
  */
 export function MegaMenu({
   onOpenChange,
+  primaryCta = site.cta.primary,
 }: {
   onOpenChange?: (open: boolean) => void;
+  primaryCta?: { label: string; href: string };
 }) {
   return (
     <NavigationMenu.Root
@@ -53,10 +55,10 @@ export function MegaMenu({
                 </p>
                 <NavigationMenu.Link asChild>
                   <Link
-                    href={site.cta.primary.href}
+                    href={primaryCta.href}
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-cobalt-400 transition-colors hover:text-paper"
                   >
-                    {site.cta.primary.label}
+                    {primaryCta.label}
                     <ArrowRightIcon aria-hidden className="size-3.5" />
                   </Link>
                 </NavigationMenu.Link>

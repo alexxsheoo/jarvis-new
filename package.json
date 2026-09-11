@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:billing": "node --test tests/stripe-payment-link.test.mjs tests/onboarding-checkout.test.mjs"
+    "test:billing": "node --test tests/stripe-payment-link.test.mjs tests/onboarding-checkout.test.mjs",
+    "test:forms": "node --test tests/custom-build-request.test.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

@@ -9,11 +9,8 @@ export type BuildRequestResult =
   | { ok: false; message: string; fieldErrors?: Record<string, string[]> };
 
 /**
- * Validates a Build My Jarvis submission on the server using the same schema
- * the client form uses.
- *
- * TODO(delivery): this currently only validates and logs. Wire it to the real
- * destination (CRM record + notification) before launch — nothing is persisted.
+ * Validate requests without reporting success until a real delivery
+ * destination is connected. Never log visitors' contact or scheduling details.
  */
 export async function submitBuildRequest(
   input: unknown,
@@ -28,12 +25,9 @@ export async function submitBuildRequest(
     };
   }
 
-  // Placeholder for the real delivery step.
-  console.log("[build-request]", {
-    company: parsed.data.company,
-    teamSize: parsed.data.teamSize,
-    pillars: parsed.data.pillars,
-  });
-
-  return { ok: true };
+  return {
+    ok: false,
+    message:
+      "Online requests are not connected yet. Your details have not been sent.",
+  };
 }

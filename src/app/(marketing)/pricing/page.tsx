@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 const tiers = [
   {
     name: "CRM + Lead Scraper",
+    cta: site.cta.primary,
     summary:
       "Your CRM, with lead sourcing and preparation scoped to your market.",
     includes: [
@@ -37,6 +38,7 @@ const tiers = [
   },
   {
     name: "CRM + xCerebro",
+    cta: site.cta.primary,
     summary:
       "The CRM, plus xCerebro agents carrying first response, follow-up, and booking.",
     includes: [
@@ -51,6 +53,7 @@ const tiers = [
   },
   {
     name: "Custom CRM bundle",
+    cta: site.cta.customBuild,
     summary:
       "CRM, xCerebro agents, and Lead Scraper with the custom work your operation needs.",
     includes: [
@@ -135,13 +138,13 @@ export default function PricingPage() {
                 </ul>
 
                 <Link
-                  href={site.cta.primary.href}
+                  href={tier.cta.href}
                   className={buttonVariants({
                     variant: tier.featured ? "primary" : "secondary",
                     size: "md",
                   })}
                 >
-                  {site.cta.primary.label}
+                  {tier.cta.label}
                 </Link>
               </div>
             ))}

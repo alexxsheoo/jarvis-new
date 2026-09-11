@@ -9,6 +9,7 @@ import { WorkflowCanvas } from "@/components/product/workflow-canvas";
 import { Container } from "@/components/ui/container";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { steps } from "@/content/homepage";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Custom Builds",
@@ -97,7 +98,10 @@ export default function CustomPage() {
 
       <SystemMap />
 
-      <CtaBand />
+      <CtaBand
+        primaryCta={site.cta.customBuild}
+        description="Start with a few details about your business, current tools, and what you want to build so we can prepare for a discovery call."
+      />
     </>
   );
 }
