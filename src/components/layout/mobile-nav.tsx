@@ -151,7 +151,7 @@ export function MobileNav({
 
         <div className="hairline-t flex shrink-0 flex-col gap-3 px-6 py-5">
           <CloseLink
-            href="/signin"
+            href={site.appUrl}
             className={buttonVariants({ variant: "secondary", size: "lg" })}
           >
             Sign in

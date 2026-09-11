@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
-import { PendingNotice, ProsePage } from "@/components/layout/prose-page";
+import { ProsePage } from "@/components/layout/prose-page";
+import { buttonVariants } from "@/components/ui/button";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Sign in",
@@ -14,11 +16,13 @@ export default function SignInPage() {
       title="Sign in"
       description="Access the Jarvis system your business runs on."
     >
-      <PendingNotice>
-        No sign-in form is implemented here. Authentication belongs in the
-        product application, not the marketing site. Point this route at the
-        real app login URL before launch.
-      </PendingNotice>
+      <p>Use your Jarvis account to open your workspace.</p>
+      <a
+        href={site.appUrl}
+        className={buttonVariants({ size: "lg", className: "self-start" })}
+      >
+        Sign in to Jarvis
+      </a>
     </ProsePage>
   );
 }
