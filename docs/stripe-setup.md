@@ -2,13 +2,13 @@
 
 ## Current status
 
-Standard is connected to the owner's [FastPayDirect payment link](https://link.fastpaydirect.com/payment-link/6aa36290ceb12d9fc1a8c43e). The hosted page was inspected on September 10, 2026 and displays Jarvis Standard, $97.00 per month, as a recurring subscription. No purchase was submitted. The owner calls this plan Standard, replacing the website's earlier Basic name.
+The owner supplied replacement SaaS Configurator sale links on September 11, 2026. Standard now uses the [Stripe checkout](https://buy.stripe.com/5kQ4gA5EcfLl73TcA09bO1q), which displays Just Jarvis LLC, Jarvis Standard, and $97.00 USD per month. No purchase was submitted. Standard replaces the website's earlier Basic name.
 
-Elite and Premium are also connected to their owner-supplied links: [Elite](https://link.fastpaydirect.com/payment-link/6aa363f9ceb12d9fc1a8c441) displays Jarvis ELITE at $197.00/month; [Premium](https://link.fastpaydirect.com/payment-link/6aa364e4e9a073174b3b5bb6) displays JARVIS PREMIUM 2026 Monthly at $297.00/month. Both were inspected without submitting a payment.
+The replacement [Elite checkout](https://link.fastpaydirect.com/payment-link/6aa45856ceb12d9fc1a8c697) displays JARVIS ELITE 2026 Monthly at $197.00/month; the replacement [Premium checkout](https://link.fastpaydirect.com/payment-link/6aa45867ceb12d9fc1a8c699) displays JARVIS PREMIUM 2026 Monthly at $297.00/month. Both use FastPayDirect and were inspected without entering customer or payment data. Premium initially returned a loading error; one reload displayed the correct $297 subtotal and total.
 
-The Elite hosted checkout mentions mentorship. The owner explicitly chose to keep the website's current plan features, so full mentorship remains listed under Premium only. Do not change these inclusions as part of linking payments.
+The owner previously chose to keep the website's current plan features despite mentorship wording in an older Elite checkout. Full mentorship remains listed under Premium only. Do not change prices or inclusions as part of replacing these links.
 
-No post-payment automation is configured in this repository. The supplied links' existing automation, receipt, and redirect settings have not been inspected or changed.
+No post-payment automation is configured in this repository. The links are identified as SaaS Configurator sale links by the owner; a completed purchase, account creation, snapshot application, and onboarding email have not been tested. Inspect the owning SaaS plan configuration before adding separate provisioning workflows so the same account is not created twice. Existing automation, receipt, and redirect settings have not been changed.
 
 The public website is deployed to GitHub Pages as a static export. Use hosted checkout and an external automation service or backend for confirmed payment events. Do not add a POST webhook to this static deployment. No secret payment key is required by the website. Do not describe the FastPayDirect checkout as a directly hosted Stripe page.
 
@@ -32,17 +32,17 @@ Each plan needs its own recurring payment link. The website does not synchronize
 
 ## Optional Stripe overrides for Elite and Premium
 
-No environment variables are needed for the supplied FastPayDirect links. The following setup is only for an intentional replacement with direct Stripe Payment Links.
+No environment variables are needed for the supplied SaaS links. The following setup is only for an intentional replacement of Elite/Premium with direct Stripe Payment Links. Standard always uses the supplied live Stripe checkout.
 
 1. In the owner's Stripe sandbox, create or select the approved recurring prices. Create one Payment Link per plan with quantity fixed at one. Keep trials, discounts, and optional products off unless the owner specifies them.
 2. Set the business name and brand in Stripe. Use the existing Jarvis logo and cobalt/navy colors. Confirm applicable tax settings in the Stripe account.
-3. Copy `.env.example` to `.env.local`. Set `STRIPE_PAYMENT_MODE=test` and add Elite/Premium public `https://buy.stripe.com/test_...` links. Blank overrides leave that plan unavailable in this mode; they never fall back to the live FastPayDirect link. The configured links must be distinct and match the selected mode. Standard always uses its owner-supplied FastPayDirect destination.
+3. Copy `.env.example` to `.env.local`. Set `STRIPE_PAYMENT_MODE=test` and add Elite/Premium public `https://buy.stripe.com/test_...` links. Blank overrides leave that plan unavailable in this mode; they never fall back to the live FastPayDirect link. The configured links must be distinct and match the selected mode. Standard always uses its owner-supplied live Stripe destination; these variables do not put Standard into test mode.
 4. In each Payment Link's **After the payment** settings, choose the return URL. For the current GitHub Pages deployment use `https://alexxsheoo.github.io/jarvis-new/checkout/return/`. For local testing use `http://127.0.0.1:4175/checkout/return/`. Update it if the production domain changes.
 5. The return page intentionally does not confirm payment or trigger onboarding. Do not grant access based on a return visit, a query parameter, or a browser event.
 6. Enable Stripe's successful-payment receipts and configure the selected automation below. Store API keys and signing secrets only in that service's secret storage, never in website source or public build variables.
-7. After sandbox payment and automation tests pass, supply the corresponding live Stripe Payment Links and set `STRIPE_PAYMENT_MODE=live`. Rebuild and publish only with owner approval. Environment changes require a rebuild. `disabled` disables the Stripe overrides and restores the supplied FastPayDirect links; it does not disable checkout.
+7. After sandbox payment and automation tests pass, supply the corresponding live Stripe Payment Links and set `STRIPE_PAYMENT_MODE=live`. Rebuild and publish only with owner approval. Environment changes require a rebuild. `disabled` disables the Elite/Premium overrides and restores their supplied FastPayDirect links; it does not disable checkout or change Standard.
 
-The environment-variable validator accepts only canonical `buy.stripe.com` links. The exact owner-supplied FastPayDirect URLs are explicitly configured separately. This does not allow arbitrary custom payment domains. Expiring `checkout.stripe.com` session URLs are not reusable Payment Links.
+The environment-variable validator accepts only canonical `buy.stripe.com` links. The exact owner-supplied SaaS URLs are explicitly configured separately in `src/content/payments.ts`. This does not allow arbitrary custom payment domains. Expiring `checkout.stripe.com` session URLs are not reusable Payment Links.
 
 ## Automation decisions still needed
 
@@ -76,7 +76,7 @@ This is the implementation contract, not an installed workflow. Once the platfor
 ## Verification
 
 - Run `npm run test:billing`, `npm run lint`, `npx tsc --noEmit`, and `npm run build`. Billing tests require Node 22.18 or newer for native TypeScript loading.
-- Open all three checkout pages on desktop and mobile. Confirm each opens its exact supplied FastPayDirect URL, test labels apply only to test overrides, missing test overrides do not fall back to live links, and unknown plans return 404.
+- Open all three checkout pages. Confirm Standard opens its exact supplied Stripe URL and Elite/Premium open their exact supplied FastPayDirect URLs. Test labels apply only to configured test overrides, missing test overrides do not fall back to live links, and unknown plans return 404.
 - Complete a sandbox subscription. Confirm the correct amount/currency/interval and exactly one onboarding workflow, even if the browser closes before returning.
 - Replay an event and deliver related events out of order. Confirm no duplicate accounts, emails, or renewal actions.
 - Test delayed payment, failed payment, a renewal, a canceled subscription, and an automation outage/retry. Verify each matches the agreed access policy.
@@ -84,7 +84,9 @@ This is the implementation contract, not an installed workflow. Once the platfor
 
 ## Local implementation and checks
 
-After connecting all three plans, lint, TypeScript, the production build, and the three billing validation tests passed. Configuration checks verified each exact supplied URL and confirmed that missing test overrides cannot fall back to live links. Generated HTML checks matched all three prices and destinations and both pricing sections' plan links. Browser checks followed Elite from the homepage to its $197/month checkout and Premium from the pricing table to its $297/month checkout. The earlier Standard checkout check also passed. No payment was submitted.
+The original integration passed lint, TypeScript, build, billing validation, and desktop/mobile browser checks. The September 11 replacement SaaS links were individually opened in the browser and matched Standard $97/month, Elite $197/month, and Premium $297/month. No payment was submitted. Website buttons use the shared billing configuration, including the plan selector, individual plan pages, and legacy Basic/build routes.
+
+After the replacements, `npm run lint`, `npx tsc --noEmit`, `npm run build`, and all five billing tests passed. Generated HTML checks confirmed the new destinations in `/checkout`, `/build`, and all four plan review routes, with no old subscription links remaining. Private onboarding and Custom Builds retain their existing destinations.
 
 Payment submission and automation tests remain pending. The supplied API access has since verified the payment account; workflow actions, delivery destinations, and an approved payment test still need to be configured as described above.
 
@@ -105,6 +107,7 @@ Payment submission and automation tests remain pending. The supplied API access 
 
 ## References
 
+- [HighLevel SaaS Configurator sale links and customer onboarding](https://help.gohighlevel.com/support/solutions/articles/155000008015-getting-started-with-the-saas-configurator)
 - [Stripe Payment Links](https://docs.stripe.com/payment-links)
 - [After a Payment Link payment](https://docs.stripe.com/payment-links/post-payment)
 - [Checkout fulfillment](https://docs.stripe.com/checkout/fulfillment)

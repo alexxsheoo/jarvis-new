@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 
 import { brand, offers, products, services, xcerebroWebsite } from "./products";
+import { site } from "./site";
 
 export type NavLink = {
   label: string;
@@ -143,8 +144,8 @@ export const footerColumns: FooterColumn[] = [
 ];
 
 export const legalNav: NavLink[] = [
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+  { label: "Privacy Policy", href: site.privacyPolicyUrl },
+  { label: "Terms and Conditions", href: site.termsUrl },
   { label: "Security", href: "/security" },
 ];
 
