@@ -59,8 +59,8 @@ export function VideoSection() {
         </ol>
 
         <VideoShowcase
-          src="/jarvis-new/videos/jarvis-system-demo.mp4"
-          poster="/jarvis-new/videos/jarvis-crm-overview-poster.jpg"
+          src="/videos/jarvis-system-demo.mp4"
+          poster="/videos/jarvis-crm-overview-poster.jpg"
           label="Jarvis CRM: AI-powered overview"
           caption="Jarvis CRM: AI-powered overview. 1 minute 14 seconds."
         />

@@ -70,7 +70,7 @@ export const HeroScrollVideoReveal: React.FC<HeroScrollVideoRevealProps> = ({
   tags = DEFAULT_TAGS,
   subText,
   videoSrc,
-  posterSrc = "/jarvis-new/videos/jarvis-why-poster.png",
+  posterSrc = "/videos/jarvis-why-poster.png",
   caption,
   className = "",
 }) => {
