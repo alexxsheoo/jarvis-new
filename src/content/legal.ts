@@ -3,290 +3,197 @@ export type LegalSection = {
   title: string;
   paragraphs: string[];
   bullets?: string[];
-  reviewNote?: string;
 };
 
 export type LegalDocument = {
   title: string;
   description: string;
-  reviewSummary: string;
+  effectiveDate: string;
   sections: LegalSection[];
 };
 
-export const legalDraftDate = "September 11, 2026";
-
-export const privacyDraft: LegalDocument = {
+export const privacyPolicy: LegalDocument = {
   title: "Privacy Policy",
   description:
-    "How information is handled when you visit Jarvis, use the CRM, or work with our team.",
-  reviewSummary:
-    "Confirm the legal business name, privacy contact, service providers, retention practices, and tracking settings before adopting this policy.",
+    "How Jarvis collects, uses, protects, and shares information provided through our website and services.",
+  effectiveDate: "September 29, 2026",
   sections: [
     {
-      id: "scope",
-      title: "Who this policy covers",
+      id: "privacy",
+      title: "Our privacy commitment",
       paragraphs: [
-        'This policy describes how the business operating Jarvis ("Jarvis," "we," "us," or "our") handles personal information in connection with our website, Jarvis CRM, purchases, inquiries, onboarding, and related services.',
-        "xCerebro AI Agents, Lead Scraper, and Custom Builds are separate products and services. This policy applies when we provide those services under a Jarvis agreement. A separate website or provider may also have its own privacy notice.",
-        "When a business uses Jarvis to manage its own contacts, that business determines how those records are used. We process those records on its behalf as described in the customer agreement. Requests about a customer's marketing, messages, or contact records should generally be directed to that business.",
+        "Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you across our website, software, and other sites or services we own and operate.",
+        "We only ask for personal information when we need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent, and explain why it is being collected and how it will be used.",
       ],
-      reviewNote:
-        "Confirm the legal entity responsible for the website and each service, including whether Just Jarvis LLC, VS Staffing LLC, or both should be identified here.",
     },
     {
       id: "information",
-      title: "Information we receive",
+      title: "Information we collect",
       paragraphs: [
-        "The information involved depends on the service you use and what you choose to provide. Please only submit information that is needed for your request and that you have permission to share.",
-      ],
-      bullets: [
-        "Contact and business details, such as your name, email, phone number, company, industry, and project requirements.",
-        "Scheduling details, including your preferred dates, times, time zone, and appointment history.",
-        "Account information and customer records entered into the CRM, including contacts, conversations, notes, pipelines, tasks, and files.",
-        "Subscription and transaction records, such as the plan purchased, payment status, billing dates, and processor references.",
-        "Technical records from website and service use, such as IP address, browser type, access times, and error or security logs.",
-        "Materials supplied for AI or custom work, including instructions, prompts, knowledge bases, workflows, and connected data.",
+        "The information we collect depends on how you use Jarvis and what you choose to provide. It may include your name, email address, phone number, business details, billing and subscription records, appointment information, account activity, customer records entered into the CRM, and technical information used to operate and secure the services.",
+        "Payment details are entered on hosted checkout pages operated by our payment providers. Jarvis may receive transaction details needed to administer your purchase, but the marketing website does not collect complete card information directly.",
       ],
     },
     {
-      id: "uses",
+      id: "use",
       title: "How information is used",
       paragraphs: [
-        "We use information to respond to inquiries, provide the services you request, manage accounts and payments, arrange onboarding, troubleshoot problems, and protect the services from misuse. We may also need records to meet legal obligations or resolve a dispute.",
-        "Marketing communications require the permissions applicable to the channel and your location. Providing information for a custom-build inquiry or an appointment does not, by itself, authorize unrelated marketing.",
-        "Where applicable law requires a legal basis, processing must be supported by that basis, such as performing our agreement with you, your consent, a legal obligation, or a legitimate interest that does not override your rights.",
+        "We use information to provide requested services, manage accounts and subscriptions, respond to inquiries, arrange onboarding, operate CRM and automation features, troubleshoot problems, improve our services, maintain security, comply with legal obligations, and resolve disputes.",
+        "If you use Jarvis to manage your own contacts, you are responsible for having the rights and permissions required to collect, upload, process, and contact those individuals.",
       ],
-    },
-    {
-      id: "payments",
-      title: "Payments and appointment bookings",
-      paragraphs: [
-        "Checkout takes place on a hosted payment page. Standard currently links to Stripe; Elite, Premium, and private onboarding use the supplied FastPayDirect payment pages. The marketing website does not ask you to enter card details directly into its own form.",
-        "The payment provider processes the information entered at checkout under its own terms and privacy notice. We may receive transaction and subscription information needed to administer your purchase.",
-        "Private onboarding bookings use a hosted calendar. Information you enter there is used to arrange your sessions and is also subject to the calendar provider's practices.",
-      ],
-    },
-    {
-      id: "sharing",
-      title: "When information is shared",
-      paragraphs: [
-        "Information may be provided to service providers that help operate the website, CRM, payments, calendars, communications, hosting, support, and requested AI features. They should receive only the information needed for their role, subject to the applicable agreements.",
-        "We may also disclose information at your direction, with appropriate consent, to comply with a legal requirement, to address fraud or security threats, or in connection with a business transfer subject to applicable privacy protections.",
-      ],
-      reviewNote:
-        "Confirm the vendor list, related business entities, and whether any advertising, analytics, data licensing, or other activity constitutes a sale, sharing, or targeted advertising under applicable law. This draft does not assert that those activities are absent.",
-    },
-    {
-      id: "messaging",
-      title: "Text messages, calls, and email",
-      paragraphs: [
-        "If you opt in to a Jarvis messaging program, the consent request should identify the sender, the type of messages, and how to opt out. Frequency varies with the program, and message and data rates may apply. Marketing consent is not a condition of purchase.",
-        "Reply STOP to end messages from that SMS program or HELP for assistance. Email marketing should include an unsubscribe option. Withdrawing marketing consent does not cancel a subscription or prevent necessary account notices through another permitted channel.",
-        "Mobile numbers and SMS opt-in data will not be sold or shared with third parties or affiliates for their own marketing. They may be disclosed to providers that deliver or support the messaging service and when legally required.",
-        "Customers sending messages through Jarvis are responsible for obtaining permission from their own recipients and honoring their opt-out requests. Recording or transcribing calls requires any notice and consent applicable to that communication.",
-      ],
-      reviewNote:
-        "Verify these proposed commitments against the actual messaging programs, consent records, STOP and HELP handling, and call-recording settings before use.",
-    },
-    {
-      id: "ai-and-data",
-      title: "AI features and sourced data",
-      paragraphs: [
-        "An AI feature may process the prompts, conversations, documents, or CRM information supplied to it through a technology provider. Only connect data you are authorized to use. AI output can contain personal information and should be reviewed before it is shared or used.",
-        "Lead Scraper or custom data services may organize information from public or otherwise authorized sources selected for a project. Public availability does not remove privacy rights or create permission for every use. Source accuracy and permissions need to be assessed for the intended purpose.",
-      ],
-      reviewNote:
-        "Confirm AI providers, storage locations, retention, and any model-training use. Do not promise that data is excluded from model training without verifying the provider agreement and settings.",
-    },
-    {
-      id: "cookies",
-      title: "Cookies and browser technologies",
-      paragraphs: [
-        "The website and connected services may use browser storage or similar technologies for functions such as keeping you signed in and remembering preferences. Payment, login, and booking pages may apply their own settings.",
-        "You can control cookies through your browser, although blocking necessary storage may affect a service. Where optional tracking requires consent or an opt-out mechanism, that choice must be provided before the tracking is used.",
-      ],
-      reviewNote:
-        "Complete a website and app tracking inventory. No advertising or analytics integration was identified in the current marketing source, but hosted services and account settings still need inspection.",
     },
     {
       id: "retention-security",
       title: "Retention and security",
       paragraphs: [
-        "Information should be retained only as long as needed to provide the service, meet a legal or accounting obligation, maintain security, or resolve a dispute. The appropriate period depends on the record and purpose. Backups and provider systems may follow separate deletion schedules.",
-        "We must use safeguards appropriate to the information and service. No online service can guarantee complete security. Protect your login credentials, control access to your workspace, and report suspected unauthorized access promptly.",
-      ],
-      reviewNote:
-        "Confirm actual retention and deletion periods, backup handling, security controls, and the process for account closure and incident reports.",
-    },
-    {
-      id: "rights",
-      title: "Your choices and privacy requests",
-      paragraphs: [
-        "Depending on your location and applicable law, you may be able to request access, correction, deletion, or a portable copy of your information, withdraw consent, or object to or restrict certain processing. Some laws also provide rights relating to targeted advertising, sale or sharing, and appeals of a denied request.",
-        "We may need to verify your identity or an authorized agent's authority before acting on a request. Legal exceptions can limit what can be deleted or disclosed. We will not unlawfully discriminate against you for exercising a privacy right.",
-        "For records controlled by a business using Jarvis, contact that business first. For information controlled by Jarvis, use the privacy contact identified below once this policy is finalized.",
+        "We retain collected information only for as long as necessary to provide the requested service, operate accounts, meet legal or accounting obligations, maintain security, or resolve disputes.",
+        "We protect stored information using commercially reasonable safeguards designed to prevent loss, theft, unauthorized access, disclosure, copying, use, or modification. No online service or storage system can guarantee complete security.",
       ],
     },
     {
-      id: "international-children",
-      title: "International use and children",
+      id: "sharing",
+      title: "Sharing and service providers",
       paragraphs: [
-        "Service providers may process information in a country other than your own. Applicable transfer requirements and safeguards must be considered before transferring protected information internationally.",
-        "Jarvis is intended for business use by adults. The services are not directed to children under 13. If information about a child has been submitted without required permission, contact the privacy team so it can be reviewed and handled as required by law.",
+        "We do not publicly disclose personally identifying information or share it with third parties for their own purposes except with your direction or consent, when needed to provide the requested service, or when required by law.",
+        "We may use service providers for hosting, CRM functionality, payments, calendars, communications, integrations, support, analytics, and approved AI features. Those providers may process information needed to perform their services and may apply their own terms and privacy notices.",
+        "Mobile numbers and SMS opt-in information are not sold or shared with third parties or affiliates for their own marketing. They may be provided to vendors that support message delivery and when disclosure is legally required.",
       ],
-      reviewNote:
-        "Confirm operating countries, storage locations, transfer safeguards, and any additional regional privacy notices required for the customers served.",
     },
     {
-      id: "contact-updates",
-      title: "Contact and policy updates",
+      id: "cookies-links",
+      title: "Cookies and external links",
       paragraphs: [
-        "A final policy will identify the responsible legal business, its mailing address, and a working privacy-request email or form. Requests should describe the information or service involved without including passwords or complete payment details.",
-        "When this policy is updated, the revised version will identify its effective date. Additional notice or consent will be provided when required. This draft has no effective date and does not replace an existing policy.",
+        "Our website and services may use cookies or similar browser technologies to operate features, remember preferences, understand service usage, and maintain security. You can control cookies through your browser, although disabling necessary cookies may affect functionality.",
+        "Our website may link to external sites that we do not operate. We do not control their content or practices and cannot accept responsibility for their privacy policies. Review the policies of each external service you use.",
       ],
-      reviewNote:
-        "Add the verified business name, mailing address, privacy contact, and effective date. The current custom-build form is not connected and must not be used as a privacy-request channel.",
+    },
+    {
+      id: "choices",
+      title: "Your choices",
+      paragraphs: [
+        "You may refuse a request for personal information, with the understanding that we may be unable to provide some requested services. Depending on applicable law, you may also have rights to request access, correction, or deletion of certain personal information.",
+        "Marketing messages include the applicable opt-out method. Opting out of marketing does not cancel a paid subscription or prevent service and account notices permitted by law.",
+      ],
+    },
+    {
+      id: "acceptance-updates",
+      title: "Acceptance and updates",
+      paragraphs: [
+        "Your continued use of the website or services is regarded as acceptance of this Privacy Policy. If you do not agree with this policy, do not use the website or services.",
+        "We may update this policy as our services or legal requirements change. The revised policy will be posted here with a new effective date. If you have questions about how we handle personal information, contact Jarvis through the contact options provided on the website or inside your account.",
+      ],
     },
   ],
 };
 
-export const termsDraft: LegalDocument = {
+export const termsAndConditions: LegalDocument = {
   title: "Terms and Conditions",
   description:
-    "Proposed terms for Jarvis CRM subscriptions, onboarding, and separately scoped services.",
-  reviewSummary:
-    "Confirm the contracting business, support and cancellation contacts, refund policy, and dispute terms before adopting this agreement.",
+    "The terms governing access to the Jarvis website, software subscriptions, purchases, and related services.",
+  effectiveDate: "September 29, 2026",
   sections: [
     {
-      id: "agreement",
-      title: "The agreement",
+      id: "terms",
+      title: "Terms",
       paragraphs: [
-        'These terms describe the proposed agreement between the business operating Jarvis ("Jarvis," "we," "us," or "our") and the person or business purchasing or using the services ("you"). The final terms must identify the contracting legal entity and be made available before acceptance.',
-        "You must be at least 18 and authorized to enter into an agreement for the business you represent. If you do not agree to the final terms presented with a purchase, do not complete that purchase.",
-        "A signed statement of work or order may set additional terms for a specific service. If it conflicts with these general terms, the signed agreement controls for that service, subject to rights that cannot be waived by law.",
+        "By accessing the Jarvis website, creating an account, subscribing, or purchasing a Jarvis product or service, you agree to these Terms and Conditions. These terms apply to all users, and you are responsible for complying with applicable laws and regulations. If you do not agree with these terms, do not use the website or services.",
+        "You must be at least 18 years old and authorized to enter into this agreement for yourself or the business you represent. Materials on the website and services are protected by applicable copyright and trademark laws.",
       ],
-      reviewNote:
-        "Confirm the contracting legal entity, business address, effective date, and the method used to record acceptance at checkout.",
     },
     {
       id: "services",
-      title: "What you are purchasing",
+      title: "Services and purchases",
       paragraphs: [
-        "Jarvis CRM provides the features included in the plan selected at checkout. Standard, Elite, and Premium are separate monthly plans. The price, billing interval, included features, and any additional charges should be reviewed before subscribing.",
-        "xCerebro AI Agents, Lead Scraper, and Custom Builds are separately scoped products or services unless a written bundle expressly includes them. A bundle does not imply that every service, integration, or usage charge is included.",
-        "Communication usage, third-party subscriptions, custom implementation, and other extras are charged only as disclosed in the applicable checkout or written agreement.",
+        "Jarvis CRM subscriptions include the plan and billing interval shown at checkout. xCerebro AI Agents, Lead Scraper, Custom Builds, private onboarding, communications usage, integrations, and third-party services may be purchased or priced separately unless the checkout page or a written agreement expressly includes them.",
+        "You are responsible for reviewing the final price, billing frequency, included features, usage charges, scope, and any written order or statement of work before purchasing. A signed order or statement of work may add terms for a specific service and controls for that service if it conflicts with these general terms.",
       ],
     },
     {
       id: "accounts",
-      title: "Accounts and access",
+      title: "Accounts and acceptable use",
       paragraphs: [
-        "Provide accurate account and billing information and keep it current. You are responsible for managing your authorized users, protecting credentials, and ensuring that people using your workspace follow these terms.",
-        "Notify Jarvis promptly if you suspect unauthorized access. Do not share an account in a way that bypasses plan limits or access controls, and do not attempt to access another customer's information.",
+        "Provide accurate account and billing information, keep it current, protect your login credentials, and manage access for your authorized users. You are responsible for activity performed through your account and connected services.",
+      ],
+      bullets: [
+        "Do not use the services unlawfully, deceptively, or to violate another person's rights.",
+        "Do not send spam, impersonate others, harass recipients, or ignore required consent and opt-out rules.",
+        "Do not upload malware, bypass security or access controls, disrupt the services, or attempt to access another customer's information.",
+        "Do not reverse engineer, decompile, copy, resell, mirror, or publicly display Jarvis software or materials except as expressly permitted in writing.",
+        "Do not submit data that you do not have the right or permission to use.",
       ],
     },
     {
       id: "billing",
-      title: "Subscriptions and payment",
+      title: "Subscriptions and billing",
       paragraphs: [
-        "By completing a recurring subscription checkout, you authorize the amount and billing frequency shown there. A subscription renews automatically at that interval until canceled. A one-time onboarding purchase is separate from the recurring CRM subscription.",
-        "Payments are processed through the hosted checkout provider. Review the final amount, currency, taxes, and recurring-payment disclosures before paying. A success page alone is not confirmation that funds were received or that an account is ready.",
-        "Any proposed price change should be communicated before it applies to a future renewal, with an opportunity to cancel where required. Payment failures may interrupt access, subject to applicable notice requirements and the final account policy.",
+        "By completing a recurring checkout, you authorize Jarvis and its payment provider to charge the amount and billing frequency shown at checkout. Subscriptions renew automatically until canceled. Usage charges and separately purchased services may be billed in addition to the subscription price when disclosed at checkout or in a written agreement.",
+        "A payment confirmation or return page does not by itself confirm that payment was received, provisioning is complete, or an account is ready. Failed or reversed payments may interrupt access to the services.",
       ],
     },
     {
-      id: "cancellation-refunds",
-      title: "Cancellation and refunds",
+      id: "refunds-cancellation",
+      title: "No refunds and cancellation",
       paragraphs: [
-        "You may stop future subscription renewals by completing the cancellation process disclosed at checkout. Cancellation should not require buying another service. A cancellation confirmation should state the final billing and access dates.",
-        "Deleting a bookmark, stopping use, opting out of messages, or disconnecting an integration does not cancel a subscription. Use the confirmed cancellation method and keep the confirmation for your records.",
-        "Refunds, prorated credits, and the treatment of prepaid fees must follow the policy disclosed before purchase and any rights required by law. This draft does not establish a blanket no-refund policy.",
-      ],
-      reviewNote:
-        "Specify and test the cancellation URL or monitored contact, timing before renewal, access after cancellation, refund and proration rules, failed-payment grace period, and any onboarding rescheduling or no-show policy.",
-    },
-    {
-      id: "onboarding-custom",
-      title: "Onboarding and Custom Builds",
-      paragraphs: [
-        "Private onboarding is currently offered as a separate one-time $300 service covering A2P setup assistance, website creation, and two one-on-one coaching sessions. After payment, the booking calendar is provided to arrange the sessions. Scope, preparation requirements, and scheduling details should be confirmed before work starts.",
-        "A2P registration and approval are controlled by carriers and their providers. Assistance does not guarantee approval, delivery rates, or an approval date. You must provide accurate business information and any required consents and documents.",
-        "A custom-build inquiry is a request for a conversation, not a confirmed appointment or an agreement to deliver a project. Custom work requires an agreed scope, price, timeline, deliverables, revision limits, and ownership terms. Changes to that scope require agreement from both parties.",
+        "All purchases, subscription charges, usage charges, onboarding fees, and service payments made to Jarvis are final and non-refundable. By purchasing, clients agree that there are no refunds under any circumstances, except where a refund is required by applicable law.",
+        "This no-refund policy applies regardless of usage, satisfaction, implementation status, appointment attendance, account activity, or whether the client chooses to stop using the service during a paid billing period.",
+        "You may cancel a recurring Jarvis subscription at any time through the subscription management options available in your account or through the cancellation method provided with your purchase. Cancellation stops future renewals and does not refund or credit any amount already paid.",
+        "After cancellation, access continues until the end of the current paid billing period unless access is suspended earlier for a violation, security risk, payment reversal, or another reason permitted by these terms. After the paid period ends, the account may be deactivated and access to software, data, and related services may end.",
+        "Deleting a bookmark, disconnecting an integration, stopping use, or opting out of marketing messages does not cancel a subscription.",
       ],
     },
     {
-      id: "acceptable-use",
-      title: "Responsible use",
+      id: "license",
+      title: "Use license and ownership",
       paragraphs: [
-        "Use the services lawfully and respect the rights of the people whose information you process. You are responsible for your data sources, outreach, business decisions, and connected accounts.",
-      ],
-      bullets: [
-        "Do not send spam, impersonate others, harass recipients, or use deceptive messages or offers.",
-        "Obtain the permissions required for calls, messages, recordings, data collection, and marketing, and honor opt-outs.",
-        "Do not upload malware, bypass security or access restrictions, or interfere with the service.",
-        "Do not use scraped or purchased data in ways that violate laws, source restrictions, or another person's rights.",
-        "Do not submit sensitive or regulated information unless the service and written agreement permit it and the necessary safeguards are in place.",
+        "Jarvis grants you a limited, non-exclusive, non-transferable right to use the purchased services during the applicable subscription or service period. This is a license to use the services and is not a transfer of ownership.",
+        "Jarvis and its licensors retain all rights in the software, website, branding, templates, documentation, and pre-existing tools. You retain rights in materials you provide, subject to the permissions needed for Jarvis and its service providers to perform the requested services.",
+        "This license terminates when your paid access ends or if you violate these terms. Upon termination, you must stop using protected Jarvis materials and destroy downloaded copies when requested or required.",
       ],
     },
     {
-      id: "sms",
-      title: "Messaging programs",
+      id: "disclaimer",
+      title: "Disclaimer",
       paragraphs: [
-        "For a Jarvis SMS program you choose to join, messages may concern the topics described when you opt in, such as a requested appointment, account support, or separately authorized promotions. Message frequency varies, and message and data rates may apply. Marketing consent is not required to purchase.",
-        "Reply STOP to unsubscribe from that messaging program and HELP for assistance. Carrier delivery is outside Jarvis's control and may be delayed or unavailable. See the Privacy Policy for the proposed handling of mobile numbers and consent records.",
-        "If you use Jarvis to contact your own customers, you are the sender and must identify your business, obtain the required consent, keep consent records, and provide a working opt-out process.",
-      ],
-      reviewNote:
-        "Add a working support contact and verify each program's sender identity, message categories, consent language, HELP response, and opt-out behavior before registration or launch.",
-    },
-    {
-      id: "data-ownership",
-      title: "Your data and our materials",
-      paragraphs: [
-        "You retain your rights in the information and materials you provide. You authorize Jarvis and its service providers to process them as needed to perform the agreed service. You must have the rights and permissions needed to provide that information.",
-        "Jarvis and its licensors retain their rights in the platform, branding, templates, and pre-existing tools. Your subscription gives you permission to use the agreed service; it does not transfer ownership of the platform. Ownership or licensing of custom deliverables must be stated in the project agreement.",
-        "The Privacy Policy describes personal-information handling. Any required data-processing agreement should identify the parties' responsibilities for customer records and connected services.",
+        "The website, software, AI outputs, data, and related materials are provided on an 'as is' and 'as available' basis. To the fullest extent permitted by law, Jarvis disclaims express and implied warranties, including merchantability, fitness for a particular purpose, non-infringement, accuracy, and uninterrupted availability.",
+        "Jarvis does not guarantee leads, revenue, sales, approvals, delivery rates, business outcomes, or that AI-generated or sourced information will be complete or error-free. Review outputs and records before relying on them for customer communications or business decisions.",
       ],
     },
     {
-      id: "ai-third-parties",
-      title: "AI outputs and third-party services",
+      id: "limitations",
+      title: "Limitations of liability",
       paragraphs: [
-        "AI-generated messages, recommendations, and extracted data may be inaccurate or incomplete. Review outputs before using them, especially before sending messages, changing customer records, or making significant decisions. Jarvis does not guarantee leads, revenue, closed deals, or any particular business outcome.",
-        "Payment processors, carriers, calendars, AI providers, and other integrations may have their own terms, charges, and availability limits. You are responsible for authorizing the connections you request. A third party may change or discontinue its service.",
-        "The services and coaching do not replace professional legal, tax, financial, or regulatory advice.",
+        "To the fullest extent permitted by law, Jarvis and its suppliers are not liable for indirect, incidental, special, consequential, or punitive damages, including loss of data, profit, revenue, opportunity, or business interruption, arising from use of or inability to use the website or services.",
+        "Some jurisdictions do not allow certain warranty exclusions or liability limitations, so portions of these limitations may not apply to you. Nothing in these terms excludes a right or liability that cannot lawfully be excluded.",
       ],
     },
     {
-      id: "availability-termination",
-      title: "Availability and ending service",
+      id: "accuracy-links",
+      title: "Accuracy and external services",
       paragraphs: [
-        "Maintenance, security incidents, and provider outages can affect access. Any uptime or support commitment must be stated in your order or a separate service agreement.",
-        "Jarvis may restrict access when reasonably needed to respond to unlawful use, a material breach, nonpayment, or a security threat. Where practical and legally permitted, we will explain the issue and provide an opportunity to resolve it. Urgent protective action may be necessary first.",
-        "When service ends, data export, access, retention, and deletion follow the agreed account policy and applicable law. You should arrange for records you need before the confirmed access end date.",
+        "Website and service materials may contain technical, typographical, photographic, AI-generated, or data-source errors. Jarvis does not warrant that all materials are accurate, complete, or current and may change them without notice.",
+        "Jarvis has not reviewed every external website or third-party service linked or connected to its services. A link or integration does not imply endorsement. Your use of payment providers, communications providers, calendars, AI providers, data sources, or other third-party services is subject to their own terms, charges, policies, and availability.",
       ],
-      reviewNote:
-        "Confirm the support commitments, suspension process, export method, and post-termination retention period before adoption.",
     },
     {
-      id: "liability-disputes",
-      title: "Responsibility and disputes",
+      id: "cookies",
+      title: "Cookies",
       paragraphs: [
-        "Each party remains responsible for its obligations under the agreement and applicable law. Nothing in these terms excludes a warranty, remedy, or liability that cannot lawfully be excluded, or removes a mandatory consumer right.",
-        "If a dispute arises, contact the other party with enough detail to investigate and seek a resolution. This draft does not impose mandatory arbitration, a class-action waiver, a liability cap, or a chosen court.",
+        "Jarvis may use necessary, functionality, analytics, and third-party cookies or similar technologies to operate the website and services, remember preferences, maintain security, and understand usage. You can manage cookies in your browser, although blocking necessary cookies may prevent parts of the services from working.",
       ],
-      reviewNote:
-        "Have qualified counsel review any proposed warranty exclusions, liability limits, indemnity, governing law, and dispute venue for the business and jurisdictions served.",
     },
     {
-      id: "changes-contact",
-      title: "Changes and contact information",
+      id: "modifications",
+      title: "Changes to these terms",
       paragraphs: [
-        "The final terms will identify their effective date and the responsible business's mailing address and support contact. Material changes will be communicated as required, and any required acceptance will be obtained before those changes apply.",
-        "This draft is for review and is not an effective customer agreement. It does not change an existing purchase, subscription, or signed project agreement.",
+        "Jarvis may revise these Terms and Conditions by posting an updated version on the website. The updated terms apply from the effective date shown, subject to any notice or consent required by law. Continued use after the updated terms take effect constitutes acceptance of the revised terms.",
       ],
-      reviewNote:
-        "Insert verified legal, support, and billing contact details. Do not use the unconnected custom-build form as a support or cancellation channel.",
+    },
+    {
+      id: "governing-law",
+      title: "Governing law",
+      paragraphs: [
+        "These Terms and Conditions are governed by and construed in accordance with the laws of the State of Texas, without regard to conflict-of-law principles. Subject to any rights that cannot be waived by law, you submit to the jurisdiction of the courts located in Texas for disputes arising from these terms or the services.",
+      ],
     },
   ],
 };

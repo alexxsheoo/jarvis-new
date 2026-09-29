@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { legalDraftDate, type LegalDocument } from "@/content/legal";
+import type { LegalDocument } from "@/content/legal";
 import { site } from "@/content/site";
 
 import { ProsePage } from "./prose-page";
@@ -13,18 +13,13 @@ export function LegalPage({ document }: { document: LegalDocument }) {
       description={document.description}
     >
       <aside
-        aria-label="Draft status"
+        aria-label="Policy effective date"
         className="rounded-md border border-cobalt-400/30 bg-cobalt-glow p-5"
       >
         <p className="font-mono text-eyebrow text-cobalt-400 uppercase">
-          Draft for review
+          Effective date
         </p>
-        <p className="mt-2 text-sm text-paper">
-          Prepared {legalDraftDate}. Not effective until approved.
-        </p>
-        <p className="mt-2 text-sm leading-relaxed">
-          {document.reviewSummary} Legal review is recommended before use.
-        </p>
+        <p className="mt-2 text-sm text-paper">{document.effectiveDate}</p>
       </aside>
 
       <nav aria-label="On this page" className="border-b border-line py-5">
@@ -67,12 +62,6 @@ export function LegalPage({ document }: { document: LegalDocument }) {
                 <li key={bullet}>{bullet}</li>
               ))}
             </ul>
-          ) : null}
-          {section.reviewNote ? (
-            <aside className="border-l-2 border-cobalt-400/40 py-1 pl-4 text-sm leading-relaxed">
-              <p className="mb-1 font-medium text-cobalt-400">To finalize</p>
-              <p>{section.reviewNote}</p>
-            </aside>
           ) : null}
         </section>
       ))}
