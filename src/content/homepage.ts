@@ -76,25 +76,6 @@ export const integrations = [
   "Webhooks",
 ];
 
-export const securityPoints = [
-  {
-    title: "Role-based permissions",
-    body: "Control what each person and each agent can see, edit, and send.",
-  },
-  {
-    title: "Full activity history",
-    body: "Every record change and every AI action is logged with who, what, and when.",
-  },
-  {
-    title: "Human approval gates",
-    body: "Set which outbound actions require a person before they leave the system.",
-  },
-  {
-    title: "Your data stays yours",
-    body: "Export any record at any time. No lock-in on the data you generated.",
-  },
-];
-
 export const proof = [
   {
     industry: "Acquisitions",
