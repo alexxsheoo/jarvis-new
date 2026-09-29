@@ -22,24 +22,6 @@ export function LegalPage({ document }: { document: LegalDocument }) {
         <p className="mt-2 text-sm text-paper">{document.effectiveDate}</p>
       </aside>
 
-      <nav aria-label="On this page" className="border-b border-line py-5">
-        <p className="mb-4 font-mono text-eyebrow text-faint uppercase">
-          On this page
-        </p>
-        <ol className="grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
-          {document.sections.map((section, index) => (
-            <li key={section.id}>
-              <a
-                href={`#${section.id}`}
-                className="text-muted underline-offset-4 hover:text-paper hover:underline"
-              >
-                {index + 1}. {section.title}
-              </a>
-            </li>
-          ))}
-        </ol>
-      </nav>
-
       {document.sections.map((section, index) => (
         <section
           key={section.id}
