@@ -146,7 +146,6 @@ export const footerColumns: FooterColumn[] = [
 export const legalNav: NavLink[] = [
   { label: "Privacy Policy", href: site.privacyPolicyUrl },
   { label: "Terms and Conditions", href: site.termsUrl },
-  { label: "Security", href: "/security" },
 ];
 
 /**
