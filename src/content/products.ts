@@ -1,7 +1,9 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  BookOpenIcon,
   BotIcon,
   DatabaseIcon,
+  HouseIcon,
   LayersIcon,
   SlidersHorizontalIcon,
 } from "lucide-react";
@@ -29,6 +31,53 @@ export const brand = {
 
 /** Standalone product website supplied by the owner. */
 export const xcerebroWebsite = "https://xcerebro.ai/";
+
+export type CoachingService = {
+  id: string;
+  name: string;
+  promise: string;
+  summary: string;
+  highlights: string[];
+  href: string;
+  cta: string;
+  icon: LucideIcon;
+};
+
+/** External coaching communities supplied by the owner. */
+export const coachingServices: CoachingService[] = [
+  {
+    id: "ai-cheat-codes",
+    name: "AI Cheat Codes",
+    promise: "Learn AI for business.",
+    summary:
+      "Practical AI training for business owners, including workflows, prompts, AI employees, lead-generation bots, course resources, and live calls.",
+    highlights: [
+      "Beginner-friendly AI training",
+      "AI employees and lead-generation bots",
+      "Prompts, templates, and resource vault",
+      "Live AI tool and workflow breakdowns",
+    ],
+    href: "https://www.skool.com/aicheatcodes/about",
+    cta: "Join AI Cheat Codes",
+    icon: BookOpenIcon,
+  },
+  {
+    id: "real-estate-cheat-codes",
+    name: "Real Estate Cheat Codes",
+    promise: "Learn real estate investing.",
+    summary:
+      "Real estate investing coaching focused on distressed opportunities, county-data workflows, AI and county bots, title strategies, deal reviews, and community support.",
+    highlights: [
+      "Distressed real estate opportunities",
+      "County-data automations and bots",
+      "Messy title and deed strategies",
+      "Weekly Q&As, deal reviews, and resources",
+    ],
+    href: "https://www.skool.com/aw-academy-2604/about",
+    cta: "Join Real Estate Cheat Codes",
+    icon: HouseIcon,
+  },
+];
 
 /** Which accent an offer wears. Products get colour; the service is outlined. */
 export type OfferAccent = "cobalt" | "neon" | "data" | "outline";

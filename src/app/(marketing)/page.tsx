@@ -21,10 +21,9 @@ import { VideoSection } from "@/components/marketing/video-section";
  * and who runs on it — because a visitor deciding on a CRM should be able to
  * decide without meeting the rest of the catalogue first.
  *
- * The other three offers appear once, together, after that case is made. They
- * keep their own names and their own pricing, but they are positioned as
- * additions rather than as alternatives. Their depth lives on their own pages,
- * which is where someone who wants it will go.
+ * The additional offers and coaching programs appear together after that case
+ * is made. They keep their own names and destinations and are positioned as
+ * additions rather than as part of the base CRM subscription.
  */
 export const metadata: Metadata = {
   title: "Jarvis CRM | Leads, pipelines, and follow-up in one place",
