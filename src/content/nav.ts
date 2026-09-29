@@ -1,6 +1,13 @@
 import type { LucideIcon } from "lucide-react";
 
-import { brand, offers, products, services, xcerebroWebsite } from "./products";
+import {
+  brand,
+  coachingServices,
+  offers,
+  products,
+  services,
+  xcerebroWebsite,
+} from "./products";
 import { site } from "./site";
 
 export type NavLink = {
@@ -35,7 +42,10 @@ const linksById: Record<string, NavLink[]> = {
   crm: [
     { label: "CRM", href: "/products/jarvis-crm#crm" },
     { label: "Custom pipelines", href: "/products/jarvis-crm#pipelines" },
-    { label: "Unified conversations", href: "/products/jarvis-crm#conversations" },
+    {
+      label: "Unified conversations",
+      href: "/products/jarvis-crm#conversations",
+    },
     { label: "Workflows & tasks", href: "/products/jarvis-crm#workflows" },
     { label: "Calendars", href: "/products/jarvis-crm#calendars" },
     { label: "Dashboards & reporting", href: "/products/jarvis-crm#reporting" },
@@ -48,7 +58,10 @@ const linksById: Record<string, NavLink[]> = {
     { label: "Ways to build", href: `${xcerebroWebsite}#tracks` },
   ],
   scraper: [
-    { label: "County record sourcing", href: "/products/lead-scraper#sourcing" },
+    {
+      label: "County record sourcing",
+      href: "/products/lead-scraper#sourcing",
+    },
     { label: "Data cleanup", href: "/products/lead-scraper#cleanup" },
     { label: "Enrichment", href: "/products/lead-scraper#enrichment" },
     { label: "Deduplication", href: "/products/lead-scraper#dedupe" },
@@ -60,7 +73,10 @@ const linksById: Record<string, NavLink[]> = {
     { label: "Custom Builds", href: "/services/custom-builds" },
     { label: "Custom pipelines", href: "/services/custom-builds#pipelines" },
     { label: "AI agent installation", href: "/services/custom-builds#agents" },
-    { label: "Automation & integrations", href: "/services/custom-builds#integrations" },
+    {
+      label: "Automation & integrations",
+      href: "/services/custom-builds#integrations",
+    },
     { label: "Business operating systems", href: "/services/custom-builds#os" },
   ],
 };
@@ -77,10 +93,24 @@ function toGroups(list: typeof offers): NavGroup[] {
 
 export const productNav: NavGroup[] = toGroups(products);
 export const serviceNav: NavGroup[] = toGroups(services);
+export const coachingNav: NavGroup[] = coachingServices.map((program) => ({
+  label: program.name,
+  href: program.href,
+  summary: program.summary,
+  icon: program.icon,
+  links: [],
+}));
 
 /** Both header panels, in the order they appear. */
 export const navPanels: { label: string; groups: NavGroup[] }[] = [
-  { label: "Products & Services", groups: [...productNav.filter((group) => group.href !== "/products/jarvis-crm"), ...serviceNav] },
+  {
+    label: "Products & Services",
+    groups: [
+      ...productNav.filter((group) => group.href !== "/products/jarvis-crm"),
+      ...serviceNav,
+      ...coachingNav,
+    ],
+  },
 ];
 
 /** Top-level header items rendered as plain links, after the panels. */
@@ -108,11 +138,15 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: brand.builds, href: "/services/custom-builds" },
       { label: "Custom pipelines", href: "/services/custom-builds#pipelines" },
-      { label: "AI agent installation", href: "/services/custom-builds#agents" },
+      {
+        label: "AI agent installation",
+        href: "/services/custom-builds#agents",
+      },
       {
         label: "Automation & integrations",
         href: "/services/custom-builds#integrations",
       },
+      ...coachingServices.map(({ name, href }) => ({ label: name, href })),
     ],
   },
   {

@@ -81,42 +81,57 @@ export function MobileNav({
                 {panel.label}
               </span>
               <Accordion type="single" collapsible className="flex flex-col">
-                {panel.groups.map((pillar) => (
-                  <AccordionItem key={pillar.href} value={pillar.href}>
-                    <AccordionTrigger>
-                      <span className="flex items-center gap-2.5">
-                        <pillar.icon
-                          aria-hidden
-                          className="size-4 text-cobalt-400"
-                          strokeWidth={1.5}
-                        />
-                        {pillar.label}
-                      </span>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <ul className="flex flex-col gap-1 pl-6.5">
-                        <li>
-                          <CloseLink
-                            href={pillar.href}
-                            className="block py-1.5 text-sm text-cobalt-400"
-                          >
-                            Overview
-                          </CloseLink>
-                        </li>
-                        {pillar.links.map((link) => (
-                          <li key={link.href}>
+                {panel.groups.map((pillar) =>
+                  pillar.links.length === 0 ? (
+                    <CloseLink
+                      key={pillar.href}
+                      href={pillar.href}
+                      className="hairline-b flex items-center gap-2.5 py-4 text-base font-medium text-paper"
+                    >
+                      <pillar.icon
+                        aria-hidden
+                        className="size-4 text-cobalt-400"
+                        strokeWidth={1.5}
+                      />
+                      {pillar.label}
+                    </CloseLink>
+                  ) : (
+                    <AccordionItem key={pillar.href} value={pillar.href}>
+                      <AccordionTrigger>
+                        <span className="flex items-center gap-2.5">
+                          <pillar.icon
+                            aria-hidden
+                            className="size-4 text-cobalt-400"
+                            strokeWidth={1.5}
+                          />
+                          {pillar.label}
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <ul className="flex flex-col gap-1 pl-6.5">
+                          <li>
                             <CloseLink
-                              href={link.href}
-                              className="block py-1.5 text-sm text-muted"
+                              href={pillar.href}
+                              className="block py-1.5 text-sm text-cobalt-400"
                             >
-                              {link.label}
+                              Overview
                             </CloseLink>
                           </li>
-                        ))}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
+                          {pillar.links.map((link) => (
+                            <li key={link.href}>
+                              <CloseLink
+                                href={link.href}
+                                className="block py-1.5 text-sm text-muted"
+                              >
+                                {link.label}
+                              </CloseLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ),
+                )}
               </Accordion>
             </div>
           ))}

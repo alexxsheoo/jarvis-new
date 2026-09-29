@@ -108,7 +108,7 @@ function PanelGroups({ groups }: { groups: NavGroup[] }) {
           <NavigationMenu.Link asChild>
             <Link
               href={group.href}
-              className="group flex flex-col gap-2 rounded-sm outline-none"
+              className="group flex flex-col gap-2 rounded-sm"
             >
               <span className="flex items-center gap-2">
                 <group.icon
@@ -126,20 +126,22 @@ function PanelGroups({ groups }: { groups: NavGroup[] }) {
             </Link>
           </NavigationMenu.Link>
 
-          <ul className="flex flex-col gap-0.5 border-t border-line pt-3">
-            {group.links.map((link) => (
-              <li key={link.href}>
-                <NavigationMenu.Link asChild>
-                  <Link
-                    href={link.href}
-                    className="block rounded-xs py-1.5 text-sm text-muted transition-colors hover:text-paper"
-                  >
-                    {link.label}
-                  </Link>
-                </NavigationMenu.Link>
-              </li>
-            ))}
-          </ul>
+          {group.links.length > 0 ? (
+            <ul className="flex flex-col gap-0.5 border-t border-line pt-3">
+              {group.links.map((link) => (
+                <li key={link.href}>
+                  <NavigationMenu.Link asChild>
+                    <Link
+                      href={link.href}
+                      className="block rounded-xs py-1.5 text-sm text-muted transition-colors hover:text-paper"
+                    >
+                      {link.label}
+                    </Link>
+                  </NavigationMenu.Link>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       ))}
     </div>
