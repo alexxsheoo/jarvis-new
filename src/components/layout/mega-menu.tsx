@@ -50,7 +50,7 @@ export function MegaMenu({
 
               <div className="hairline-t flex items-center justify-between bg-ink-900 px-8 py-4">
                 <p className="text-sm text-muted">
-                  Not sure which pieces you need?{" "}
+                  These offers are separate from Jarvis CRM.{" "}
                   <span className="text-paper">{site.line}</span>
                 </p>
                 <NavigationMenu.Link asChild>

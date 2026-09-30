@@ -80,6 +80,9 @@ export function MobileNav({
               <span className="pt-6 pb-2 type-label-wide text-faint">
                 {panel.label}
               </span>
+              <p className="pb-2 text-xs leading-relaxed text-faint">
+                These offers are separate from Jarvis CRM.
+              </p>
               <Accordion type="single" collapsible className="flex flex-col">
                 {panel.groups.map((pillar) =>
                   pillar.links.length === 0 ? (

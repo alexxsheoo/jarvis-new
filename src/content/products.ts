@@ -32,6 +32,9 @@ export const brand = {
 /** Standalone product website supplied by the owner. */
 export const xcerebroWebsite = "https://xcerebro.ai/";
 
+/** Owner-provided Lead Scraper price. Billing cadence was not specified. */
+export const leadScraperPrice = "$500 per county";
+
 export type CoachingService = {
   id: string;
   name: string;
@@ -94,7 +97,7 @@ export type Offer = {
   icon: LucideIcon;
   accent: OfferAccent;
   kind: "product" | "service";
-  /** How this offer is bought. Only the CRM has a published price. */
+  /** How this offer is bought. */
   pricing: string;
 };
 
@@ -148,7 +151,7 @@ export const offers: Offer[] = [
     name: brand.scraper,
     promise: "Find the opportunities.",
     summary:
-      "Turn county records, public data, and custom sources into clean, organized leads that can be enriched, scored, and routed into your sales process.",
+      "Turn county records, public data, and custom sources into clean, organized leads. Sold separately at $500 per county.",
     capabilities: [
       "County/public records",
       "Foreclosure",
@@ -168,7 +171,7 @@ export const offers: Offer[] = [
     icon: DatabaseIcon,
     accent: "data",
     kind: "product",
-    pricing: "Separate product: priced by source, market, and scope",
+    pricing: leadScraperPrice,
   },
   {
     id: "builds",
