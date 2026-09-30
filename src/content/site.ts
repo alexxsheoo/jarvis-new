@@ -3,7 +3,7 @@ export const site = {
   positioning: "AI Revenue Operating System",
   line: "Built around your business.",
   description:
-    "Jarvis CRM brings leads, conversations, pipelines, appointments, automation, and reporting into one workspace. Add xCerebro AI Agents, Lead Scraper, and Custom Builds through scoped bundles.",
+    "Jarvis CRM brings leads, conversations, pipelines, appointments, automation, and reporting into one workspace. xCerebro AI Agents, Lead Scraper, and Custom Builds are separate offers that can also be bundled with the CRM.",
   url: "https://justjarvis.com",
   appUrl: "https://app.justjarvis.com/",
   privacyPolicyUrl: "/privacy",

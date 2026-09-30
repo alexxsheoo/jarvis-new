@@ -20,7 +20,9 @@ const catalogItems = [
       href: offer.href,
       icon: offer.icon,
       summary: summaries[offer.id],
-      category: offer.kind === "product" ? "Product" : "Service",
+      category:
+        offer.kind === "product" ? "Separate product" : "Separate service",
+      pricing: offer.pricing,
     })),
 ];
 
@@ -43,10 +45,12 @@ export function ProductsServices() {
               id="other-products-heading"
               className="font-display text-h3 text-paper"
             >
-              Add more when you need it.
+              More options, sold separately.
             </h2>
-            <p className="text-sm text-muted">
-              Explore separate products, services, and coaching programs.
+            <p className="max-w-2xl text-sm leading-relaxed text-muted">
+              xCerebro AI Agents, Lead Scraper, Custom Builds, and our coaching
+              programs are separate offers. They are not included in Jarvis CRM
+              plans. Choose them on their own or ask about an optional bundle.
             </p>
           </div>
           <Link
@@ -80,6 +84,11 @@ export function ProductsServices() {
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {item.summary}
                 </p>
+                {item.id === "scraper" ? (
+                  <p className="mt-3 font-display text-sm font-medium text-cobalt-400">
+                    {item.pricing}
+                  </p>
+                ) : null}
               </div>
               <ArrowRightIcon
                 aria-hidden

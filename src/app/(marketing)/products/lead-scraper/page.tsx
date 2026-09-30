@@ -11,7 +11,7 @@ import { Section, SectionHeader } from "@/components/ui/section";
 export const metadata: Metadata = {
   title: "Lead Scraper",
   description:
-    "Public record sourcing, data cleanup, enrichment, deduplication, lead scoring, routing, and custom scrapers, running continuously.",
+    "Lead Scraper is a separate product priced at $500 per county. Explore public record sourcing, data cleanup, enrichment, deduplication, and routing.",
 };
 
 const stages = [
@@ -51,7 +51,7 @@ export default function LeadEnginesPage() {
       <PageHero
         eyebrow="Lead Scraper"
         title="Leads sourced, cleaned, and routed on their own"
-        description="Most teams do not have a lead problem. They have a list problem. Engines turn raw sources into records that are ready to work the moment someone opens them."
+        description="Lead Scraper is a separate product at $500 per county. It is not included in Jarvis CRM plans. Turn raw sources into records your team can work."
       />
 
       <Section tone="alt">
@@ -79,7 +79,8 @@ export default function LeadEnginesPage() {
 
       <CtaBand
         title="Turn your sources into a working pipeline"
-        description="Tell us which sources matter in your market and we will scope the engine around them."
+        description="Lead Scraper is $500 per county and is purchased separately from Jarvis CRM. Tell us which counties matter in your market."
+        primaryCta={{ label: "View product pricing", href: "/pricing#compare" }}
       />
     </>
   );

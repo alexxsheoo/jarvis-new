@@ -10,13 +10,14 @@
  *   claims about any named vendor. Same rule as `stack.ts`; check those two
  *   before they carry weight in a pitch.
  *
- *   `offer.cost` is NEVER invented. Only Jarvis CRM has a published price, so
- *   the other three say how they are quoted rather than what they cost. Do not
- *   put a number here that has not actually been set.
+ *   `offer.cost` is NEVER invented. The owner supplied the Lead Scraper price
+ *   per county; other separate offers still show how they are quoted.
  *
  * No saving is stated as a total, because the honest comparison depends on
  * scope and neither side is a fixed number.
  */
+
+import { leadScraperPrice } from "./products";
 
 export type CostRow = {
   /** What is being compared, e.g. "Coverage". */
@@ -99,13 +100,14 @@ export const costComparisons: CostComparison[] = [
     },
     offer: {
       label: "Lead Scraper",
-      cost: "Quoted",
-      costNote: "by source, market, and scope",
+      cost: leadScraperPrice,
+      costNote: "separate from Jarvis CRM",
     },
     rows: [
       {
         measure: "Who else has it",
-        alternative: "Sold to everyone in the market, then worked by all of them",
+        alternative:
+          "Sold to everyone in the market, then worked by all of them",
         offer: "Pulled for you from the public source",
       },
       {
