@@ -8,7 +8,6 @@ export type LegalSection = {
 export type LegalDocument = {
   title: string;
   description: string;
-  effectiveDate: string;
   sections: LegalSection[];
 };
 
@@ -16,7 +15,6 @@ export const privacyPolicy: LegalDocument = {
   title: "Privacy Policy",
   description:
     "How Jarvis collects, uses, protects, and shares information provided through our website and services.",
-  effectiveDate: "September 29, 2026",
   sections: [
     {
       id: "privacy",
@@ -80,7 +78,7 @@ export const privacyPolicy: LegalDocument = {
       title: "Acceptance and updates",
       paragraphs: [
         "Your continued use of the website or services is regarded as acceptance of this Privacy Policy. If you do not agree with this policy, do not use the website or services.",
-        "We may update this policy as our services or legal requirements change. The revised policy will be posted here with a new effective date. If you have questions about how we handle personal information, contact Jarvis through the contact options provided on the website or inside your account.",
+        "We may update this policy as our services or legal requirements change. The revised policy will be posted here. If you have questions about how we handle personal information, contact Jarvis through the contact options provided on the website or inside your account.",
       ],
     },
   ],
@@ -90,7 +88,6 @@ export const termsAndConditions: LegalDocument = {
   title: "Terms and Conditions",
   description:
     "The terms governing access to the Jarvis website, software subscriptions, purchases, and related services.",
-  effectiveDate: "September 29, 2026",
   sections: [
     {
       id: "terms",
@@ -185,7 +182,7 @@ export const termsAndConditions: LegalDocument = {
       id: "modifications",
       title: "Changes to these terms",
       paragraphs: [
-        "Jarvis may revise these Terms and Conditions by posting an updated version on the website. The updated terms apply from the effective date shown, subject to any notice or consent required by law. Continued use after the updated terms take effect constitutes acceptance of the revised terms.",
+        "Jarvis may revise these Terms and Conditions by posting an updated version on the website. Any revised terms are subject to applicable notice or consent requirements. Continued use after the updated terms take effect constitutes acceptance of the revised terms.",
       ],
     },
     {
