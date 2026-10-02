@@ -12,16 +12,6 @@ export function LegalPage({ document }: { document: LegalDocument }) {
       title={document.title}
       description={document.description}
     >
-      <aside
-        aria-label="Policy effective date"
-        className="rounded-md border border-cobalt-400/30 bg-cobalt-glow p-5"
-      >
-        <p className="font-mono text-eyebrow text-cobalt-400 uppercase">
-          Effective date
-        </p>
-        <p className="mt-2 text-sm text-paper">{document.effectiveDate}</p>
-      </aside>
-
       {document.sections.map((section, index) => (
         <section
           key={section.id}
